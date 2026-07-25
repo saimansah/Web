@@ -66,7 +66,7 @@ body.modal-open {
   z-index: -1;
   pointer-events: none;
   background-size: 30px 30px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
@@ -243,7 +243,10 @@ body.modal-open {
 .gateway-overlay {
   display: none;
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(8, 12, 22, 0.92);
   backdrop-filter: blur(16px);
   z-index: 2000;
@@ -274,8 +277,15 @@ body.modal-open {
 }
 
 @keyframes gatewayPop {
-  0% { transform: scale(0.92); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .gateway-header {
@@ -417,7 +427,8 @@ body.modal-open {
   display: flex;
 }
 
-.section-card, .hero-card {
+.section-card,
+.hero-card {
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
   border-radius: var(--radius);
@@ -472,55 +483,71 @@ body.modal-open {
   margin-bottom: 24px;
 }
 
-/* SPOTLIGHT PROVERB STYLING */
-.spotlight-proverb-card {
-  background: linear-gradient(135deg, rgba(0, 243, 255, 0.08) 0%, rgba(255, 215, 0, 0.08) 100%);
-  border: 1px solid rgba(0, 243, 255, 0.3);
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin: 18px 0 22px 0;
-  position: relative;
-  overflow: hidden;
+/*  PHILOSOPHY BANNER STYLING */
+.philosophy-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 243, 255, 0.08) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  border-left: 4px solid var(--gold-color);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 16px 0 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
 }
 
-.spotlight-proverb-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, var(--accent-color), var(--gold-color));
+.philosophy-banner:hover {
+  border-color: var(--gold-color);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+  transform: translateY(-1px);
 }
 
-.proverb-badge-tag {
+.phil-badge {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--gold-color);
-  letter-spacing: 1px;
-  display: flex;
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 6px;
+  white-space: nowrap;
 }
 
-.proverb-quote {
-  font-size: 1.35rem;
+.phil-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.phil-quote {
+  font-family: 'Mukta', 'Inter', var(--font-main);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
-  font-family: 'Mukta', var(--font-main);
+  color: #ffd700;
   letter-spacing: 0.5px;
-  margin: 4px 0;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.35);
 }
 
-.proverb-subtext {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+.phil-sep {
   color: var(--accent-color);
-  margin-top: 2px;
+  font-weight: bold;
+}
+
+.phil-meaning {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  font-style: italic;
 }
 
 /* SOCIAL BUTTONS & CHIPS */
@@ -931,14 +958,20 @@ body.modal-open {
 
 .garage-bg-imgatto {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(180deg, rgba(11, 15, 25, 0.7) 0%, rgba(11, 15, 25, 0.95) 100%), url('assets/byd_atto3.png') center/cover no-repeat;
   z-index: 1;
 }
 
 .garage-bg-imgdefender {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(180deg, rgba(11, 15, 25, 0.7) 0%, rgba(11, 15, 25, 0.95) 100%), url('assets/defender.png') center/cover no-repeat;
   z-index: 1;
 }
@@ -959,7 +992,8 @@ body.modal-open {
 
 .garage-badge-tag {
   position: absolute;
-  top: 16px; right: 16px;
+  top: 16px;
+  right: 16px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -1244,7 +1278,8 @@ body.modal-open {
   display: block;
 }
 
-.c-item p, .email-link {
+.c-item p,
+.email-link {
   font-size: 0.92rem;
   color: #fff;
   text-decoration: none;
@@ -1260,7 +1295,8 @@ body.modal-open {
   gap: 12px;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   background: rgba(11, 15, 25, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
@@ -1271,7 +1307,8 @@ body.modal-open {
   outline: none;
 }
 
-.contact-form input:focus, .contact-form textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
   border-color: var(--accent-color);
 }
 
@@ -1295,7 +1332,10 @@ body.modal-open {
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
   z-index: 1000;
@@ -1340,7 +1380,9 @@ body.modal-open {
   cursor: pointer;
 }
 
-.close-btn:hover { color: #fff; }
+.close-btn:hover {
+  color: #fff;
+}
 
 .modal-body {
   flex: 1;
@@ -1382,13 +1424,39 @@ body.modal-open {
 
 /* RESPONSIVE */
 @media (max-width: 850px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .dni-grid { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .garage-grid { grid-template-columns: 1fr; }
-  .gaming-grid { grid-template-columns: 1fr; }
-  .contact-box { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .gateway-options-grid { grid-template-columns: 1fr; }
-  .gateway-card { padding: 24px; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dni-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .garage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gaming-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .gateway-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gateway-card {
+    padding: 24px;
+  }
 }
