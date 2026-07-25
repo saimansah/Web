@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const i18n = {
     en: {
       nav_about: "About",
-      nav_dni: "ODNI CTIIC",
+      nav_dni: "ODNI CTIIC (Undercover)",
       nav_skills: "Skills",
       nav_edu: "Education",
       nav_contact: "Contact",
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gateway_subtitle: "Choose your path to explore professional technical accomplishments or personal gaming & garage highlights.",
       badge_pro_path: "CAREER & SECURITY",
       title_pro_path: "Professional Portfolio",
-      desc_pro_path: "ODNI CTIIC Head of Dept leadership tenure, cybersecurity operations, software engineering, and academic credentials.",
+      desc_pro_path: "ODNI CTIIC (Undercover) Head of Dept leadership tenure, cybersecurity operations, software engineering, and academic credentials.",
       btn_enter_pro: "Enter Professional View",
 
       badge_personal_path: "CARS & GAMING",
@@ -34,18 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
       badge_role: "Ethical Hacker & Developer",
       hero_hi: "Hi, I'm",
       hero_tagline: "Developer | Ethical Hacker | Tech Enthusiast | Cybersecurity Researcher | Debugger",
-      hero_bio: "Based in Nepal, I build, debug, and secure digital applications. With a strong background in computer science and experience leading technical operations, I focus on building efficient software, uncovering vulnerabilities, and solving complex technical challenges.",
+      spotlight_badge: "SPOTLIGHT PHILOSOPHY",
+      spotlight_quote: "“अंतः अस्ति प्रारंभः”",
+      spotlight_meaning: "End is Beginning",
+      hero_bio: "Former Head of Department at ODNI CTIIC (Undercover) with specialized experience in undercover online operations, covert digital intelligence gathering, and ethical hacking. Based in Nepal, I build, debug, and secure high-stakes digital applications.",
       info_location: "Location: Nepal 🇳🇵",
       info_dob: "DOB: July 21, 2008",
       info_dob_bs: "(B.S.: Shrawan 6, 2065 BS)",
       btn_contact_me: "Get in Touch",
-      btn_view_dni: "ODNI CTIIC Tenure",
+      btn_view_dni: "ODNI CTIIC (Undercover) Tenure",
       dni_role_title: "Head of Department",
       tag_leadership: "PAST EXPERIENCE & LEADERSHIP",
       dni_heading: "Head of Department —",
       dni_date: "Aug 31, 2024 – Jul 22, 2026",
-      dni_date_bs: "Bhadra 15, 2081 – Shrawan 7, 2083 BS",
-      dni_date_bs_full: "Nepali Date (B.S.): Bhadra 15, 2081 – Shrawan 7, 2083 BS",
+      dni_date_bs: "Bhadra 15, 2081 – Shrawan 6, 2083 BS",
+      dni_date_bs_full: "Nepali Date (B.S.): Bhadra 15, 2081 – Shrawan 6, 2083 BS",
       dni_duration: "Duration: 1 Year, 10 Months, 22 Days",
       dni_duration_full: "Total Tenure: 1 Year, 10 Months, 22 Days (690 Days)",
 
@@ -57,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
       pillar3_desc: "Supervised team members, delegated technical responsibilities, and aligned project goals with broader organization objectives.",
       pillar4_title: "Security & Problem Solving",
       pillar4_desc: "Acted as the primary point of escalation for critical technical issues, performing root-cause analysis and implementing long-term technical solutions.",
+      pillar5_title: "Undercover & Covert Online Operations",
+      pillar5_desc: "Managed hidden profile operational security (OPSEC), digital intelligence gathering, clandestine online investigation, and anonymous network operations under ODNI CTIIC (Undercover).",
 
       tag_skills: "TECHNICAL FOCUS & SKILLS",
       skills_heading: "Core Technical Skills",
@@ -78,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lbl_location: "Location:",
       lbl_email: "Email:",
       lbl_phone: "Phone:",
+      lbl_social: "Social Media:",
       ph_name: "Your Name",
       ph_email: "Your Email",
       ph_msg: "Your Message",
@@ -121,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ne: {
       nav_about: "बारेमा",
-      nav_dni: "ODNI CTIIC",
+      nav_dni: "ODNI CTIIC (Undercover)",
       nav_skills: "सीपहरू",
       nav_edu: "शिक्षा",
       nav_contact: "सम्पर्क",
@@ -135,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gateway_subtitle: "व्यावसायिक प्राविधिक उपलब्धिहरू वा व्यक्तिगत गेमिङ र गाडीहरूको विवरण हेर्न आफ्नो मार्ग रोज्नुहोस्।",
       badge_pro_path: "करियर र सुरक्षा",
       title_pro_path: "व्यावसायिक पोर्टफोलियो",
-      desc_pro_path: "ODNI CTIIC विभाग प्रमुखको नेतृत्व, साइबर सुरक्षा, सफ्टवेयर इन्जिनियरिङ र शैक्षिक योग्यता।",
+      desc_pro_path: "ODNI CTIIC (Undercover) विभाग प्रमुखको नेतृत्व, साइबर सुरक्षा, सफ्टवेयर इन्जिनियरिङ र शैक्षिक योग्यता।",
       btn_enter_pro: "व्यावसायिक मोडमा प्रवेश गर्नुहोस्",
 
       badge_personal_path: "गाडीहरू र गेमिङ",
@@ -147,12 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
       badge_role: "एथिकल ह्याकर र डेभलपर",
       hero_hi: "नमस्ते, म",
       hero_tagline: "डेभलपर | एथिकल ह्याकर | प्रविधि प्रेमी | साइबर सुरक्षा अनुसन्धानकर्ता | डिबगर",
-      hero_bio: "नेपालमा आधारित, म डिजिटल एप्लिकेसनहरू निर्माण, डिबग र सुरक्षित गर्दछु। कम्प्युटर विज्ञानमा बलियो पृष्ठभूमि र प्राविधिक सञ्चालनको नेतृत्व गरेको अनुभवका साथ, म कुशल सफ्टवेयर निर्माण, सुरक्षा कमजोरीहरू पत्ता लगाउने र जटिल प्राविधिक चुनौतीहरू समाधान गर्नमा केन्द्रित छु।",
+      spotlight_badge: "मार्गदर्शक सिद्धान्त",
+      spotlight_quote: "“अंतः अस्ति प्रारंभः”",
+      spotlight_meaning: "अन्त नै प्रारम्भ हो (End is Beginning)",
+      hero_bio: "ODNI CTIIC (Undercover) मा विभाग प्रमुखको रूपमा अन्डरकभर अनलाइन अपरेसन, गोप्य डिजिटल इन्टेलिजेन्स र एथिकल ह्याकिङको अनुभव भएको। नेपालमा आधारित, म डिजिटल एप्लिकेसनहरू निर्माण, डिबग र सुरक्षित गर्दछु।",
       info_location: "स्थान: नेपाल 🇳🇵",
       info_dob: "जन्ममिति: जुलाई २१, २००८",
       info_dob_bs: "(वि.सं.: साउन ६, २०६५)",
       btn_contact_me: "सम्पर्क गर्नुहोस्",
-      btn_view_dni: "ODNI CTIIC अनुभव",
+      btn_view_dni: "ODNI CTIIC (Undercover) अनुभव",
       dni_role_title: "विभाग प्रमुख (HOD)",
       tag_leadership: "विगतको अनुभव र नेतृत्व",
       dni_heading: "विभाग प्रमुख —",
@@ -170,6 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
       pillar3_desc: "टोलीका सदस्यहरूको पर्यवेक्षण गरियो, प्राविधिक जिम्मेवारीहरू हस्तान्तरण गरियो, र व्यापक संस्थागत उद्देश्यहरूसँग परियोजना लक्ष्यहरू संरेखित गरियो।",
       pillar4_title: "सुरक्षा र समस्या समाधान",
       pillar4_desc: "गम्भीर प्राविधिक समस्याहरूको लागि प्राथमिक उत्तरदायी व्यक्ति रूपमा कार्य गर्दै मूल-कारण विश्लेषण (Root-Cause Analysis) र दीर्घकालीन प्राविधिक समाधानहरू लागू गरियो।",
+      pillar5_title: "अन्डरकभर र गुप्त अनलाइन अपरेसन",
+      pillar5_desc: "हिडन प्रोफाइल (Hidden Profile) अपरेसनल सेक्युरिटी (OPSEC), गुप्त अनलाइन सूचना सङ्कलन र अज्ञात नेटवर्क अपरेसन सञ्चालन।",
 
       tag_skills: "प्राविधिक सीपहरू",
       skills_heading: "मुख्य प्राविधिक क्षमताहरू",
@@ -191,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lbl_location: "स्थान:",
       lbl_email: "इमेल:",
       lbl_phone: "फोन:",
+      lbl_social: "सामाजिक सञ्जाल:",
       ph_name: "तपाईंको नाम",
       ph_email: "तपाईंको इमेल",
       ph_msg: "तपाईंको सन्देश",
@@ -333,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navLinksContainer.innerHTML = `
         <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#dni-experience" data-i18n="nav_dni">ODNI CTIIC</a>
+        <a href="#dni-experience" data-i18n="nav_dni">ODNI CTIIC (Undercover)</a>
         <a href="#skills" data-i18n="nav_skills">Skills</a>
         <a href="#education" data-i18n="nav_edu">Education</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -460,14 +472,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnTerminalClose) btnTerminalClose.addEventListener('click', closeTerminal);
 
   const COMMANDS = {
-    'help': 'Commands: about, dni, cars, gaming, skills, education, contact, clear',
-    'about': 'Saiman Sah — Developer | Ethical Hacker | Tech Enthusiast based in Nepal.',
-    'dni': 'Head of Department — ODNI CTIIC Department (Aug 31, 2024 – Jul 22, 2026)',
+    'help': 'Commands: about, dni, undercover, covert, opsec, classified, proverb, social, cars, gaming, skills, education, contact, clear',
+    'about': 'Saiman Sah — Former ODNI CTIIC (Undercover) Head of Dept | Undercover Online Operative | Ethical Hacker | Developer based in Nepal.',
+    'dni': 'Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026). Directed intelligence workflows, cybersecurity operations & technical teams.',
+    'undercover': '[CLASSIFIED OPSEC] Active undercover online operative profile: Digital identity masking, hidden network presence, & clandestine intelligence gathering.',
+    'covert': '[COVERT INTEL] Managed hidden profile operations, zero-trace communications, proxy routing, & threat mitigation under ODNI CTIIC (Undercover) protocols.',
+    'opsec': '[OPERATIONAL SECURITY] Standards: Anonymized digital footprint, encrypted comms, multi-identity defense & anti-surveillance frameworks.',
+    'classified': '[RESTRICTED ACCESS LEVEL 5] Operational clearance verified. Service history: Undercover Online Operative & Head of Department at ODNI CTIIC (Undercover).',
+    'proverb': '“अंतः अस्ति प्रारंभः” — End is Beginning (Guiding Philosophy)',
+    'social': 'Facebook: https://www.facebook.com/shahsaiman | Instagram: https://www.instagram.com/shah_saiman',
     'cars': 'BYD Atto 3 Owner (Max Speed 130 km/h) | Dream Car: New Land Rover Defender 110',
     'gaming': 'PC: GTA V (3x), RDR 2 (2x), Hitman 3, COD Series. Console: PS5 Gamer',
-    'skills': 'Software Dev & Debugging, Cybersecurity & Ethical Hacking, Core Leadership.',
+    'skills': 'Undercover OPSEC, Software Dev & Debugging, Cybersecurity & Ethical Hacking, Core Leadership.',
     'education': '+2 Science / Computer Science (Completed), SEE (Completed)',
-    'contact': 'Location: Nepal | Email: saiman@academystg.space | Phone: +977 9749933211'
+    'contact': 'Location: Nepal | Email: saiman@academystg.space | Phone: +977 9749933211 | FB: facebook.com/shahsaiman | IG: instagram.com/shah_saiman'
   };
 
   if (termInput && termOutput) {

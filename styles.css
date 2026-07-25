@@ -472,6 +472,149 @@ body.modal-open {
   margin-bottom: 24px;
 }
 
+/* SPOTLIGHT PROVERB STYLING */
+.spotlight-proverb-card {
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.08) 0%, rgba(255, 215, 0, 0.08) 100%);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0 22px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-proverb-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-color), var(--gold-color));
+}
+
+.proverb-badge-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-color);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.proverb-quote {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Mukta', var(--font-main);
+  letter-spacing: 0.5px;
+  margin: 4px 0;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.proverb-subtext {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-top: 2px;
+}
+
+/* SOCIAL BUTTONS & CHIPS */
+.cyber-btn.social-fb {
+  background: rgba(24, 119, 242, 0.15);
+  border-color: #1877f2;
+  color: #4287f5;
+}
+
+.cyber-btn.social-fb:hover {
+  background: #1877f2;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+}
+
+.cyber-btn.social-ig {
+  background: rgba(225, 48, 108, 0.15);
+  border-color: #e1306c;
+  color: #fd5949;
+}
+
+.cyber-btn.social-ig:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.social-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.social-chip.facebook {
+  background: rgba(24, 119, 242, 0.15);
+  border: 1px solid rgba(24, 119, 242, 0.4);
+  color: #4287f5;
+}
+
+.social-chip.facebook:hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+.social-chip.instagram {
+  background: rgba(225, 48, 108, 0.15);
+  border: 1px solid rgba(225, 48, 108, 0.4);
+  color: #fd5949;
+}
+
+.social-chip.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+}
+
+.footer-proverb {
+  font-family: 'Mukta', var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--gold-color);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 1.2rem;
+}
+
+.footer-socials a {
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
 .info-pills {
   display: flex;
   flex-wrap: wrap;
@@ -640,7 +783,7 @@ body.modal-open {
 /* ODNI GRID */
 .dni-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
