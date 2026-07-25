@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badge_role: "Ethical Hacker & Developer",
       hero_hi: "Hi, I'm",
       hero_tagline: "Developer | Ethical Hacker | Tech Enthusiast | Cybersecurity Researcher | Debugger",
-      spotlight_badge: " PHILOSOPHY",
+      spotlight_badge: "PHILOSOPHY",
       spotlight_quote: "अन्तः अस्ति प्रारम्भः",
       spotlight_meaning: "End is Beginning",
       hero_bio: "Former Head of Department at ODNI CTIIC (Undercover) with specialized experience in undercover online operations, covert digital intelligence gathering, and ethical hacking. Based in Nepal, I build, debug, and secure high-stakes digital applications.",
@@ -122,178 +122,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ps5_tag: "PS5 Console Gamer",
       ps5_status_title: "Active PlayStation 5 Gamer",
-      ps5_status_desc: "Immersed in next-gen 4K 120Hz console gaming, DualSense haptic feedback titles, and PS5 console exclusives."
-    },
-
-    ne: {
-      nav_about: "बारेमा",
-      nav_dni: "ODNI CTIIC (Undercover)",
-      nav_skills: "सीपहरू",
-      nav_edu: "शिक्षा",
-      nav_contact: "सम्पर्क",
-      nav_personal_about: "प्रविधि बाहिर",
-      nav_personal_garage: "ग्यारेज र गाडीहरू",
-      nav_personal_gaming: "गेमिङ",
-      btn_switch_mode: "मोड फेर्नुहोस्",
-
-      // GATEWAY MODAL TRANSLATIONS (NEPALI)
-      gateway_title: "प्रवेश गर्न मोड चयन गर्नुहोस्",
-      gateway_subtitle: "व्यावसायिक प्राविधिक उपलब्धिहरू वा व्यक्तिगत गेमिङ र गाडीहरूको विवरण हेर्न आफ्नो मार्ग रोज्नुहोस्।",
-      badge_pro_path: "करियर र सुरक्षा",
-      title_pro_path: "व्यावसायिक पोर्टफोलियो",
-      desc_pro_path: "ODNI CTIIC (Undercover) विभाग प्रमुखको नेतृत्व, साइबर सुरक्षा, सफ्टवेयर इन्जिनियरिङ र शैक्षिक योग्यता।",
-      btn_enter_pro: "व्यावसायिक मोडमा प्रवेश गर्नुहोस्",
-
-      badge_personal_path: "गाडीहरू र गेमिङ",
-      title_personal_path: "व्यक्तिगत जीवन र रुचिहरू",
-      desc_personal_path: "BYD Atto 3 EV (१३० किमी/घण्टा रेकर्ड), New Land Rover Defender 110, PC गेमिङ (GTA V ३x, RDR 2 २x, COD, Hitman 3) र PS5।",
-      btn_enter_personal: "व्यक्तिगत तथा गेमिङ मोडमा प्रवेश गर्नुहोस्",
-      hint_lang: "भाषा परिवर्तन गर्नुहोस्:",
-
-      badge_role: "एथिकल ह्याकर र डेभलपर",
-      hero_hi: "नमस्ते, म",
-      hero_tagline: "डेभलपर | एथिकल ह्याकर | प्रविधि प्रेमी | साइबर सुरक्षा अनुसन्धानकर्ता | डिबगर",
-      spotlight_badge: "मार्गदर्शक सिद्धान्त",
-      spotlight_quote: "अन्तः अस्ति प्रारम्भः",
-      spotlight_meaning: "अन्त नै प्रारम्भ हो (End is Beginning)",
-      hero_bio: "ODNI CTIIC (Undercover) मा विभाग प्रमुखको रूपमा अन्डरकभर अनलाइन अपरेसन, गोप्य डिजिटल इन्टेलिजेन्स र एथिकल ह्याकिङको अनुभव भएको। नेपालमा आधारित, म डिजिटल एप्लिकेसनहरू निर्माण, डिबग र सुरक्षित गर्दछु।",
-      info_location: "स्थान: नेपाल 🇳🇵",
-      info_dob: "जन्ममिति: जुलाई २१, २००८",
-      info_dob_bs: "(वि.सं.: साउन ६, २०६५)",
-      btn_contact_me: "सम्पर्क गर्नुहोस्",
-      btn_view_dni: "ODNI CTIIC (Undercover) अनुभव",
-      dni_role_title: "विभाग प्रमुख (HOD)",
-      tag_leadership: "विगतको अनुभव र नेतृत्व",
-      dni_heading: "विभाग प्रमुख —",
-      dni_date: "अगस्ट ३१, २०२४ – जुलाई २२, २०२६",
-      dni_date_bs: "भदौ १५, २०८१ – साउन ७, २०८३ (वि.सं.)",
-      dni_date_bs_full: "नेपाली मिति (वि.सं.): भदौ १५, २०८१ – साउन ७, २०८३",
-      dni_duration: "अवधि: १ वर्ष, १० महिना, २२ दिन",
-      dni_duration_full: "कुल कार्यअवधि: १ वर्ष, १० महिना, २२ दिन (६९० दिन)",
-
-      pillar1_title: "विभागीय व्यवस्थापन",
-      pillar1_desc: "विभागीय पहलहरूमा टोली कार्यप्रवाह, आयोजना तालिका, र रणनीतिक कार्यान्वयनको व्यवस्थापन गर्दै समग्र सञ्चालनको नेतृत्व गरियो।",
-      pillar2_title: "प्राविधिक निरीक्षण र डिबगिङ",
-      pillar2_desc: "प्रणाली स्थिरता र विश्वसनीयता कायम राख्न सफ्टवेयर प्रक्रिया, प्रणाली परीक्षण, र समस्या निवारण निर्देशित गरियो।",
-      pillar3_title: "टोली नेतृत्व र रणनीति",
-      pillar3_desc: "टोलीका सदस्यहरूको पर्यवेक्षण गरियो, प्राविधिक जिम्मेवारीहरू हस्तान्तरण गरियो, र व्यापक संस्थागत उद्देश्यहरूसँग परियोजना लक्ष्यहरू संरेखित गरियो।",
-      pillar4_title: "सुरक्षा र समस्या समाधान",
-      pillar4_desc: "गम्भीर प्राविधिक समस्याहरूको लागि प्राथमिक उत्तरदायी व्यक्ति रूपमा कार्य गर्दै मूल-कारण विश्लेषण (Root-Cause Analysis) र दीर्घकालीन प्राविधिक समाधानहरू लागू गरियो।",
-      pillar5_title: "अन्डरकभर र गुप्त अनलाइन अपरेसन",
-      pillar5_desc: "हिडन प्रोफाइल (Hidden Profile) अपरेसनल सेक्युरिटी (OPSEC), गुप्त अनलाइन सूचना सङ्कलन र अज्ञात नेटवर्क अपरेसन सञ्चालन।",
-
-      tag_skills: "प्राविधिक सीपहरू",
-      skills_heading: "मुख्य प्राविधिक क्षमताहरू",
-      skill1_title: "सफ्टवेयर विकास र डिबगिङ",
-      skill1_desc: "सफा, कार्यमूलक कोड निर्माण, त्रुटि निवारण, र कार्यसम्पादन (Performance) अप्टिमाइज गर्ने।",
-      skill2_title: "साइबर सुरक्षा र एथिकल ह्याकिङ",
-      skill2_desc: "नेटवर्क सुरक्षा सिद्धान्तहरू, प्रणाली सुरक्षा कमजोरी मूल्याङ्कन, र रक्षात्मक सुरक्षा परीक्षण।",
-      skill3_title: "मुख्य क्षमताहरू",
-      skill3_desc: "प्राविधिक समस्या समाधान, प्रणाली विश्लेषण, टोली नेतृत्व, र परियोजना समन्वय।",
-
-      tag_edu: "शिक्षा",
-      edu_heading: "शैक्षिक योग्यता",
-      edu1_title: "उच्च माध्यमिक शिक्षा (+२ विज्ञान / कम्प्युटर साइन्स)",
-      edu2_title: "माध्यमिक शिक्षा परीक्षा (SEE)",
-      status_completed: "सम्पन्न",
-
-      tag_contact: "सम्पर्कमा आउनुहोस्",
-      contact_heading: "साइमन शाहलाई सम्पर्क गर्नुहोस्",
-      lbl_location: "स्थान:",
-      lbl_email: "इमेल:",
-      lbl_phone: "फोन:",
-      lbl_social: "सामाजिक सञ्जाल:",
-      ph_name: "तपाईंको नाम",
-      ph_email: "तपाईंको इमेल",
-      ph_msg: "तपाईंको सन्देश",
-      btn_send: "सन्देश पठाउनुहोस्",
-      btn_terminal: "टर्मिनल",
-      msg_sent: "धन्यवाद! तपाईंको सन्देश saiman@academystg.space मा पठाइएको छ।",
-
-      // PERSONAL & GAMING PAGE TRANSLATIONS (NEPALI)
-      tag_personal_title: "कोड भन्दा बाहिर",
-      personal_hero_title: "व्यक्तिगत जीवन, गाडी र गेमिङ संसार",
-      personal_hero_subtitle: "उच्च-गतिका गाडी इन्जिनियरिङ, PC र PS5 मा महाकाव्य गेमिङ अभियानहरू पूरा गर्ने, र कस्टम टेक सेटअपहरू निर्माण गर्ने।",
-      tag_garage: "ग्यारेज र गाडीहरू",
-      garage_heading: "मेरो गाडी सम्बन्धी रुचि",
-      badge_current_ride: "वर्तमान गाडी",
-      car_atto3_title: "BYD Atto 3 (इलेक्ट्रिक SUV)",
-      car_atto3_desc: "आधुनिक BYD Atto 3 इलेक्ट्रिक गाडीको गर्वित मालिक, जहाँ भविष्यको EV प्रविधि र तीव्र गति समाहित छ।",
-      atto3_speed_record: "मैले रेकर्ड गरेको अधिकतम गति: १३० किमी/घण्टा",
-
-      badge_dream_car: "सपनाको गाडी",
-      car_defender_title: "नयाँ ल्याण्ड रोभर डिफेन्डर ११०",
-      car_defender_desc: "नयाँ पुस्ताको लक्जरी अफ-रोड गाडी — न्यू ल्याण्ड रोभर डिफेन्डर ११० (New Defender 110) स्वामित्व प्राप्त गर्ने सपना।",
-      defender_goal: "अन्तिम स्वामित्व लक्ष्य",
-
-      tag_gaming: "गेमिङ पोर्टफोलियो",
-      gaming_heading: "गेमिङ उपलब्धिहरू (PC र प्लेस्टेशन ५)",
-      pc_platform_tag: "सबै PC मा पूरा गरिएको",
-      gta5_stat: "३ पटक पूरा गरिएको",
-      gta5_desc: "तीन अलग-अलग पटक पूरा १००% स्टोरी मोड अभियानहरू पूरा गरियो।",
-      rdr2_stat: "२ पटक पूरा गरिएको",
-      rdr2_desc: "Arthur Morgan र John Marston को खुला-संसारको महाकाव्य २ पटक पूरा गरियो।",
-      hitman_stat: "मास्टर र पूरा गरिएको",
-      hitman_desc: "स्टील्थ एसासिन अभियानहरू साइलेन्ट एसासिन रेटिङका साथ पूरा गरियो।",
-      cod_stat: "सबै सिरिज पूरा गरिएको",
-      cod_desc: "क्लासिक Modern Warfare देखि Black Ops सम्मका हरेक Call of Duty अभियानहरू PC मा पूरा गरियो।",
-
-      ps5_tag: "PS5 कन्सोल गेमर",
-      ps5_status_title: "सक्रिय प्लेस्टेशन ५ गेमर",
-      ps5_status_desc: "4K 120Hz कन्सोल गेमिङ, DualSense ह्याप्टिक फिडब्याक र PS5 कन्सोल गेमहरू खेल्ने।"
+      ps5_status_desc: ""
     }
   };
 
-  let currentLang = localStorage.getItem('saiman_lang') || 'en';
+  let currentLang = 'en';
 
   function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('saiman_lang', lang);
-
-    document.body.className = `lang-${lang}` + (gatewayOverlay && gatewayOverlay.classList.contains('open') ? ' modal-open' : '');
-
-    // Update navbar active lang buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-
-    const activeBtnEn = document.getElementById('lang-en');
-    const activeBtnNe = document.getElementById('lang-ne');
-    const modalBtnEn = document.getElementById('modal-lang-en');
-    const modalBtnNe = document.getElementById('modal-lang-ne');
-
-    if (lang === 'en') {
-      if (activeBtnEn) activeBtnEn.classList.add('active');
-      if (modalBtnEn) modalBtnEn.classList.add('active');
-    } else {
-      if (activeBtnNe) activeBtnNe.classList.add('active');
-      if (modalBtnNe) modalBtnNe.classList.add('active');
-    }
+    currentLang = 'en';
+    document.body.className = `lang-en` + (gatewayOverlay && gatewayOverlay.classList.contains('open') ? ' modal-open' : '');
 
     // Translate DOM elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (i18n[lang] && i18n[lang][key]) {
-        el.textContent = i18n[lang][key];
+      if (i18n.en && i18n.en[key]) {
+        el.textContent = i18n.en[key];
       }
     });
 
     // Translate Input Placeholders with data-i18n-ph
     document.querySelectorAll('[data-i18n-ph]').forEach(el => {
       const key = el.getAttribute('data-i18n-ph');
-      if (i18n[lang] && i18n[lang][key]) {
-        el.placeholder = i18n[lang][key];
+      if (i18n.en && i18n.en[key]) {
+        el.placeholder = i18n.en[key];
       }
     });
   }
-
-  const btnEn = document.getElementById('lang-en');
-  const btnNe = document.getElementById('lang-ne');
-  const modalBtnEn = document.getElementById('modal-lang-en');
-  const modalBtnNe = document.getElementById('modal-lang-ne');
-
-  if (btnEn) btnEn.addEventListener('click', () => setLanguage('en'));
-  if (btnNe) btnNe.addEventListener('click', () => setLanguage('ne'));
-  if (modalBtnEn) modalBtnEn.addEventListener('click', () => setLanguage('en'));
-  if (modalBtnNe) modalBtnNe.addEventListener('click', () => setLanguage('ne'));
 
 
   // --- OPENING ENTRY GATEWAY MODAL LOGIC ---
@@ -480,12 +334,12 @@ document.addEventListener('DOMContentLoaded', () => {
     'opsec': '[OPERATIONAL SECURITY] Standards: Anonymized digital footprint, encrypted comms, multi-identity defense & anti-surveillance frameworks.',
     'classified': '[RESTRICTED ACCESS LEVEL 5] Operational clearance verified. Service history: Undercover Online Operative & Head of Department at ODNI CTIIC (Undercover).',
     'proverb': '“अंतः अस्ति प्रारंभः” — End is Beginning (Guiding Philosophy)',
-    'social': 'Facebook: https://www.facebook.com/shahsaiman | Instagram: https://www.instagram.com/shah_saiman',
+    'social': 'FB: https://www.facebook.com/shahsaiman | IG: https://www.instagram.com/shah_saiman | X: https://x.com/sah_saiman | Threads: https://www.threads.net/@shah_saiman',
     'cars': 'BYD Atto 3 Owner (Max Speed 130 km/h) | Dream Car: New Land Rover Defender 110',
     'gaming': 'PC: GTA V (3x), RDR 2 (2x), Hitman 3, COD Series. Console: PS5 Gamer',
     'skills': 'Undercover OPSEC, Software Dev & Debugging, Cybersecurity & Ethical Hacking, Core Leadership.',
     'education': '+2 Science / Computer Science (Completed), SEE (Completed)',
-    'contact': 'Location: Nepal | Email: saiman@academystg.space | Phone: +977 9749933211 | FB: facebook.com/shahsaiman | IG: instagram.com/shah_saiman'
+    'contact': 'Location: Nepal | Email: saiman@academystg.space | Phone: +977 9749933211 | Socials: FB, IG, X, Threads'
   };
 
   if (termInput && termOutput) {
