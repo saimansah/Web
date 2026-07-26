@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saiman Sah | Portfolio</title>
+  <title>Saiman Sah | Cyber Gateway</title>
   <meta name="description"
-    content="Official Portfolio of Saiman Sah — Developer, Ethical Hacker, Former Head of ODNI CTIIC (Undercover) Department based in Nepal.">
+    content="Official Cyber System Gateway of Saiman Sah — Developer, Ethical Hacker, Former Head of ODNI CTIIC (Undercover) Department.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -16,31 +16,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="lang-en modal-open">
+<body class="lang-en gateway-page">
 
-  <!-- Background Matrix Rain Canvas -->
+  <!-- Background Canvases -->
   <canvas id="matrix-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
   <div class="overlay-grid"></div>
 
   <!-- NAVIGATION HEADER -->
   <header class="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <span class="logo-accent">&lt;/&gt;</span> SAIMAN SAH
       </a>
 
-      <nav class="nav-links">
-        <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#dni-experience" data-i18n="nav_dni">ODNI CTIIC (Undercover)</a>
-        <a href="#skills" data-i18n="nav_skills">Skills</a>
-        <a href="#education" data-i18n="nav_edu">Education</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-      </nav>
-
       <div class="nav-actions">
-        <!-- MODE RE-SELECTOR BUTTON -->
-        <button id="btn-reopen-gateway" class="cyber-btn secondary sm">
-          <i class="fa-solid fa-arrows-rotate"></i> <span data-i18n="btn_switch_mode">Switch Mode</span>
+        <button id="btn-audio-toggle" class="icon-btn" title="Mute/Unmute Audio Sfx">
+          <i class="fa-solid fa-volume-high"></i>
         </button>
 
         <button id="btn-matrix-toggle" class="icon-btn" title="Toggle Matrix Effect">
@@ -48,504 +40,72 @@
         </button>
 
         <button id="btn-terminal-open" class="cyber-btn sm">
-          <i class="fa-solid fa-terminal"></i> <span data-i18n="btn_terminal">Terminal</span>
+          <i class="fa-solid fa-terminal"></i> <span>Terminal</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ================= OPENING ENTRY GATEWAY MODAL ================= -->
-  <div id="entry-modal-gateway" class="gateway-overlay open">
-    <div class="gateway-card glass-panel">
+  <!-- OPENING ENTRY GATEWAY CONTAINER -->
+  <div class="gateway-standalone-wrapper">
+    <div class="gateway-card glass-panel border-beam-box">
 
       <div class="gateway-header">
-        <span class="gateway-badge"><i class="fa-solid fa-shield-halved"></i> SAIMAN SAH SYSTEM GATEWAY</span>
-        <h1 data-i18n="gateway_title">Select Mode to Enter</h1>
-        <p data-i18n="gateway_subtitle">Choose your path to explore professional technical accomplishments or personal
-          gaming & garage highlights.</p>
+        <span class="gateway-badge pulse-glow"><i class="fa-solid fa-shield-halved"></i> SAIMAN SAH SYSTEM GATEWAY</span>
+        <h1>Select Mode to Enter</h1>
+        <p>Choose your path to explore professional technical accomplishments or personal gaming & garage highlights.</p>
+      </div>
+
+      <!-- CYBER HUD WIDGET -->
+      <div class="cyber-hud-card">
+        <div class="hud-item">
+          <span class="hud-label">SYSTEM STATUS</span>
+          <span class="hud-value active-green"><span class="status-light green"></span> ONLINE (SECURE)</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">CLEARANCE LEVEL</span>
+          <span class="hud-value gold"><i class="fa-solid fa-lock"></i> RESTRICTED (LEVEL 5)</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">LATENCY / PING</span>
+          <span class="hud-value cyan" id="hud-ping-val">12 ms</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">LOCATION</span>
+          <span class="hud-value">NEPAL 🇳🇵</span>
+        </div>
       </div>
 
       <div class="gateway-options-grid">
         <!-- OPTION 1: PROFESSIONAL PORTFOLIO -->
-        <div id="select-pro-mode" class="gateway-option-card">
-          <div class="opt-icon-circle pro">
+        <a href="pro.html" class="gateway-option-card" data-tilt>
+          <div class="opt-icon-circle pro float-anim">
             <i class="fa-solid fa-briefcase"></i>
           </div>
-          <div class="opt-badge" data-i18n="badge_pro_path">CAREER & SECURITY</div>
-          <h2 data-i18n="title_pro_path">Professional Portfolio</h2>
-          <p data-i18n="desc_pro_path">ODNI CTIIC (Undercover) Head of Dept leadership tenure, cybersecurity operations,
-            software
-            engineering, and academic credentials.</p>
-          <button class="cyber-btn primary full-width">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i> <span data-i18n="btn_enter_pro">Enter Professional
-              View</span>
-          </button>
-        </div>
+          <div class="opt-badge">CAREER & SECURITY</div>
+          <h2>Professional Portfolio</h2>
+          <p>ODNI CTIIC (Undercover) Head of Dept leadership tenure, cybersecurity operations, software engineering, and academic credentials.</p>
+          <div class="cyber-btn primary full-width">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Enter Professional View</span>
+          </div>
+        </a>
 
         <!-- OPTION 2: PERSONAL LIFE & GAMING -->
-        <div id="select-personal-mode" class="gateway-option-card">
-          <div class="opt-icon-circle personal">
+        <a href="personal.html" class="gateway-option-card" data-tilt>
+          <div class="opt-icon-circle personal float-anim">
             <i class="fa-solid fa-gamepad"></i>
           </div>
-          <div class="opt-badge gold" data-i18n="badge_personal_path">CARS & GAMING</div>
-          <h2 data-i18n="title_personal_path">Personal Life & Hobbies</h2>
-          <p data-i18n="desc_personal_path">BYD Atto 3 EV (130 km/h record), New Land Rover Defender 110 dream, PC
-            Gaming (GTA V 3x, RDR 2 2x, COD, Hitman 3) & PS5.</p>
-          <button class="cyber-btn secondary full-width">
-            <i class="fa-solid fa-car"></i> <span data-i18n="btn_enter_personal">Enter Personal & Gaming View</span>
-          </button>
-        </div>
+          <div class="opt-badge gold">CARS & GAMING</div>
+          <h2>Personal Life & Hobbies</h2>
+          <p>BYD Atto 3 EV (130 km/h record), New Land Rover Defender 110 dream, PC Gaming (GTA V 3x, RDR 2 2x, COD, Hitman 3) & PS5.</p>
+          <div class="cyber-btn secondary full-width">
+            <i class="fa-solid fa-car"></i> <span>Enter Personal & Gaming View</span>
+          </div>
+        </a>
       </div>
 
     </div>
   </div>
-
-  <!-- MAIN CONTAINER -->
-  <main class="container">
-
-    <!-- ================= PAGE 1: PROFESSIONAL DETAILS ================= -->
-    <div id="page-professional" class="page-view active">
-
-      <!-- HERO SECTION -->
-      <section id="about" class="hero-card">
-        <div class="hero-grid">
-          <div class="hero-text">
-            <div class="badge-pill">
-              <i class="fa-solid fa-shield-halved"></i> <span data-i18n="badge_role">Ethical Hacker & Developer</span>
-            </div>
-
-            <h1 class="hero-name">
-              <span data-i18n="hero_hi">Hi, I'm</span> <span class="highlight-name">Saiman Sah</span> 👋
-            </h1>
-
-            <p class="hero-subtitle" data-i18n="hero_tagline">
-              Developer | Ethical Hacker | Tech Enthusiast | Cybersecurity Researcher | Debugger
-            </p>
-
-            <!-- PHILOSOPHY SPOTLIGHT CARD -->
-            <div class="hero-philosophy-card">
-              <div class="phil-header">
-                <span class="phil-label"><i class="fa-solid fa-infinity"></i> <span
-                    data-i18n="spotlight_badge">PHILOSOPHY</span></span>
-              </div>
-              <div class="phil-body">
-                <h3 class="phil-main-text" data-i18n="spotlight_quote">अन्तः अस्ति प्रारम्भः</h3>
-                <p class="phil-sub-text"><i class="fa-solid fa-quote-left"></i> <span data-i18n="spotlight_meaning">End
-                    is Beginning</span> <i class="fa-solid fa-quote-right"></i></p>
-              </div>
-            </div>
-
-            <p class="hero-bio" data-i18n="hero_bio">
-              Former Head of Department at ODNI CTIIC (Undercover) with specialized experience in undercover online
-              operations, covert digital intelligence gathering, and ethical hacking. Based in Nepal, I build, debug,
-              and secure high-stakes digital applications.
-            </p>
-
-            <!-- QUICK INFO BADGES -->
-            <div class="info-pills">
-              <div class="pill-item">
-                <i class="fa-solid fa-location-dot"></i> <span data-i18n="info_location">Location: Nepal 🇳🇵</span>
-              </div>
-              <div class="pill-item">
-                <i class="fa-solid fa-cake-candles"></i>
-                <span class="pill-date-group">
-                  <span data-i18n="info_dob">DOB: July 21, 2008</span>
-                  <small class="bs-tag" data-i18n="info_dob_bs">(साउन ६, २०६५ बी.सं. / Shrawan 6, 2065 BS)</small>
-                </span>
-              </div>
-              <div class="pill-item">
-                <i class="fa-solid fa-envelope"></i> <span>saiman@academystg.space</span>
-              </div>
-              <div class="pill-item">
-                <i class="fa-solid fa-phone"></i> <a href="tel:+9779749933211" class="pill-link">+977 9749933211</a>
-              </div>
-            </div>
-
-            <!-- HERO BUTTONS & SOCIALS -->
-            <div class="hero-btns">
-              <a href="#contact" class="cyber-btn primary">
-                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_contact_me">Get in Touch</span>
-              </a>
-              <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer"
-                class="cyber-btn social-fb">
-                <i class="fa-brands fa-facebook"></i> Facebook
-              </a>
-              <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer"
-                class="cyber-btn social-ig">
-                <i class="fa-brands fa-instagram"></i> Instagram
-              </a>
-              <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" class="cyber-btn social-x">
-                <i class="fa-brands fa-x-twitter"></i> X (Twitter)
-              </a>
-              <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer"
-                class="cyber-btn social-threads">
-                <i class="fa-brands fa-threads"></i> Threads
-              </a>
-              <a href="#dni-experience" class="cyber-btn secondary">
-                <i class="fa-solid fa-building-shield"></i> <span data-i18n="btn_view_dni">ODNI CTIIC (Undercover)
-                  Tenure</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- HERO ODNI CARD EMBLEM -->
-          <div class="hero-avatar-box">
-            <div class="avatar-card">
-              <div class="logo-wrapper">
-                <img src="assets/dni_logo.png" alt="ODNI CTIIC (Undercover) Emblem" class="dni-emblem-img">
-              </div>
-              <div class="avatar-title">ODNI CTIIC (Undercover) DEPARTMENT</div>
-              <div class="avatar-sub" data-i18n="dni_role_title">Head of Department</div>
-              <div class="avatar-dates">Aug 31, 2024 – Jul 22, 2026</div>
-              <div class="avatar-dates-bs" data-i18n="dni_date_bs">भदौ १५, २०८१ – साउन ७, २०८३ (B.S.)</div>
-              <div class="avatar-duration" data-i18n="dni_duration">Duration: 1 Year, 10 Months, 22 Days</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ODNI CTIIC (Undercover) EXPERIENCE SECTION -->
-      <section id="dni-experience" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_leadership">PAST EXPERIENCE & LEADERSHIP</span>
-          <h2><span data-i18n="dni_heading">Head of Department —</span> <span class="highlight">ODNI CTIIC
-              (Undercover)</span></h2>
-          <p class="section-date"><i class="fa-regular fa-calendar-days"></i> <span data-i18n="dni_date">Aug 31, 2024 –
-              Jul 22, 2026</span></p>
-          <p class="section-date-bs"><i class="fa-solid fa-calendar-week"></i> <span data-i18n="dni_date_bs_full">Nepali
-              Date (B.S.): Bhadra 15, 2081 – Shrawan 6, 2083</span></p>
-          <p class="duration-badge"><i class="fa-solid fa-clock-rotate-left"></i> <span
-              data-i18n="dni_duration_full">Total Tenure: 1 Year, 10 Months, 22 Days (690 Days)</span></p>
-        </div>
-
-        <div class="dni-grid">
-          <div class="dni-feature-card">
-            <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
-            <h3 data-i18n="pillar1_title">Departmental Management</h3>
-            <p data-i18n="pillar1_desc">Led overall operations, managing team workflows, project timelines, and
-              strategic execution across departmental initiatives.</p>
-          </div>
-
-          <div class="dni-feature-card">
-            <div class="card-icon"><i class="fa-solid fa-bug"></i></div>
-            <h3 data-i18n="pillar2_title">Technical Oversight & Debugging</h3>
-            <p data-i18n="pillar2_desc">Directed software processes, system testing, and troubleshooting to maintain
-              system stability and reliability.</p>
-          </div>
-
-          <div class="dni-feature-card">
-            <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-            <h3 data-i18n="pillar3_title">Team Leadership & Strategy</h3>
-            <p data-i18n="pillar3_desc">Supervised team members, delegated technical responsibilities, and aligned
-              project goals with broader organization objectives.</p>
-          </div>
-
-          <div class="dni-feature-card">
-            <div class="card-icon"><i class="fa-solid fa-shield-virus"></i></div>
-            <h3 data-i18n="pillar4_title">Security & Problem Solving</h3>
-            <p data-i18n="pillar4_desc">Acted as the primary point of escalation for critical technical issues,
-              performing root-cause analysis and implementing long-term technical solutions.</p>
-          </div>
-
-          <div class="dni-feature-card">
-            <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
-            <h3 data-i18n="pillar5_title">Undercover & Covert Online Operations</h3>
-            <p data-i18n="pillar5_desc">Managed hidden profile operational security (OPSEC), digital intelligence
-              gathering, clandestine online investigation, and anonymous network operations under ODNI CTIIC
-              (Undercover).</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- TECHNICAL SKILLS SECTION -->
-      <section id="skills" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_skills">TECHNICAL FOCUS & SKILLS</span>
-          <h2 data-i18n="skills_heading">Core Technical Skills</h2>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-box">
-            <div class="skill-head">
-              <i class="fa-solid fa-code"></i>
-              <h3 data-i18n="skill1_title">Software Development & Debugging</h3>
-            </div>
-            <p data-i18n="skill1_desc">Building clean, functional code, troubleshooting errors, and optimizing
-              performance.</p>
-          </div>
-
-          <div class="skill-box">
-            <div class="skill-head">
-              <i class="fa-solid fa-user-shield"></i>
-              <h3 data-i18n="skill2_title">Cybersecurity & Ethical Hacking</h3>
-            </div>
-            <p data-i18n="skill2_desc">Network security principles, system vulnerability assessments, and defensive
-              security testing.</p>
-          </div>
-
-          <div class="skill-box">
-            <div class="skill-head">
-              <i class="fa-solid fa-brain"></i>
-              <h3 data-i18n="skill3_title">Core Competencies</h3>
-            </div>
-            <p data-i18n="skill3_desc">Technical Problem Solving, Systems Analysis, Team Leadership, and Project
-              Coordination.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- EDUCATION SECTION -->
-      <section id="education" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_edu">EDUCATION</span>
-          <h2 data-i18n="edu_heading">Academic Qualifications</h2>
-        </div>
-
-        <div class="edu-list">
-          <div class="edu-item">
-            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="edu-details">
-              <h3 data-i18n="edu1_title">Higher Secondary Education (+2 Science / Computer Science)</h3>
-              <span class="status-badge" data-i18n="status_completed">Completed</span>
-            </div>
-          </div>
-
-          <div class="edu-item">
-            <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
-            <div class="edu-details">
-              <h3 data-i18n="edu2_title">Secondary Education Examination (SEE)</h3>
-              <span class="status-badge" data-i18n="status_completed">Completed</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT SECTION -->
-      <section id="contact" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_contact">GET IN TOUCH</span>
-          <h2 data-i18n="contact_heading">Contact Saiman Sah</h2>
-        </div>
-
-        <div class="contact-box">
-          <div class="contact-info">
-            <div class="c-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <div>
-                <strong data-i18n="lbl_location">Location:</strong>
-                <p>Nepal</p>
-              </div>
-            </div>
-
-            <div class="c-item">
-              <i class="fa-solid fa-envelope"></i>
-              <div>
-                <strong data-i18n="lbl_email">Email:</strong>
-                <p><a href="mailto:saiman@academystg.space" class="email-link">saiman@academystg.space</a></p>
-              </div>
-            </div>
-
-            <div class="c-item">
-              <i class="fa-solid fa-phone"></i>
-              <div>
-                <strong data-i18n="lbl_phone">Phone:</strong>
-                <p><a href="tel:+9779749933211" class="email-link">+977 9749933211</a></p>
-              </div>
-            </div>
-
-            <div class="c-item">
-              <i class="fa-brands fa-whatsapp"></i>
-              <div>
-                <strong>WhatsApp:</strong>
-                <p><a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="email-link">Message on WhatsApp</a></p>
-              </div>
-            </div>
-
-            <div class="c-item">
-              <i class="fa-solid fa-share-nodes"></i>
-              <div>
-                <strong data-i18n="lbl_social">Social Media:</strong>
-                <div class="contact-social-links">
-                  <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer"
-                    class="social-chip facebook">
-                    <i class="fa-brands fa-facebook"></i> Facebook
-                  </a>
-                  <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer"
-                    class="social-chip instagram">
-                    <i class="fa-brands fa-instagram"></i> Instagram
-                  </a>
-                  <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" class="social-chip x">
-                    <i class="fa-brands fa-x-twitter"></i> X
-                  </a>
-                  <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer"
-                    class="social-chip threads">
-                    <i class="fa-brands fa-threads"></i> Threads
-                  </a>
-                  <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
-                    class="social-chip whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <form id="simple-contact-form" class="contact-form">
-            <input type="text" id="input-name" required placeholder="Your Name" data-i18n-ph="ph_name">
-            <input type="email" id="input-email" required placeholder="Your Email" data-i18n-ph="ph_email">
-            <textarea id="input-msg" rows="4" required placeholder="Your Message" data-i18n-ph="ph_msg"></textarea>
-            <button type="submit" class="cyber-btn primary">
-              <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_send">Send Message</span>
-            </button>
-            <div id="form-response"></div>
-          </form>
-        </div>
-      </section>
-
-    </div>
-
-
-    <!-- ================= PAGE 2: PERSONAL LIFE & GAMING ================= -->
-    <div id="page-personal" class="page-view">
-
-      <!-- PERSONAL HEADER HERO CARD -->
-      <section id="personal-about" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_personal_title">BEYOND THE CODE</span>
-          <h2 data-i18n="personal_hero_title">Personal Life, Automotive & Gaming Universe</h2>
-          <p class="beyond-text" data-i18n="personal_hero_subtitle">
-            Exploring high-speed automotive engineering, mastering epic gaming campaigns on PC & PS5, and crafting
-            custom tech setups.
-          </p>
-        </div>
-      </section>
-
-      <!-- AUTOMOTIVE SECTION (CARS & RIDES) -->
-      <section id="garage" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_garage">GARAGE & AUTOMOTIVE</span>
-          <h2 data-i18n="garage_heading">My Automotive Passion</h2>
-        </div>
-
-        <div class="garage-grid">
-          <!-- CURRENT CAR CARD -->
-          <div class="garage-card currentatto">
-            <div class="garage-bg-imgatto"></div>
-            <div class="garage-content">
-              <div class="garage-badge-tag" data-i18n="badge_current_ride">CURRENT RIDE</div>
-              <div class="garage-icon"><i class="fa-solid fa-car-battery"></i></div>
-              <h3 data-i18n="car_atto3_title">BYD Atto 3 (Electric SUV)</h3>
-              <p data-i18n="car_atto3_desc">Proud owner of the sleek and high-performance BYD Atto 3 electric vehicle,
-                blending futuristic EV technology with rapid acceleration.</p>
-
-              <div class="speed-record-pill">
-                <i class="fa-solid fa-gauge-high"></i>
-                <span data-i18n="atto3_speed_record">Highest Speed Recorded by Me: 130 km/h</span> 🚀
-              </div>
-            </div>
-          </div>
-
-          <!-- DREAM CAR CARD -->
-          <div class="garage-card dreamdefender">
-            <div class="garage-bg-imgdefender"></div>
-            <div class="garage-content">
-              <div class="garage-badge-tag gold" data-i18n="badge_dream_car">DREAM VEHICLE</div>
-              <div class="garage-icon"><i class="fa-solid fa-mountain"></i></div>
-              <h3 data-i18n="car_defender_title">New Land Rover Defender 110</h3>
-              <p data-i18n="car_defender_desc">1st Dream Car</p>
-
-              <div class="dream-goal-pill">
-                <i class="fa-solid fa-star"></i>
-                <span data-i18n="defender_goal">Ultimate Ownership Goal</span> 🏔️
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- GAMING PORTFOLIO SECTION (PC & PS5) -->
-      <section id="gaming" class="section-card">
-        <div class="section-title">
-          <span class="section-tag" data-i18n="tag_gaming">GAMING PORTFOLIO</span>
-          <h2 data-i18n="gaming_heading">Gaming Accomplishments (PC & PlayStation 5)</h2>
-        </div>
-
-        <div class="gaming-grid">
-
-          <!-- PC GAMING RECORDS CARD -->
-          <div class="game-card">
-            <div class="game-card-header">
-              <i class="fa-solid fa-desktop"></i>
-              <h3>PC Gaming Masterclass</h3>
-            </div>
-            <p class="game-platform-sub" data-i18n="pc_platform_tag">All Completed on Custom PC Rig</p>
-
-            <div class="game-achievements-list">
-              <!-- GTA 5 -->
-              <div class="game-item gta-item">
-                <div class="game-title-row">
-                  <span class="game-name"><span class="game-logo-tag gta-tag">GTA V</span> Grand Theft Auto V</span>
-                  <span class="game-stat-badge green" data-i18n="gta5_stat">Completed 3 Times</span>
-                </div>
-                <p class="game-desc" data-i18n="gta5_desc">Full 100% story mode campaigns conquered across three
-                  separate playthroughs.</p>
-              </div>
-
-              <!-- RDR 2 -->
-              <div class="game-item rdr-item">
-                <div class="game-title-row">
-                  <span class="game-name"><span class="game-logo-tag rdr-tag">RDR 2</span> Red Dead Redemption 2</span>
-                  <span class="game-stat-badge gold" data-i18n="rdr2_stat">Completed 2 Times</span>
-                </div>
-                <p class="game-desc" data-i18n="rdr2_desc">Completed Arthur Morgan & John Marston's epic open-world saga
-                  twice.</p>
-              </div>
-
-              <!-- HITMAN 3 -->
-              <div class="game-item hitman-item">
-                <div class="game-title-row">
-                  <span class="game-name"><span class="game-logo-tag hitman-tag">HITMAN III</span> Hitman 3</span>
-                  <span class="game-stat-badge cyan" data-i18n="hitman_stat">Mastered & Completed</span>
-                </div>
-                <p class="game-desc" data-i18n="hitman_desc">Stealth assassin operative campaigns fully cleared with
-                  Silent Assassin ratings.</p>
-              </div>
-
-              <!-- COD ALL SERIES -->
-              <div class="game-item cod-item">
-                <div class="game-title-row">
-                  <span class="game-name"><span class="game-logo-tag cod-tag">C.O.D.</span> Call of Duty Series</span>
-                  <span class="game-stat-badge red" data-i18n="cod_stat">ALL Series Completed</span>
-                </div>
-                <p class="game-desc" data-i18n="cod_desc">Conquered every Call of Duty campaign series from classic
-                  Modern Warfare to Black Ops on PC.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- PS5 CONSOLE GAMER CARD -->
-          <div class="game-card ps5-card">
-            <div class="game-card-header">
-              <i class="fa-brands fa-playstation"></i>
-              <h3>PlayStation 5 Lounge</h3>
-            </div>
-            <p class="game-platform-sub" data-i18n="ps5_tag">PS5 Console Gamer</p>
-
-            <div class="ps5-body">
-              <div class="ps5-icon-box">
-                <i class="fa-brands fa-playstation"></i>
-              </div>
-              <h4 data-i18n="ps5_status_title"> PlayStation 5 Gamer</h4>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-    </div>
-
-  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -553,19 +113,15 @@
       <p>&copy; 2026 Saiman Sah. All Rights Reserved. | Nepal 🇳🇵</p>
       <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
-            class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i
-            class="fa-brands fa-instagram"></i></a>
-        <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i
-            class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i
-            class="fa-brands fa-threads"></i></a>
+        <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-threads"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- SIMPLE TERMINAL MODAL -->
+  <!-- TERMINAL MODAL -->
   <div id="terminal-modal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -573,22 +129,17 @@
         <button id="btn-terminal-close" class="close-btn">&times;</button>
       </div>
       <div class="modal-body" id="term-output">
-        <p class="term-line">Welcome to Saiman Sah's Terminal. Type <span class="highlight">'help'</span> for available
-          commands.</p>
+        <p class="term-line">Welcome to Saiman Sah's Terminal. Type <span class="highlight">'help'</span> for available commands.</p>
       </div>
       <div class="modal-footer">
         <span class="prompt">$</span>
-        <input type="text" id="term-input" placeholder="Type a command (help, about, cars, gaming, dni, skills)...">
+        <input type="text" id="term-input" placeholder="Type a command (help, pro, personal, about, cars, gaming, dni)...">
       </div>
     </div>
   </div>
 
-  <!-- FLOATING HOVERING WHATSAPP BUTTON -->
-  <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" title="Chat on WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-    <span>WhatsApp</span>
-  </a>
-
+  <script src="audio.js"></script>
+  <script src="particles.js"></script>
   <script src="script.js"></script>
 </body>
 

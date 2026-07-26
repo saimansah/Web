@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiman Sah | Personal Life, Garage & Gaming</title>
+  <meta name="description"
+    content="Official Personal Life, Automotive & Gaming Portfolio of Saiman Sah — BYD Atto 3, Land Rover Defender 110, PC & PS5 Gaming.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-en page-personal">
+
+  <!-- Background Canvases -->
+  <canvas id="matrix-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+  <div class="overlay-grid"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-accent">&lt;/&gt;</span> SAIMAN SAH
+      </a>
+
+      <nav class="nav-links">
+        <a href="#personal-about">Beyond Code</a>
+        <a href="#garage">Garage & Cars</a>
+        <a href="#gaming">Gaming Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="pro.html" class="nav-highlight"><i class="fa-solid fa-briefcase"></i> Professional View</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html" class="cyber-btn secondary sm" id="btn-reopen-gateway">
+          <i class="fa-solid fa-arrows-rotate"></i> <span>Switch Mode</span>
+        </a>
+
+        <button id="btn-audio-toggle" class="icon-btn" title="Mute/Unmute Audio Sfx">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <button id="btn-matrix-toggle" class="icon-btn" title="Toggle Matrix Effect">
+          <i class="fa-solid fa-code"></i>
+        </button>
+
+        <button id="btn-terminal-open" class="cyber-btn sm">
+          <i class="fa-solid fa-terminal"></i> <span>Terminal</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- PERSONAL HEADER HERO CARD -->
+    <section id="personal-about" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">BEYOND THE CODE</span>
+        <h2>Personal Life, Automotive & Gaming Universe</h2>
+        <p class="beyond-text">
+          Exploring high-speed automotive engineering, mastering epic gaming campaigns on PC & PS5, and crafting custom tech setups.
+        </p>
+      </div>
+
+      <!-- CYBER HUD STATUS BAR -->
+      <div class="cyber-hud-card mini">
+        <div class="hud-item">
+          <span class="hud-label">GARAGE STATUS</span>
+          <span class="hud-value active-green"><span class="status-light green"></span> BYD ATTO 3 READY</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">TOP RECORD</span>
+          <span class="hud-value gold"><i class="fa-solid fa-gauge-high"></i> 130 KM/H</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">GAMING RIG</span>
+          <span class="hud-value cyan"><i class="fa-solid fa-desktop"></i> PC + PS5 ONLINE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTOMOTIVE SECTION (CARS & RIDES WITH INTERACTIVE SPEC SWITCHER GUI) -->
+    <section id="garage" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">GARAGE & AUTOMOTIVE</span>
+        <h2>My Automotive Passion & Interactive Spec Inspector</h2>
+      </div>
+
+      <!-- INTERACTIVE CAR SPEC SWITCHER TABS GUI -->
+      <div class="car-spec-switcher-gui reveal-on-scroll stagger-1">
+        <div class="switcher-tabs">
+          <button class="spec-tab-btn active" data-car="atto3">
+            <i class="fa-solid fa-car-battery"></i> BYD Atto 3 (Current Ride)
+          </button>
+          <button class="spec-tab-btn" data-car="defender">
+            <i class="fa-solid fa-mountain"></i> Land Rover Defender 110 (Dream Car)
+          </button>
+        </div>
+
+        <div class="spec-display-panel glass-panel" id="car-spec-panel">
+          <!-- Dynamically updated via JS -->
+          <div class="spec-header">
+            <div class="spec-title-box">
+              <h3 id="spec-car-name">BYD Atto 3 (Electric SUV)</h3>
+              <span class="opt-badge" id="spec-car-badge">CURRENT RIDE</span>
+            </div>
+            <p id="spec-car-desc">Proud owner of the sleek and high-performance BYD Atto 3 electric vehicle, blending futuristic EV technology with rapid acceleration.</p>
+          </div>
+
+          <div class="spec-metrics-grid">
+            <div class="spec-metric-card">
+              <i class="fa-solid fa-gauge-high"></i>
+              <div class="metric-info">
+                <span class="metric-value gold" id="spec-val-speed">130 km/h</span>
+                <span class="metric-label" id="spec-lbl-speed">Personal Speed Record</span>
+              </div>
+            </div>
+
+            <div class="spec-metric-card">
+              <i class="fa-solid fa-bolt"></i>
+              <div class="metric-info">
+                <span class="metric-value cyan" id="spec-val-power">201 HP / 310 Nm</span>
+                <span class="metric-label" id="spec-lbl-power">Electric Motor Output</span>
+              </div>
+            </div>
+
+            <div class="spec-metric-card">
+              <i class="fa-solid fa-battery-full"></i>
+              <div class="metric-info">
+                <span class="metric-value green" id="spec-val-range">420 km</span>
+                <span class="metric-label" id="spec-lbl-range">EV Battery Range</span>
+              </div>
+            </div>
+
+            <div class="spec-metric-card">
+              <i class="fa-solid fa-stopwatch"></i>
+              <div class="metric-info">
+                <span class="metric-value" id="spec-val-accel">7.3 Seconds</span>
+                <span class="metric-label" id="spec-lbl-accel">0–100 km/h Acceleration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GARAGE CARDS GRID -->
+      <div class="garage-grid margin-top-20">
+        <!-- CURRENT CAR CARD -->
+        <div class="garage-card currentatto reveal-on-scroll stagger-1" data-tilt>
+          <div class="garage-bg-imgatto"></div>
+          <div class="garage-content">
+            <div class="garage-badge-tag">CURRENT RIDE</div>
+            <div class="garage-icon"><i class="fa-solid fa-car-battery"></i></div>
+            <h3>BYD Atto 3 (Electric SUV)</h3>
+            <p>Proud owner of the sleek and high-performance BYD Atto 3 electric vehicle, blending futuristic EV technology with rapid acceleration.</p>
+
+            <div class="speed-record-pill pulse-glow">
+              <i class="fa-solid fa-gauge-high"></i>
+              <span>Highest Speed Recorded by Me: 130 km/h</span> 🚀
+            </div>
+          </div>
+        </div>
+
+        <!-- DREAM CAR CARD -->
+        <div class="garage-card dreamdefender reveal-on-scroll stagger-2" data-tilt>
+          <div class="garage-bg-imgdefender"></div>
+          <div class="garage-content">
+            <div class="garage-badge-tag gold">DREAM VEHICLE</div>
+            <div class="garage-icon"><i class="fa-solid fa-mountain"></i></div>
+            <h3>New Land Rover Defender 110</h3>
+            <p>1st Dream Car — Ultimate luxury 4x4 off-road terrain capability & robust engineering.</p>
+
+            <div class="dream-goal-pill pulse-glow">
+              <i class="fa-solid fa-star"></i>
+              <span>Ultimate Ownership Goal</span> 🏔️
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMING PORTFOLIO SECTION (WITH INTERACTIVE FILTER GUI) -->
+    <section id="gaming" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">GAMING PORTFOLIO</span>
+        <h2>Gaming Accomplishments & Interactive Filter</h2>
+      </div>
+
+      <!-- INTERACTIVE GAMING FILTER PILLS GUI -->
+      <div class="gaming-filter-gui reveal-on-scroll stagger-1">
+        <button class="filter-pill active" data-filter="all">All Accomplishments</button>
+        <button class="filter-pill" data-filter="pc">PC Masterclass</button>
+        <button class="filter-pill" data-filter="ps5">PlayStation 5 Lounge</button>
+        <button class="filter-pill" data-filter="cleared">100% Cleared</button>
+      </div>
+
+      <div class="gaming-grid">
+
+        <!-- PC GAMING RECORDS CARD -->
+        <div class="game-card reveal-on-scroll stagger-1" data-tilt data-category="pc cleared">
+          <div class="game-card-header">
+            <i class="fa-solid fa-desktop"></i>
+            <h3>PC Gaming Masterclass</h3>
+          </div>
+          <p class="game-platform-sub">All Completed on Custom PC Rig</p>
+
+          <div class="game-achievements-list">
+            <!-- GTA 5 -->
+            <div class="game-item gta-item" data-category="pc cleared">
+              <div class="game-title-row">
+                <span class="game-name"><span class="game-logo-tag gta-tag">GTA V</span> Grand Theft Auto V</span>
+                <span class="game-stat-badge green">Completed 3 Times</span>
+              </div>
+              <p class="game-desc">Full 100% story mode campaigns conquered across three separate playthroughs.</p>
+            </div>
+
+            <!-- RDR 2 -->
+            <div class="game-item rdr-item" data-category="pc cleared">
+              <div class="game-title-row">
+                <span class="game-name"><span class="game-logo-tag rdr-tag">RDR 2</span> Red Dead Redemption 2</span>
+                <span class="game-stat-badge gold">Completed 2 Times</span>
+              </div>
+              <p class="game-desc">Completed Arthur Morgan & John Marston's epic open-world saga twice.</p>
+            </div>
+
+            <!-- HITMAN 3 -->
+            <div class="game-item hitman-item" data-category="pc cleared">
+              <div class="game-title-row">
+                <span class="game-name"><span class="game-logo-tag hitman-tag">HITMAN III</span> Hitman 3</span>
+                <span class="game-stat-badge cyan">Mastered & Completed</span>
+              </div>
+              <p class="game-desc">Stealth assassin operative campaigns fully cleared with Silent Assassin ratings.</p>
+            </div>
+
+            <!-- COD ALL SERIES -->
+            <div class="game-item cod-item" data-category="pc cleared">
+              <div class="game-title-row">
+                <span class="game-name"><span class="game-logo-tag cod-tag">C.O.D.</span> Call of Duty Series</span>
+                <span class="game-stat-badge red">ALL Series Completed</span>
+              </div>
+              <p class="game-desc">Conquered every Call of Duty campaign series from classic Modern Warfare to Black Ops on PC.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PS5 CONSOLE GAMER CARD -->
+        <div class="game-card ps5-card reveal-on-scroll stagger-2" data-tilt data-category="ps5">
+          <div class="game-card-header">
+            <i class="fa-brands fa-playstation"></i>
+            <h3>PlayStation 5 Lounge</h3>
+          </div>
+          <p class="game-platform-sub">PS5 Console Gamer</p>
+
+          <div class="ps5-body">
+            <div class="ps5-icon-box float-anim">
+              <i class="fa-brands fa-playstation"></i>
+            </div>
+            <h4>Active PlayStation 5 Gamer</h4>
+            <p>Conquering exclusive PS5 titles with 4K HDR fidelity and DualSense haptic feedback.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">GET IN TOUCH</span>
+        <h2>Contact Saiman Sah</h2>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-info">
+          <div class="c-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Location:</strong>
+              <p>Nepal</p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>Email:</strong>
+              <p><a href="mailto:saiman@academystg.space" class="email-link">saiman@academystg.space</a></p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>Phone:</strong>
+              <p><a href="tel:+9779749933211" class="email-link">+977 9749933211</a></p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp:</strong>
+              <p><a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="email-link">Message on WhatsApp</a></p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-solid fa-share-nodes"></i>
+            <div>
+              <strong>Social Media:</strong>
+              <div class="contact-social-links">
+                <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" class="social-chip facebook">
+                  <i class="fa-brands fa-facebook"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" class="social-chip instagram">
+                  <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" class="social-chip x">
+                  <i class="fa-brands fa-x-twitter"></i> X
+                </a>
+                <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" class="social-chip threads">
+                  <i class="fa-brands fa-threads"></i> Threads
+                </a>
+                <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="social-chip whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="simple-contact-form" class="contact-form">
+          <input type="text" id="input-name" required placeholder="Your Name">
+          <input type="email" id="input-email" required placeholder="Your Email">
+          <textarea id="input-msg" rows="4" required placeholder="Your Message"></textarea>
+          <button type="submit" class="cyber-btn primary">
+            <i class="fa-solid fa-paper-plane"></i> <span>Send Message</span>
+          </button>
+          <div id="form-response"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Saiman Sah. All Rights Reserved. | Nepal 🇳🇵</p>
+      <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-threads"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TERMINAL MODAL -->
+  <div id="terminal-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-terminal"></i> Terminal CLI</span>
+        <button id="btn-terminal-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="term-output">
+        <p class="term-line">Welcome to Saiman Sah's Terminal. Type <span class="highlight">'help'</span> for available commands.</p>
+      </div>
+      <div class="modal-footer">
+        <span class="prompt">$</span>
+        <input type="text" id="term-input" placeholder="Type a command (help, about, cars, gaming, dni, skills)...">
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING HOVERING WHATSAPP BUTTON -->
+  <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="audio.js"></script>
+  <script src="particles.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

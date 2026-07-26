@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gatewayOverlay) {
       gatewayOverlay.classList.add('open');
       document.body.classList.add('modal-open');
+      if (window.CyberAudio) CyberAudio.playSwitch();
     }
   }
 
@@ -170,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gatewayOverlay) {
       gatewayOverlay.classList.remove('open');
       document.body.classList.remove('modal-open');
+      if (window.CyberAudio) CyberAudio.playChime();
     }
 
     if (mode === 'personal') {
@@ -276,13 +278,22 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.fillStyle = 'rgba(11, 15, 25, 0.08)';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.fillStyle = '#00f3ff';
       ctx.font = `${fontSize}px "Fira Code", monospace`;
 
       for (let i = 0; i < drops.length; i++) {
         const char = characters.charAt(Math.floor(Math.random() * characters.length));
         const x = i * fontSize;
         const y = drops[i] * fontSize;
+
+        // Lead character glowing white, body characters cyan
+        if (Math.random() > 0.85) {
+          ctx.fillStyle = '#ffffff';
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#00f3ff';
+        } else {
+          ctx.fillStyle = '#00f3ff';
+          ctx.shadowBlur = 0;
+        }
 
         ctx.fillText(char, x, y);
 
@@ -292,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         drops[i]++;
       }
     }
-    setInterval(drawMatrix, 40);
+    setInterval(drawMatrix, 35);
   }
 
   const btnMatrixToggle = document.getElementById('btn-matrix-toggle');
@@ -326,7 +337,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnTerminalClose) btnTerminalClose.addEventListener('click', closeTerminal);
 
   const COMMANDS = {
-    'help': 'Commands: about, dni, undercover, covert, opsec, classified, proverb, social, cars, gaming, skills, education, contact, clear',
+    'help': 'Commands: pro, personal, about, dni, undercover, covert, opsec, classified, proverb, social, cars, gaming, skills, education, contact, clear',
+    'pro': 'Navigating to Professional Portfolio (pro.html)...',
+    'personal': 'Navigating to Personal Life & Gaming (personal.html)...',
     'about': 'Saiman Sah — Former ODNI CTIIC (Undercover) Head of Dept | Undercover Online Operative | Ethical Hacker | Developer based in Nepal.',
     'dni': 'Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026). Directed intelligence workflows, cybersecurity operations & technical teams.',
     'undercover': '[CLASSIFIED OPSEC] Active undercover online operative profile: Digital identity masking, hidden network presence, & clandestine intelligence gathering.',
@@ -344,6 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (termInput && termOutput) {
     termInput.addEventListener('keydown', (e) => {
+      if (window.CyberAudio) CyberAudio.playTerminalKey();
       if (e.key === 'Enter') {
         const cmd = termInput.value.trim().toLowerCase();
         termInput.value = '';
@@ -353,8 +367,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const line = document.createElement('div');
         line.className = 'term-line';
 
-        if (cmd === 'clear') {
-          termOutput.innerHTML = '';
+        if (cmd === 'pro') {
+          window.location.href = 'pro.html';
+          return;
+        } else if (cmd === 'personal') {
+          window.location.href = 'personal.html';
           return;
         }
 
@@ -384,4 +401,264 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================================================
+  // ULTRA-PREMIUM CYBER INTERACTIVE ENGINE
+  // ==========================================================================
+
+  // --- 1. DYNAMIC HERO TAGLINE TYPING ENGINE ---
+  const typingTarget = document.getElementById('hero-typing-target');
+  if (typingTarget) {
+    const roles = [
+      "Developer",
+      "Ethical Hacker",
+      "Undercover Specialist",
+      "Cybersecurity Researcher",
+      "Tech Enthusiast",
+      "Software Debugger"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        typingTarget.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        typingTarget.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        typingSpeed = 2200; // Pause at end of word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingSpeed = 400; // Pause before typing next word
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+
+    typeEffect();
+  }
+
+  // --- 2. INTERSECTION OBSERVER SCROLL REVEAL & STAT COUNTER ENGINE ---
+  function animateCounters(container) {
+    const counters = container.querySelectorAll('.stat-number:not(.counted)');
+    counters.forEach(counter => {
+      counter.classList.add('counted');
+      const target = +counter.getAttribute('data-target');
+      const duration = 1600;
+      const startTime = performance.now();
+
+      function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const currentVal = Math.floor(target * (1 - Math.pow(1 - progress, 3)));
+        counter.textContent = currentVal;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        } else {
+          counter.textContent = target;
+        }
+      }
+      requestAnimationFrame(updateNumber);
+    });
+  }
+
+  function animateSkillBars(container) {
+    const progressFills = container.querySelectorAll('.progress-fill');
+    progressFills.forEach(fill => {
+      const targetWidth = fill.getAttribute('data-progress');
+      fill.style.width = targetWidth;
+    });
+  }
+
+  function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -30px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          animateCounters(entry.target);
+          animateSkillBars(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => observer.observe(el));
+  }
+  initScrollReveal();
+
+  // --- 3. CYBER HUD PING SIMULATOR ---
+  const pingValEl = document.getElementById('hud-ping-val');
+  if (pingValEl) {
+    setInterval(() => {
+      const ping = Math.floor(Math.random() * 8) + 9;
+      pingValEl.textContent = `${ping} ms`;
+    }, 2500);
+  }
+
+  // --- 4. CAR SPEC SWITCHER GUI (personal.html) ---
+  const specTabs = document.querySelectorAll('.spec-tab-btn');
+  if (specTabs.length > 0) {
+    const carData = {
+      atto3: {
+        name: "BYD Atto 3 (Electric SUV)",
+        badge: "CURRENT RIDE",
+        desc: "Proud owner of the sleek and high-performance BYD Atto 3 electric vehicle, blending futuristic EV technology with rapid acceleration.",
+        speed: "130 km/h",
+        lblSpeed: "Personal Speed Record",
+        power: "201 HP / 310 Nm",
+        lblPower: "Electric Motor Output",
+        range: "420 km",
+        lblRange: "EV Battery Range",
+        accel: "7.3 Seconds",
+        lblAccel: "0–100 km/h Acceleration"
+      },
+      defender: {
+        name: "New Land Rover Defender 110",
+        badge: "DREAM VEHICLE",
+        desc: "1st Dream Car — Ultimate luxury 4x4 off-road terrain capability, robust aluminum architecture, and iconic adventure engineering.",
+        speed: "191 km/h",
+        lblSpeed: "Top Vehicle Capability",
+        power: "395 HP / 550 Nm",
+        lblPower: "Turbocharged i6 MHEV",
+        range: "900 km",
+        lblRange: "Full Tank Range",
+        accel: "6.0 Seconds",
+        lblAccel: "0–100 km/h Acceleration"
+      }
+    };
+
+    specTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        specTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const carKey = tab.getAttribute('data-car');
+        const data = carData[carKey];
+        if (!data) return;
+
+        if (window.CyberAudio) CyberAudio.playClick();
+
+        const panel = document.getElementById('car-spec-panel');
+        if (panel) {
+          panel.style.opacity = '0.3';
+          setTimeout(() => {
+            document.getElementById('spec-car-name').textContent = data.name;
+            document.getElementById('spec-car-badge').textContent = data.badge;
+            document.getElementById('spec-car-desc').textContent = data.desc;
+            document.getElementById('spec-val-speed').textContent = data.speed;
+            document.getElementById('spec-lbl-speed').textContent = data.lblSpeed;
+            document.getElementById('spec-val-power').textContent = data.power;
+            document.getElementById('spec-lbl-power').textContent = data.lblPower;
+            document.getElementById('spec-val-range').textContent = data.range;
+            document.getElementById('spec-lbl-range').textContent = data.lblRange;
+            document.getElementById('spec-val-accel').textContent = data.accel;
+            document.getElementById('spec-lbl-accel').textContent = data.lblAccel;
+            panel.style.opacity = '1';
+          }, 150);
+        }
+      });
+    });
+  }
+
+  // --- 5. GAMING FILTER GUI (personal.html) ---
+  const filterPills = document.querySelectorAll('.filter-pill');
+  if (filterPills.length > 0) {
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const filter = pill.getAttribute('data-filter');
+        if (window.CyberAudio) CyberAudio.playClick();
+
+        const cards = document.querySelectorAll('.gaming-grid .game-card');
+        const items = document.querySelectorAll('.game-achievements-list .game-item');
+
+        if (filter === 'all') {
+          cards.forEach(c => c.style.display = 'flex');
+          items.forEach(i => i.style.display = 'flex');
+        } else if (filter === 'pc') {
+          cards.forEach(c => c.style.display = c.getAttribute('data-category')?.includes('pc') ? 'flex' : 'none');
+          items.forEach(i => i.style.display = 'flex');
+        } else if (filter === 'ps5') {
+          cards.forEach(c => c.style.display = c.getAttribute('data-category')?.includes('ps5') ? 'flex' : 'none');
+        } else if (filter === 'cleared') {
+          cards.forEach(c => c.style.display = c.getAttribute('data-category')?.includes('cleared') ? 'flex' : 'none');
+          items.forEach(i => i.style.display = i.getAttribute('data-category')?.includes('cleared') ? 'flex' : 'none');
+        }
+      });
+    });
+  }
+
+  // --- 6. 3D CARD TILT & MOUSE SPECULAR LIGHTING ENGINE ---
+  function initCardTilt() {
+    const tiltCards = document.querySelectorAll('[data-tilt]');
+
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+      });
+    });
+  }
+  initCardTilt();
+
+  // --- 7. INTERACTIVE BUTTON CLICK RIPPLE & AUDIO TRIGGER ---
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.cyber-btn, .social-chip, .whatsapp-float-btn, .gateway-option-card, .spec-tab-btn, .filter-pill');
+    if (!btn) return;
+
+    if (window.CyberAudio && !btn.id?.includes('audio')) {
+      CyberAudio.playClick();
+    }
+
+    const rect = btn.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'cyber-ripple';
+
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+    btn.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+
 });
+
