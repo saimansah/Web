@@ -1,6 +1,12 @@
-/* ==========================================================================
-   SAIMAN SAH PORTFOLIO — INTERACTIVE ENGINE, BILINGUAL I18N & ENTRY GATEWAY
-   ========================================================================== */
+/* --- CLEAN URL HANDLER: Removes index.html from URL address bar --- */
+(function cleanIndexUrl() {
+  if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
+      const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+      window.history.replaceState(null, '', cleanPath);
+    }
+  }
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -27,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       badge_personal_path: "CARS & GAMING",
       title_personal_path: "Personal Life & Hobbies",
-      desc_personal_path: "BYD Atto 3 EV (130 km/h record),  Land Rover Defender 110 dream, PC Gaming (GTA V 3x, RDR 2 2x, COD, Hitman 3) & PS5.",
+      desc_personal_path: "High-Altitude Trekking (4,200m / 13,780 ft record), BYD Atto 3 EV (130 km/h record), Land Rover Defender 110 dream, PC & PS5 Gaming.",
       btn_enter_personal: "Enter Personal Bio",
       hint_lang: "Change Language:",
 
@@ -294,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- CLASSIFIED ODNI CTIIC VAULT ENCRYPTED ENGINE ---
-  const ODNI_ENCRYPTED_DATA = "bBYGEEUQHwgcHVxOIygvOiMbCQ8AF14fDhsNGG0sKyg0Fx1EW3lTSVMdEQ0uZC0lMQEcW0cbBg1CDAAIJyFuOzUWTxYQHwAMQgkNAzdmcHU5UgwKBAAAVE0IAEEzKyIgNFIJB0gfHAoEQw4cJSpsd2xdBlhFITY6OzwoLxQBCmkRMSwjNiBTJSo4JCBgcW5dcCchKiowOCwrUk4fMCUgd1pST1oNQU0mKyAoTAMQBwATUkczCxcWGwwBFwkybW5dcDYKFgQBBwQKABUNLGQYKCUeG1pKG0FXZU5BUDBkLSUxARxbRwUSHAMaTB81JjogJB4KRFswHwgcHQgKKSEqaR8CChQEBxoGAQ8NTBIhLSYiFk9ART8WCAsLEx8oLT5pGBscEgoBClVAHl9mfGsqICZMZWxZFxofTw0NDTM3c2s0HAZLExIGBRtDAg0yIG4rPwALAxdeEQwOA0wOLzxsd1pST1oBGgVJDAIAHzN5bD8xBwMSSBYeCwMLDEEyKzlrbnhPRkVTTw0GGEEPLCU9Om1QAwkCHF4eHQ8RHCU2bGkjBhYKAE5RHgYKFQR6dX15IApURg0WGg4HGltdc3Q+MWtSAgcXFBoHVV5BDTUwIWlhQB8eXlFNY09OQUxgZHIgPRVPFRcQTksOHRIJNDdhLT4bMAoKFBxHHwAGTmAlIj1tUCAiKzpTKjsnKC9gASMrPBcCREUQHwgcHVxOJConZDUfDQoAHl4AAglBCiwrLz19EwEPCFFTGhsXDQl9ZjkgNAYHXFRAQxkXVUEEJS0pISRIXlVVAwtSTwEDBiUnOmQ2GxtcBhwdHQ4HD1dgJiE7NBcdSxcSFwAaHVtZcGF1a254T0ZFU09GCwcXUkpObmlwTgdVWzw3JyZOIjgJDQ1peCchIiAhMCY5KzNFYAALGREgOysgPSdVQAZSUkpkbmlwTh9GBh8SGhxTQxohMSI9fQAACgBRTSEKDwVMLyJuDTUCDhQRHhYHG051TBUqKiwiEQAQAAFTJgECCAIlZAE5NQAOEgwFFlVAHl9mYGRuaWwWBhBFEB8IHB1cTjYlOyUkXwsHERYARA0BGU5+Tm5pcFJPRlkAAwgBUF0FYCciKCMBUkQDEl4bCgkUACE2bi8xXwwHCRYdDQ4cTAghPT1rbk5AD1tTJwwBGxMJemQPPDdSXFdJU0FZXVpBf2AOOyVwQF1KRUFDW1lSTh8wJSB3WlJPRkVTU1UcHgACfngnaTMeDhUWTlEPDkMSAywtKmk2E0IFBB8WBwsPE0E3ISsickxTSQxNUytBPU9WYAYmKDQADkZURl9JXV5ZXWBXbho4AA4RBB1TX0NOU1x4d24LfiFBWkoAAwgBUGtMYGRuaXBOHBYEHVMKAw8SH31mPjw8AQpLAh8cHk8JEwklKmM9NQobRFtPGkkMAgAfM3lsLzFfHAkJGhdJCQ9MDywrLSJyTFNJDE1TLRocABgpKyBzcENPPwASAUVPX1FMDSsgPTgBQ0ZXQVMtDhcSTGhyd3lwNg4fFlpPRhweAAJ+Tm5pcFJTSQEaBVdlTkFQbyAnP254U0kBGgVX";
+  const ODNI_ENCRYPTED_DATA = "eQoNV1MBCQYaHVNLDQskHRdIFQsAA0QYDxwCE2gGAUAXBxdFV2ROSVIUNQ8KARAOBBQaU0wBGwNoDAVFFAdFFQwKThkbCzYLSUYfDRJFV1IHSQ0LJB0XHFEEBEoaAQIACkcjD0lNHAEOSgYeCwdMWXlBDR9TMCA0PTwnKjoiAU4lYjAnNjRJIis/KytlW0Q1UzcrKyYtJSwqW2odFEAdXG9HSVIGW1AoASAtATA2LC4qTkY8AAMgHAdOBQcXTkl6Ti0LFyQcEEwWDBEGBU44CBsLMVJLSUFcb0dJUh5JDQskHRccURQEEgUaQxobBTEHEE0WQFskBQ8dGgcBLAsAATwSABUIGgcGAAYpTjZEEA0XA0lITiULBiELFlIbCxVHIQcdHQEVPFJLUU1oWUgNBxhXZG15Cg1XUwEJBhodU0sKCSxDEkAGDhFKCg8cDU4FKhwARAFPBwIIA0MLAR9nUG4BU14BDh9ODQUPFDZTRlcSFwkTRAsDCwICKEMWTgRAW21JTk5JUgMsGERCHwMWFFRMAgYJCGgZFkADEgAVS04dHRcLIFNGVhoGEQ9TX11ZHh9+TgxEGgUNE1NfXVkeH35OCUABBQwJU15OCBsTKk5VEwMaXkVXZE5JTkdlTlhIHgVFFBsNU0sPFDYLEFJcBgsONgIBDgFJNQADA1MDCRNUTCEtIC5lLTBoOiFFIgQMAgwDRWUNCEAAEVhFDQAHRAsKJwIBTF4LCABJCAIGDxNoDwpIHkBFFB0XAgxTRTIHAFUbWFRUWR4WUk4PIAcDSQdYVFRZHhZSTggnBAFCB08DDh1UDQYAEyQHChpTAAoVDQscRBwGIQcRUklXVUJSTFBjTkdlTlgOFwsTWWNkTklOWy1dWm43LCxHKjonIC1GbTsqZTYwJig/KzxATiMAPiVzJy8gKT1SQQFdWU9ORAFTXhVHCgIPGh1aZxgFVB8WSBUGAgtLUC8gDwABHARFIwweDxsaCiAAEAFnQjAJDQscCgERIBxEbh0ODAkMTiEZCxUkGg1XFl5KF1dkTklOR3kKDVdTAQkGGh1TSxgGMAIQDBcDEQIaQwwGFkV7ZEQBU0JFR1UdHggAWXkHREIfAxYUVEwICEMVIAkRTRIQRQEIQw0IAgIrCgVTXgYEHhpMUFVBDntOMEQdFxcCU04vHAlHdl9IAUFSV1NJfU4jGwtlXFYNU1BVVV9SQRoeBitQbgFTQkVHSVIdGQ8Je1INARAOBBQaU0wPD0o2AQhIF0IDBkQNDwULCSEPFgwEBwAMS1BSRgdZZSxKcl1YRSUBDwobD0d0W0gBQVJdVkl9TjoGFSQZBU9TVElHW15WWk4laz1KHVwRFQYHUGRJTkdlTkQdABIECUkNAggdFHhMFFQfEQBKDgIBHk4ANwsBT14WAB8dTFBVB0cmAgVSAF9HAQhDHQYCDiFOAkBeAQkICgVMV1JILFBEZQYQBBMAAQBTTlZlNwFAAU5FVllOIwYAEy0dSAFBUEUjCBcdSUZRfF5EZRIbFk5VQR0ZDwl7ZEQBU0JZSA0HGFdkR2VSS0UaFFttVUEKABhZ";
 
   function decryptClassifiedVault(enc, key) {
     try {
@@ -476,19 +482,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnTerminalClose) btnTerminalClose.addEventListener('click', closeTerminal);
 
   const COMMANDS = {
-    'help': 'Commands: pro, personal, about, exp, opsec, classified, vault, phone, whatsapp, proverb, social, cars, gaming, skills, education, contact, clear',
+    'help': 'Commands: pro, personal, travel, about, exp, opsec, classified, vault, phone, whatsapp, proverb, social, cars, gaming, skills, education, contact, clear',
     'pro': 'Navigating to Professional Portfolio (professional.html)...',
     'personal': 'Navigating to Personal Life & Gaming (personal.html)...',
+    'travel': 'Fond of traveling & high-altitude trekking | Highest point reached: 4,200 meters (~13,780 feet) above sea level in Nepal 🏔️',
     'about': 'Saiman Sah — Developer | Ethical Hacker | Cybersecurity Researcher based in Nepal.',
     'exp': 'Engineering & Security Operations: Software architecture, vulnerability research & full-stack development.',
     'opsec': '[OPERATIONAL SECURITY] Anonymized digital footprint, encrypted communication channels & secure infrastructure.',
-    'classified': 'Type "classified Professional@DNI" to unlock Restricted Vault directly, or use the Classified Vault button in the header.',
-    'vault': 'Type "vault Professional@DNI" to unlock Restricted Vault directly.',
+    'classified': 'Type "classified End!sbeginning" to unlock Secret Vault directly, or use the Secret Vault button in the header.',
+    'vault': 'Type "vault End!sbeginning" to unlock Secret Vault directly.',
     'phone': 'Type "phone <PIN>" to unlock & reveal direct phone number and WhatsApp.',
     'whatsapp': 'Type "whatsapp <PIN>" to unlock & reveal direct WhatsApp link.',
-    'dni': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
-    'odni': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
-    'ctiic': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
+    'dni': 'Type "classified End!sbeginning" to unlock Secret Vault directly.',
+    'odni': 'Type "classified End!sbeginning" to unlock Secret Vault directly.',
+    'ctiic': 'Type "classified End!sbeginning" to unlock Secret Vault directly.',
     'proverb': '“अंतः अस्ति प्रारंभः” — End is Beginning (Guiding Philosophy)',
     'social': 'FB: https://www.facebook.com/shahsaiman | IG: https://www.instagram.com/shah_saiman | X: https://x.com/sah_saiman | Threads: https://www.threads.net/@shah_saiman',
     'cars': 'BYD Atto 3 Owner (Max Speed 130 km/h) | Dream Car: New Land Rover Defender 110',
@@ -535,12 +542,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (['dni', 'odni', 'ctiic', 'classified', 'vault', 'undercover', 'covert'].includes(mainCmd)) {
-          if (passArg === 'Professional@DNI' || (passArg && attemptUnlockVault(passArg))) {
+          if (passArg === 'End!sbeginning' || (passArg && attemptUnlockVault(passArg))) {
             openVaultModal();
-            attemptUnlockVault('Professional@DNI');
-            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00f3ff;font-weight:bold;">[ACCESS GRANTED — RESTRICTED ACCESS LEVEL 5 UNLOCKED]</span><br>Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026 / 690 Days). Classified Vault Unlocked!`;
+            attemptUnlockVault('End!sbeginning');
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00f3ff;font-weight:bold;">[ACCESS GRANTED — RESTRICTED ACCESS LEVEL 5 UNLOCKED]</span><br>Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026 / 690 Days). Secret Vault Unlocked!`;
           } else {
-            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[RESTRICTED VAULT LOCKED] Enter valid clearance key e.g.: 'classified Professional@DNI' or use the Classified Vault button in the header.</span>`;
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[SECRET VAULT LOCKED] Enter valid clearance key e.g.: 'classified End!sbeginning' or use the Secret Vault button in the header.</span>`;
           }
           termOutput.appendChild(line);
           termOutput.scrollTop = termOutput.scrollHeight;

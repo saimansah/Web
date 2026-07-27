@@ -16,6 +16,12 @@
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Clean URL script (removes index.html from URL bar) -->
+  <script>
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
+      history.replaceState(null, '', window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash);
+    }
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -29,13 +35,14 @@
   <!-- NAVIGATION HEADER -->
   <header class="navbar">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">
+      <a href="./" class="nav-logo">
         <img src="assets/s_logo.svg" alt="S Logo" class="s-logo-img">
         SAIMAN SAH
       </a>
 
       <nav class="nav-links">
         <a href="#personal-about">Beyond Code</a>
+        <a href="#travel">Travel & Altitude</a>
         <a href="#garage">Garage & Cars</a>
         <a href="#gaming">Gaming Portfolio</a>
         <a href="#contact">Contact</a>
@@ -43,10 +50,10 @@
 
       <div class="nav-actions">
         <button id="btn-vault-open" class="cyber-btn vault-lock-btn sm" title="Access Restricted Vault">
-          <i class="fa-solid fa-lock"></i> <span>Classified Vault</span>
+          <i class="fa-solid fa-lock"></i> <span>Secret Vault</span>
         </button>
 
-        <a href="index.html" class="cyber-btn secondary sm" id="btn-reopen-gateway">
+        <a href="./" class="cyber-btn secondary sm" id="btn-reopen-gateway">
           <i class="fa-solid fa-arrows-rotate"></i> <span>Switch Mode</span>
         </a>
 
@@ -68,26 +75,121 @@
     <section id="personal-about" class="section-card reveal-on-scroll">
       <div class="section-title">
         <span class="section-tag">BEYOND THE CODE</span>
-        <h2>Personal Life, Automotive & Gaming Universe</h2>
+        <h2>Personal Life, Travel, Automotive & Gaming Universe</h2>
         <p class="beyond-text">
-          Exploring high-speed automotive engineering, mastering epic gaming campaigns on PC & PS5, and crafting custom
-          tech setups.
+          Fond of high-altitude wilderness traveling & mountain treks (highest point reached: <strong>4,200 meters /
+            ~13,780 feet</strong>), exploring high-speed automotive engineering, and mastering epic gaming campaigns on
+          PC & PS5.
         </p>
       </div>
 
       <!-- CYBER HUD STATUS BAR -->
       <div class="cyber-hud-card mini">
         <div class="hud-item">
+          <span class="hud-label">ALTITUDE RECORD</span>
+          <span class="hud-value gold"><i class="fa-solid fa-mountain-sun"></i> 4,200M (13,780 FT)</span>
+        </div>
+        <div class="hud-item">
           <span class="hud-label">GARAGE STATUS</span>
           <span class="hud-value active-green"><span class="status-light green"></span> BYD ATTO 3 </span>
         </div>
         <div class="hud-item">
-          <span class="hud-label">TOP RECORD</span>
+          <span class="hud-label">TOP SPEED RECORD</span>
           <span class="hud-value gold"><i class="fa-solid fa-gauge-high"></i> 130 KM/H</span>
         </div>
         <div class="hud-item">
           <span class="hud-label">GAMING DEVICES</span>
           <span class="hud-value cyan"><i class="fa-solid fa-desktop"></i> PC + PS5 </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAVEL & HIGH-ALTITUDE TREKKING SECTION -->
+    <section id="travel" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">TRAVEL & HIGH-ALTITUDE TREKKING</span>
+        <h2>Wanderlust & High-Altitude Exploration</h2>
+        <p class="beyond-text">
+          Passionate about mountain passes, wilderness exploration, and high-altitude trekking across Nepal's grandest
+          landscapes.
+        </p>
+      </div>
+
+      <div class="travel-grid">
+        <!-- ALTITUDE MILESTONE CARD WITH ANIMATIONS -->
+        <div class="travel-card altitude-card reveal-on-scroll stagger-1" data-tilt>
+          <div class="travel-badge-tag gold"><i class="fa-solid fa-mountain"></i> PEAK ELEVATION RECORD</div>
+
+          <div class="altitude-header-box">
+            <div class="altitude-icon-circle float-anim">
+              <i class="fa-solid fa-mountain-sun"></i>
+            </div>
+            <div class="altitude-text-content">
+              <h3>Highest Point Reached</h3>
+              <div class="altitude-main-value">
+                <span class="alt-m">4,200 <span class="alt-unit">Meters</span></span>
+                <span class="alt-separator">/</span>
+                <span class="alt-ft">13,780 <span class="alt-unit">Feet</span></span>
+              </div>
+            </div>
+          </div>
+
+          <p class="travel-card-desc">
+            Successfully conquered high-altitude Himalayan mountain terrain reaching <strong>4,200 meters (13,780
+              feet)</strong> above sea level—navigating rugged mountain passes and extreme wilderness trails.
+          </p>
+
+          <!-- ANIMATED ELEVATION BAR VISUALIZER -->
+          <div class="elevation-visualizer">
+            <div class="el-labels">
+              <span><i class="fa-solid fa-water"></i> Sea Level (0m)</span>
+              <span class="active-el"><i class="fa-solid fa-flag-checkered"></i> Peak Altitude (4,200m / 13,780
+                ft)</span>
+            </div>
+            <div class="el-track">
+              <div class="el-fill-bar" style="width: 84%;">
+                <span class="el-marker-pulse"></span>
+              </div>
+            </div>
+            <div class="el-milestone-ticks">
+              <span>1,000m</span>
+              <span>2,000m</span>
+              <span>3,000m</span>
+              <span class="highlight-tick">4,200m (13,780 ft)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRAVEL PASSION & ROAD TRIPS CARD -->
+        <div class="travel-card passion-card reveal-on-scroll stagger-2" data-tilt>
+          <div class="travel-badge-tag cyan"><i class="fa-solid fa-compass"></i> WANDERLUST & ROAD TRIPS</div>
+
+          <div class="passion-header-box">
+            <div class="compass-icon-circle rotate-anim">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <div class="passion-text-content">
+              <h3>Passion for Traveling</h3>
+              <span class="sub-passion">Exploring Nepal's Mountains & Highways</span>
+            </div>
+          </div>
+
+          <p class="travel-card-desc">
+            Driven by a love for outdoor adventure, mountain passes, road trips, and discovering natural landscapes off
+            the beaten path.
+          </p>
+
+          <div class="travel-tags-wrapper">
+            <div class="travel-pill pulse-glow">
+              <i class="fa-solid fa-mountain"></i> High-Altitude Treks (4,200m / 13,780 ft)
+            </div>
+            <div class="travel-pill pulse-glow">
+              <i class="fa-solid fa-route"></i> Scenic Highway Road Trips
+            </div>
+            <div class="travel-pill pulse-glow">
+              <i class="fa-solid fa-map-location-dot"></i> Wilderness Exploration
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -223,7 +325,8 @@
             <!-- GTA 5 -->
             <div class="game-item gta-item" data-category="pc cleared">
               <div class="game-title-row">
-                <span class="game-name"><span class="game-logo-tag gta-tag"><i class="fa-solid fa-car-side"></i> GTA V</span> Grand Theft Auto V</span>
+                <span class="game-name"><span class="game-logo-tag gta-tag"><i class="fa-solid fa-car-side"></i> GTA
+                    V</span> Grand Theft Auto V</span>
                 <span class="game-stat-badge green">Completed 3 Times</span>
               </div>
               <p class="game-desc">Full 100% story mode campaigns conquered across three separate playthroughs.</p>
@@ -232,7 +335,8 @@
             <!-- RDR 2 -->
             <div class="game-item rdr-item" data-category="pc cleared">
               <div class="game-title-row">
-                <span class="game-name"><span class="game-logo-tag rdr-tag"><i class="fa-solid fa-hat-cowboy"></i> RDR II</span> Red Dead Redemption 2</span>
+                <span class="game-name"><span class="game-logo-tag rdr-tag"><i class="fa-solid fa-hat-cowboy"></i> RDR
+                    II</span> Red Dead Redemption 2</span>
                 <span class="game-stat-badge gold">Completed 2 Times</span>
               </div>
               <p class="game-desc">Completed Arthur Morgan & John Marston's epic open-world saga twice.</p>
@@ -241,7 +345,8 @@
             <!-- HITMAN 3 -->
             <div class="game-item hitman-item" data-category="pc cleared">
               <div class="game-title-row">
-                <span class="game-name"><span class="game-logo-tag hitman-tag"><i class="fa-solid fa-user-secret"></i> HITMAN III</span> Hitman 3</span>
+                <span class="game-name"><span class="game-logo-tag hitman-tag"><i class="fa-solid fa-user-secret"></i>
+                    HITMAN III</span> Hitman 3</span>
                 <span class="game-stat-badge cyan">Mastered & Completed</span>
               </div>
               <p class="game-desc">Stealth assassin operative campaigns fully cleared with Silent Assassin ratings.</p>
@@ -250,7 +355,8 @@
             <!-- COD ALL SERIES -->
             <div class="game-item cod-item" data-category="pc cleared">
               <div class="game-title-row">
-                <span class="game-name"><span class="game-logo-tag cod-tag"><i class="fa-solid fa-crosshairs"></i> C.O.D.</span> Call of Duty Series</span>
+                <span class="game-name"><span class="game-logo-tag cod-tag"><i class="fa-solid fa-crosshairs"></i>
+                    C.O.D.</span> Call of Duty Series</span>
                 <span class="game-stat-badge red">ALL Series Completed</span>
               </div>
               <p class="game-desc">Conquered every Call of Duty campaign series from classic Modern Warfare to Black Ops
@@ -263,7 +369,8 @@
         <div class="game-card ps5-card reveal-on-scroll stagger-2" data-tilt data-category="ps5">
           <div class="game-card-header">
             <i class="fa-brands fa-playstation"></i>
-            <h3><span class="game-logo-tag ps5-tag"><i class="fa-brands fa-playstation"></i> PS5</span> PlayStation 5 Lounge</h3>
+            <h3><span class="game-logo-tag ps5-tag"><i class="fa-brands fa-playstation"></i> PS5</span> PlayStation 5
+              Lounge</h3>
           </div>
           <p class="game-platform-sub">PS5 Console Gamer</p>
 
