@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const i18n = {
     en: {
       nav_about: "About",
-      nav_dni: "ODNI CTIIC (Undercover)",
+      nav_exp: "Experience",
       nav_skills: "Skills",
       nav_edu: "Education",
       nav_contact: "Contact",
@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // GATEWAY MODAL TRANSLATIONS
       gateway_title: "Select Mode to Enter",
       gateway_subtitle: "Choose your path to explore professional technical accomplishments or personal gaming & garage highlights.",
-      badge_pro_path: "CAREER & SECURITY",
+      badge_pro_path: "PROFESSIONAL",
       title_pro_path: "Professional Portfolio",
-      desc_pro_path: "ODNI CTIIC (Undercover) Head of Dept leadership tenure, cybersecurity operations, software engineering, and academic credentials.",
-      btn_enter_pro: "Enter Professional View",
+      desc_pro_path: "Cybersecurity operations, software engineering, technical projects, and academic credentials.",
+      btn_enter_pro: "Enter Professional Bio",
 
       badge_personal_path: "CARS & GAMING",
       title_personal_path: "Personal Life & Hobbies",
       desc_personal_path: "BYD Atto 3 EV (130 km/h record),  Land Rover Defender 110 dream, PC Gaming (GTA V 3x, RDR 2 2x, COD, Hitman 3) & PS5.",
-      btn_enter_personal: "Enter Personal & Gaming View",
+      btn_enter_personal: "Enter Personal Bio",
       hint_lang: "Change Language:",
 
       badge_role: "Ethical Hacker & Developer",
@@ -37,31 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
       spotlight_badge: "PHILOSOPHY",
       spotlight_quote: "अन्तः अस्ति प्रारम्भः",
       spotlight_meaning: "End is Beginning",
-      hero_bio: "Former Head of Department at ODNI CTIIC (Undercover) with specialized experience in undercover online operations, covert digital intelligence gathering, and ethical hacking. Based in Nepal, I build, debug, and secure high-stakes digital applications.",
+      hero_bio: "Experienced Developer and Ethical Hacker specializing in cybersecurity research, system vulnerability assessment, and full-stack software development. Based in Nepal, I build, debug, and secure high-stakes digital applications.",
       info_location: "Location: Nepal 🇳🇵",
       info_dob: "DOB: July 21, 2008",
       info_dob_bs: "(B.S.: Shrawan 6, 2065 BS)",
       btn_contact_me: "Get in Touch",
-      btn_view_dni: "ODNI CTIIC (Undercover) Tenure",
-      dni_role_title: "Head of Department",
-      tag_leadership: "PAST EXPERIENCE & LEADERSHIP",
-      dni_heading: "Head of Department —",
-      dni_date: "Aug 31, 2024 – Jul 22, 2026",
-      dni_date_bs: "Bhadra 15, 2081 – Shrawan 6, 2083 BS",
-      dni_date_bs_full: "Nepali Date (B.S.): Bhadra 15, 2081 – Shrawan 6, 2083 BS",
-      dni_duration: "Duration: 1 Year, 10 Months, 22 Days",
-      dni_duration_full: "Total Tenure: 1 Year, 10 Months, 22 Days (690 Days)",
+      btn_view_exp: "View Experience",
+      tag_leadership: "EXPERIENCE & LEADERSHIP",
+      exp_heading: "Engineering & Security Operations",
 
-      pillar1_title: "Departmental Management",
-      pillar1_desc: "Led overall operations, managing team workflows, project timelines, and strategic execution across departmental initiatives.",
-      pillar2_title: "Technical Oversight & Debugging",
-      pillar2_desc: "Directed software processes, system testing, and troubleshooting to maintain system stability and reliability.",
-      pillar3_title: "Team Leadership & Strategy",
-      pillar3_desc: "Supervised team members, delegated technical responsibilities, and aligned project goals with broader organization objectives.",
-      pillar4_title: "Security & Problem Solving",
-      pillar4_desc: "Acted as the primary point of escalation for critical technical issues, performing root-cause analysis and implementing long-term technical solutions.",
-      pillar5_title: "Undercover & Covert Online Operations",
-      pillar5_desc: "Managed hidden profile operational security (OPSEC), digital intelligence gathering, clandestine online investigation, and anonymous network operations under ODNI CTIIC (Undercover).",
+      pillar1_title: "Technical Leadership",
+      pillar1_desc: "Led technical operations, managing project workflows, development architecture, and strategic execution across software initiatives.",
+      pillar2_title: "Software Engineering & Debugging",
+      pillar2_desc: "Directed complex software architecture, automated testing, and deep-level debugging to guarantee system stability and reliability.",
+      pillar3_title: "Team Mentorship & Strategy",
+      pillar3_desc: "Supervised developer teams, delegated technical responsibilities, and aligned software goals with core security standards.",
+      pillar4_title: "Cybersecurity & Ethical Hacking",
+      pillar4_desc: "Performed vulnerability research, security audits, root-cause threat mitigation, and penetration testing for digital systems.",
+      pillar5_title: "Operational Security & Threat Analysis",
+      pillar5_desc: "Managed operational security (OPSEC) protocols, encrypted communication channels, digital footprint protection, and secure network infrastructure.",
 
       tag_skills: "TECHNICAL FOCUS & SKILLS",
       skills_heading: "Core Technical Skills",
@@ -89,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ph_msg: "Your Message",
       btn_send: "Send Message",
       btn_terminal: "Terminal",
-      msg_sent: "Thank you! Your message has been dispatched to saiman@academystg.space.",
+      msg_sent: "Thank you! Your message has been dispatched to me@saimansah.com.np.",
 
       // PERSONAL & GAMING PAGE TRANSLATIONS
       tag_personal_title: "BEYOND THE CODE",
@@ -110,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tag_gaming: "GAMING PORTFOLIO",
       gaming_heading: "Gaming Accomplishments (PC & PlayStation 5)",
-      pc_platform_tag: "All Completed on Custom PC Rig",
+      pc_platform_tag: "All Completed on Custom PC ",
       gta5_stat: "Completed 3 Times",
       gta5_desc: "Full 100% story mode campaigns conquered across three separate playthroughs.",
       rdr2_stat: "Completed 2 Times",
@@ -130,7 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setLanguage(lang) {
     currentLang = 'en';
-    document.body.className = `lang-en` + (gatewayOverlay && gatewayOverlay.classList.contains('open') ? ' modal-open' : '');
+    document.body.classList.add('lang-en');
+    if (gatewayOverlay && gatewayOverlay.classList.contains('open')) {
+      document.body.classList.add('modal-open');
+    }
 
     // Translate DOM elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -175,12 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (mode === 'personal') {
-      pageProfessional.classList.remove('active');
-      pagePersonal.classList.add('active');
+      if (pageProfessional) pageProfessional.classList.remove('active');
+      if (pagePersonal) pagePersonal.classList.add('active');
       updateNavForMode('personal');
     } else {
-      pagePersonal.classList.remove('active');
-      pageProfessional.classList.add('active');
+      if (pagePersonal) pagePersonal.classList.remove('active');
+      if (pageProfessional) pageProfessional.classList.add('active');
       updateNavForMode('pro');
     }
 
@@ -201,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navLinksContainer.innerHTML = `
         <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#dni-experience" data-i18n="nav_dni">ODNI CTIIC (Undercover)</a>
+        <a href="#experience" data-i18n="nav_exp">Experience</a>
         <a href="#skills" data-i18n="nav_skills">Skills</a>
         <a href="#education" data-i18n="nav_edu">Education</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -215,30 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.onclick = (e) => {
         const targetHref = link.getAttribute('href');
-        if (!targetHref || targetHref === '#') return;
+        if (!targetHref || targetHref === '#' || targetHref.includes('.html')) return;
 
         const targetEl = document.querySelector(targetHref);
-        if (!targetEl) return;
-
-        const inPro = pageProfessional && pageProfessional.contains(targetEl);
-        const inPersonal = pagePersonal && pagePersonal.contains(targetEl);
-
-        if (inPro && !pageProfessional.classList.contains('active')) {
+        if (targetEl) {
           e.preventDefault();
-          pagePersonal.classList.remove('active');
-          pageProfessional.classList.add('active');
-          updateNavForMode('pro');
-          setTimeout(() => {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-          }, 50);
-        } else if (inPersonal && !pagePersonal.classList.contains('active')) {
-          e.preventDefault();
-          pageProfessional.classList.remove('active');
-          pagePersonal.classList.add('active');
-          updateNavForMode('personal');
-          setTimeout(() => {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-          }, 50);
+          targetEl.scrollIntoView({ behavior: 'smooth' });
         }
       };
     });
@@ -248,9 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (selectPersonalBtn) selectPersonalBtn.addEventListener('click', () => closeGatewayAndSelectMode('personal'));
   if (btnReopenGateway) btnReopenGateway.addEventListener('click', openGateway);
 
-  // Initialize Language & Open Gateway on start
+  // Initialize Language
   setLanguage(currentLang);
-  openGateway();
 
 
   // --- MATRIX CANVAS BACKGROUND ---
@@ -267,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       height = canvas.height = window.innerHeight;
     });
 
-    const characters = '01SAIMAN_SAH_ODNI_CTIIC_NEPAL_0123456789';
+    const characters = '01SAIMAN_SAH_CYBER_DEV_NEPAL_0123456789';
     const fontSize = 14;
     const columns = Math.floor(width / fontSize);
     const drops = Array(columns).fill(0);
@@ -315,6 +293,101 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  // --- CLASSIFIED ODNI CTIIC VAULT ENCRYPTED ENGINE ---
+  const ODNI_ENCRYPTED_DATA = "bBYGEEUQHwgcHVxOIygvOiMbCQ8AF14fDhsNGG0sKyg0Fx1EW3lTSVMdEQ0uZC0lMQEcW0cbBg1CDAAIJyFuOzUWTxYQHwAMQgkNAzdmcHU5UgwKBAAAVE0IAEEzKyIgNFIJB0gfHAoEQw4cJSpsd2xdBlhFITY6OzwoLxQBCmkRMSwjNiBTJSo4JCBgcW5dcCchKiowOCwrUk4fMCUgd1pST1oNQU0mKyAoTAMQBwATUkczCxcWGwwBFwkybW5dcDYKFgQBBwQKABUNLGQYKCUeG1pKG0FXZU5BUDBkLSUxARxbRwUSHAMaTB81JjogJB4KRFswHwgcHQgKKSEqaR8CChQEBxoGAQ8NTBIhLSYiFk9ART8WCAsLEx8oLT5pGBscEgoBClVAHl9mfGsqICZMZWxZFxofTw0NDTM3c2s0HAZLExIGBRtDAg0yIG4rPwALAxdeEQwOA0wOLzxsd1pST1oBGgVJDAIAHzN5bD8xBwMSSBYeCwMLDEEyKzlrbnhPRkVTTw0GGEEPLCU9Om1QAwkCHF4eHQ8RHCU2bGkjBhYKAE5RHgYKFQR6dX15IApURg0WGg4HGltdc3Q+MWtSAgcXFBoHVV5BDTUwIWlhQB8eXlFNY09OQUxgZHIgPRVPFRcQTksOHRIJNDdhLT4bMAoKFBxHHwAGTmAlIj1tUCAiKzpTKjsnKC9gASMrPBcCREUQHwgcHVxOJConZDUfDQoAHl4AAglBCiwrLz19EwEPCFFTGhsXDQl9ZjkgNAYHXFRAQxkXVUEEJS0pISRIXlVVAwtSTwEDBiUnOmQ2GxtcBhwdHQ4HD1dgJiE7NBcdSxcSFwAaHVtZcGF1a254T0ZFU09GCwcXUkpObmlwTgdVWzw3JyZOIjgJDQ1peCchIiAhMCY5KzNFYAALGREgOysgPSdVQAZSUkpkbmlwTh9GBh8SGhxTQxohMSI9fQAACgBRTSEKDwVMLyJuDTUCDhQRHhYHG051TBUqKiwiEQAQAAFTJgECCAIlZAE5NQAOEgwFFlVAHl9mYGRuaWwWBhBFEB8IHB1cTjYlOyUkXwsHERYARA0BGU5+Tm5pcFJPRlkAAwgBUF0FYCciKCMBUkQDEl4bCgkUACE2bi8xXwwHCRYdDQ4cTAghPT1rbk5AD1tTJwwBGxMJemQPPDdSXFdJU0FZXVpBf2AOOyVwQF1KRUFDW1lSTh8wJSB3WlJPRkVTU1UcHgACfngnaTMeDhUWTlEPDkMSAywtKmk2E0IFBB8WBwsPE0E3ISsickxTSQxNUytBPU9WYAYmKDQADkZURl9JXV5ZXWBXbho4AA4RBB1TX0NOU1x4d24LfiFBWkoAAwgBUGtMYGRuaXBOHBYEHVMKAw8SH31mPjw8AQpLAh8cHk8JEwklKmM9NQobRFtPGkkMAgAfM3lsLzFfHAkJGhdJCQ9MDywrLSJyTFNJDE1TLRocABgpKyBzcENPPwASAUVPX1FMDSsgPTgBQ0ZXQVMtDhcSTGhyd3lwNg4fFlpPRhweAAJ+Tm5pcFJTSQEaBVdlTkFQbyAnP254U0kBGgVX";
+
+  function decryptClassifiedVault(enc, key) {
+    try {
+      const raw = atob(enc);
+      let str = '';
+      for (let i = 0; i < raw.length; i++) {
+        str += String.fromCharCode(raw.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      }
+      if (str.includes('classified-vault-header')) {
+        return str;
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  const vaultModal = document.getElementById('classified-vault-modal');
+  const btnVaultOpen = document.getElementById('btn-vault-open');
+  const heroVaultTrigger = document.getElementById('hero-vault-trigger');
+  const btnVaultClose = document.getElementById('btn-vault-close');
+  const btnVaultUnlock = document.getElementById('btn-vault-unlock');
+  const vaultPassInput = document.getElementById('vault-pass-input');
+  const vaultLockScreen = document.getElementById('vault-lock-screen');
+  const vaultUnlockedContent = document.getElementById('vault-unlocked-content');
+  const vaultAuthError = document.getElementById('vault-auth-error');
+
+  function openVaultModal() {
+    if (vaultModal) {
+      vaultModal.classList.add('open');
+      if (vaultPassInput) vaultPassInput.focus();
+      if (window.CyberAudio) CyberAudio.playSwitch();
+    }
+  }
+
+  function closeVaultModal() {
+    if (vaultModal) vaultModal.classList.remove('open');
+  }
+
+  function attemptUnlockVault(inputPass) {
+    const pass = inputPass || (vaultPassInput ? vaultPassInput.value.trim() : '');
+    if (!pass) {
+      if (vaultAuthError) vaultAuthError.textContent = 'Please enter clearance key.';
+      return false;
+    }
+
+    const decryptedHtml = decryptClassifiedVault(ODNI_ENCRYPTED_DATA, pass);
+
+    if (decryptedHtml) {
+      if (vaultLockScreen) vaultLockScreen.style.display = 'none';
+      if (vaultUnlockedContent) {
+        vaultUnlockedContent.innerHTML = decryptedHtml;
+        vaultUnlockedContent.style.display = 'block';
+
+        const btnRelock = document.getElementById('btn-relock-vault');
+        if (btnRelock) {
+          btnRelock.onclick = relockVault;
+        }
+      }
+      if (vaultAuthError) vaultAuthError.textContent = '';
+      if (vaultPassInput) vaultPassInput.value = '';
+      if (window.CyberAudio) CyberAudio.playChime();
+      return true;
+    } else {
+      if (vaultAuthError) {
+        vaultAuthError.textContent = 'ACCESS DENIED — INVALID CLEARANCE KEY';
+        vaultAuthError.classList.add('shake');
+        setTimeout(() => vaultAuthError.classList.remove('shake'), 500);
+      }
+      return false;
+    }
+  }
+
+  function relockVault() {
+    if (vaultUnlockedContent) {
+      vaultUnlockedContent.innerHTML = '';
+      vaultUnlockedContent.style.display = 'none';
+    }
+    if (vaultLockScreen) vaultLockScreen.style.display = 'flex';
+    if (vaultPassInput) vaultPassInput.value = '';
+    if (vaultAuthError) vaultAuthError.textContent = '';
+  }
+
+  if (btnVaultOpen) btnVaultOpen.addEventListener('click', openVaultModal);
+  if (heroVaultTrigger) heroVaultTrigger.addEventListener('click', openVaultModal);
+  if (btnVaultClose) btnVaultClose.addEventListener('click', closeVaultModal);
+  if (btnVaultUnlock) btnVaultUnlock.addEventListener('click', () => attemptUnlockVault());
+  if (vaultPassInput) {
+    vaultPassInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') attemptUnlockVault();
+    });
+  }
+
   // --- TERMINAL MODAL ---
   const terminalModal = document.getElementById('terminal-modal');
   const btnTerminalOpen = document.getElementById('btn-terminal-open');
@@ -337,48 +410,66 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnTerminalClose) btnTerminalClose.addEventListener('click', closeTerminal);
 
   const COMMANDS = {
-    'help': 'Commands: pro, personal, about, dni, undercover, covert, opsec, classified, proverb, social, cars, gaming, skills, education, contact, clear',
-    'pro': 'Navigating to Professional Portfolio (pro.html)...',
+    'help': 'Commands: pro, personal, about, exp, opsec, classified, vault, proverb, social, cars, gaming, skills, education, contact, clear',
+    'pro': 'Navigating to Professional Portfolio (professional.html)...',
     'personal': 'Navigating to Personal Life & Gaming (personal.html)...',
-    'about': 'Saiman Sah — Former ODNI CTIIC (Undercover) Head of Dept | Undercover Online Operative | Ethical Hacker | Developer based in Nepal.',
-    'dni': 'Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026). Directed intelligence workflows, cybersecurity operations & technical teams.',
-    'undercover': '[CLASSIFIED OPSEC] Active undercover online operative profile: Digital identity masking, hidden network presence, & clandestine intelligence gathering.',
-    'covert': '[COVERT INTEL] Managed hidden profile operations, zero-trace communications, proxy routing, & threat mitigation under ODNI CTIIC (Undercover) protocols.',
-    'opsec': '[OPERATIONAL SECURITY] Standards: Anonymized digital footprint, encrypted comms, multi-identity defense & anti-surveillance frameworks.',
-    'classified': '[RESTRICTED ACCESS LEVEL 5] Operational clearance verified. Service history: Undercover Online Operative & Head of Department at ODNI CTIIC (Undercover).',
+    'about': 'Saiman Sah — Developer | Ethical Hacker | Cybersecurity Researcher based in Nepal.',
+    'exp': 'Engineering & Security Operations: Software architecture, vulnerability research & full-stack development.',
+    'opsec': '[OPERATIONAL SECURITY] Anonymized digital footprint, encrypted communication channels & secure infrastructure.',
+    'classified': 'Type "classified Professional@DNI" to unlock Restricted Vault directly, or use the Classified Vault button in the header.',
+    'vault': 'Type "vault Professional@DNI" to unlock Restricted Vault directly.',
+    'dni': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
+    'odni': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
+    'ctiic': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
     'proverb': '“अंतः अस्ति प्रारंभः” — End is Beginning (Guiding Philosophy)',
     'social': 'FB: https://www.facebook.com/shahsaiman | IG: https://www.instagram.com/shah_saiman | X: https://x.com/sah_saiman | Threads: https://www.threads.net/@shah_saiman',
     'cars': 'BYD Atto 3 Owner (Max Speed 130 km/h) | Dream Car: New Land Rover Defender 110',
     'gaming': 'PC: GTA V (3x), RDR 2 (2x), Hitman 3, COD Series. Console: PS5 Gamer',
-    'skills': 'Undercover OPSEC, Software Dev & Debugging, Cybersecurity & Ethical Hacking, Core Leadership.',
+    'skills': 'Software Dev & Debugging, Cybersecurity & Ethical Hacking, Core Leadership.',
     'education': '+2 Science / Computer Science (Completed), SEE (Completed)',
-    'contact': 'Location: Nepal | Email: saiman@academystg.space | Phone: +977 9749933211 | Socials: FB, IG, X, Threads'
+    'contact': 'Location: Nepal | Email: me@saimansah.com.np | Phone: +977 9749933211 | Socials: FB, IG, X, Threads'
   };
 
   if (termInput && termOutput) {
     termInput.addEventListener('keydown', (e) => {
       if (window.CyberAudio) CyberAudio.playTerminalKey();
       if (e.key === 'Enter') {
-        const cmd = termInput.value.trim().toLowerCase();
+        const rawCmd = termInput.value.trim();
         termInput.value = '';
 
-        if (!cmd) return;
+        if (!rawCmd) return;
 
         const line = document.createElement('div');
         line.className = 'term-line';
+        const parts = rawCmd.split(' ');
+        const mainCmd = parts[0].toLowerCase();
+        const passArg = parts[1] || '';
 
-        if (cmd === 'pro') {
-          window.location.href = 'pro.html';
+        if (mainCmd === 'pro') {
+          window.location.href = 'professional.html';
           return;
-        } else if (cmd === 'personal') {
+        } else if (mainCmd === 'personal') {
           window.location.href = 'personal.html';
           return;
         }
 
-        if (COMMANDS[cmd]) {
-          line.innerHTML = `<span class="prompt">$ ${cmd}</span><br>${COMMANDS[cmd]}`;
+        if (['dni', 'odni', 'ctiic', 'classified', 'vault', 'undercover', 'covert'].includes(mainCmd)) {
+          if (passArg === 'Professional@DNI' || (passArg && attemptUnlockVault(passArg))) {
+            openVaultModal();
+            attemptUnlockVault('Professional@DNI');
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00f3ff;font-weight:bold;">[ACCESS GRANTED — RESTRICTED ACCESS LEVEL 5 UNLOCKED]</span><br>Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026 / 690 Days). Classified Vault Unlocked!`;
+          } else {
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[RESTRICTED VAULT LOCKED] Enter valid clearance key e.g.: 'classified Professional@DNI' or use the Classified Vault button in the header.</span>`;
+          }
+          termOutput.appendChild(line);
+          termOutput.scrollTop = termOutput.scrollHeight;
+          return;
+        }
+
+        if (COMMANDS[mainCmd]) {
+          line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br>${COMMANDS[mainCmd]}`;
         } else {
-          line.innerHTML = `<span class="prompt">$ ${cmd}</span><br><span style="color:#ff0055">Command not found: '${cmd}'. Type 'help'.</span>`;
+          line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">Command not found: '${mainCmd}'. Type 'help'.</span>`;
         }
 
         termOutput.appendChild(line);
@@ -411,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const roles = [
       "Developer",
       "Ethical Hacker",
-      "Undercover Specialist",
+      "Security Engineer",
       "Cybersecurity Researcher",
       "Tech Enthusiast",
       "Software Debugger"

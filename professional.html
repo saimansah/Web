@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiman Sah | Professional Portfolio</title>
+  <meta name="description"
+    content="Official Professional Portfolio of Saiman Sah — Developer, Ethical Hacker & Cybersecurity Researcher based in Nepal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-en page-pro">
+
+  <!-- Background Canvases -->
+  <canvas id="matrix-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+  <div class="overlay-grid"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/s_logo.svg" alt="S Logo" class="s-logo-img">
+        SAIMAN SAH
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btn-vault-open" class="cyber-btn vault-lock-btn sm" title="Access Restricted Vault">
+          <i class="fa-solid fa-lock"></i> <span>Classified Vault</span>
+        </button>
+
+        <a href="index.html" class="cyber-btn secondary sm" id="btn-reopen-gateway">
+          <i class="fa-solid fa-arrows-rotate"></i> <span>Switch Mode</span>
+        </a>
+
+        <button id="btn-audio-toggle" class="icon-btn" title="Mute/Unmute Audio Sfx">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <button id="btn-matrix-toggle" class="icon-btn" title="Toggle Matrix Effect">
+          <i class="fa-solid fa-code"></i>
+        </button>
+
+        <button id="btn-terminal-open" class="cyber-btn sm">
+          <i class="fa-solid fa-terminal"></i> <span>Terminal</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- HERO SECTION -->
+    <section id="about" class="hero-card reveal-on-scroll">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="badge-pill">
+            <i class="fa-solid fa-shield-halved"></i> <span>Ethical Hacker & Developer</span>
+          </div>
+
+          <h1 class="hero-name">
+            Hi, I'm <span class="highlight-name">Saiman Sah</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            <span id="hero-typing-target" class="typed-text"></span><span class="typing-cursor">|</span>
+          </p>
+
+          <!-- CYBER HUD STATUS BAR -->
+          <div class="cyber-hud-card mini">
+            <div class="hud-item">
+              <span class="hud-label">STATUS</span>
+              <span class="hud-value active-green"><span class="status-light green"></span> ACTIVE</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">ROLE</span>
+              <span class="hud-value cyan">Ethical Hacker & Dev</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">LATENCY</span>
+              <span class="hud-value gold" id="hud-ping-val">12 ms</span>
+            </div>
+          </div>
+
+          <!-- PHILOSOPHY SPOTLIGHT CARD -->
+          <div class="hero-philosophy-card reveal-on-scroll stagger-1" data-tilt>
+            <div class="phil-header">
+              <span class="phil-label"><i class="fa-solid fa-infinity"></i> PHILOSOPHY</span>
+            </div>
+            <div class="phil-body">
+              <h3 class="phil-main-text">अन्तः अस्ति प्रारम्भः</h3>
+              <p class="phil-sub-text"><i class="fa-solid fa-quote-left"></i> End is Beginning <i
+                  class="fa-solid fa-quote-right"></i></p>
+            </div>
+          </div>
+
+          <p class="hero-bio">
+            Experienced Developer and Ethical Hacker specializing in cybersecurity research, system vulnerability
+            assessment, and full-stack software development. Based in Nepal, I build, debug, and secure high-stakes
+            digital applications.
+          </p>
+
+          <!-- QUICK INFO BADGES -->
+          <div class="info-pills">
+            <div class="pill-item">
+              <i class="fa-solid fa-location-dot"></i> <span>Location: Nepal 🇳🇵</span>
+            </div>
+            <div class="pill-item">
+              <i class="fa-solid fa-cake-candles"></i>
+              <span class="pill-date-group">
+                <span>DOB: July 21, 2008</span>
+                <small class="bs-tag">(साउन ६, २०६५ बी.सं. / Shrawan 6, 2065 BS)</small>
+              </span>
+            </div>
+            <div class="pill-item">
+              <i class="fa-solid fa-envelope"></i> <span>me@saimansah.com.np</span>
+            </div>
+            <div class="pill-item">
+              <i class="fa-solid fa-phone"></i> <a href="tel:+9779749933211" class="pill-link">+977 9749933211</a>
+            </div>
+          </div>
+
+          <!-- ANIMATED STAT COUNTERS GRID -->
+          <div class="stat-counters-grid reveal-on-scroll stagger-2">
+            <div class="stat-counter-card" data-tilt>
+              <div class="stat-number-box">
+                <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+              </div>
+              <span class="stat-label">Security & Code Integrity</span>
+            </div>
+
+            <div class="stat-counter-card" data-tilt>
+              <div class="stat-number-box">
+                <span class="stat-number" data-target="130">0</span><span class="stat-suffix"> km/h</span>
+              </div>
+              <span class="stat-label">Top Speed Record</span>
+            </div>
+
+            <div class="stat-counter-card" data-tilt>
+              <div class="stat-number-box">
+                <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+              </div>
+              <span class="stat-label">Game Campaign Clears</span>
+            </div>
+          </div>
+
+          <!-- HERO BUTTONS & SOCIALS -->
+          <div class="hero-btns">
+            <a href="#contact" class="cyber-btn primary">
+              <i class="fa-solid fa-paper-plane"></i> <span>Get in Touch</span>
+            </a>
+            <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer"
+              class="cyber-btn social-fb">
+              <i class="fa-brands fa-facebook"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer"
+              class="cyber-btn social-ig">
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" class="cyber-btn social-x">
+              <i class="fa-brands fa-x-twitter"></i> X (Twitter)
+            </a>
+            <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer"
+              class="cyber-btn social-threads">
+              <i class="fa-brands fa-threads"></i> Threads
+            </a>
+            <a href="#experience" class="cyber-btn secondary">
+              <i class="fa-solid fa-briefcase"></i> <span>View Experience</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- HERO PROFILE CARD WITH S LOGO OVERLAY ON TOP -->
+        <div class="hero-avatar-box">
+          <div class="avatar-card reveal-on-scroll stagger-2 border-beam-box" data-tilt>
+            <div class="avatar-profile-wrapper">
+              <!-- S Logo Badge Overlay on Top of Profile Picture -->
+              <div class="s-logo-top-badge float-anim" title="S Logo">
+                <img src="assets/s_logo.svg" alt="S Logo" class="s-badge-img">
+              </div>
+              <!-- Profile Picture Image -->
+              <div class="profile-img-frame">
+                <img src="assets/profile.png" alt="Saiman Sah Profile Picture" class="user-profile-img">
+              </div>
+            </div>
+            <div class="avatar-title">SAIMAN SAH</div>
+            <div class="avatar-sub">Ethical Hacker & Developer</div>
+            <div class="avatar-location"><i class="fa-solid fa-location-dot"></i> Nepal 🇳🇵</div>
+            <div class="avatar-status-pill pulse-glow">
+              <span class="status-light green"></span> Verified Cyber Profile
+            </div>
+            <button id="hero-vault-trigger" class="classified-pill-btn margin-top-10">
+              <i class="fa-solid fa-user-shield"></i> Classified Vault <i class="fa-solid fa-lock lock-icon-mini"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE & TECHNICAL LEADERSHIP SECTION -->
+    <section id="experience" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">EXPERIENCE & LEADERSHIP</span>
+        <h2>Engineering & <span class="highlight">Security Operations</span></h2>
+        <p class="section-date"><i class="fa-regular fa-calendar-days"></i> Technical Leadership & Cybersecurity
+          Portfolio</p>
+      </div>
+
+      <div class="dni-grid">
+        <div class="dni-feature-card reveal-on-scroll stagger-1" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
+          <h3>Technical Leadership</h3>
+          <p>Led technical operations, managing project workflows, development architecture, and strategic execution
+            across software initiatives.</p>
+        </div>
+
+        <div class="dni-feature-card reveal-on-scroll stagger-2" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-bug"></i></div>
+          <h3>Software Engineering & Debugging</h3>
+          <p>Directed complex software architecture, automated testing, and deep-level debugging to guarantee system
+            stability and reliability.</p>
+        </div>
+
+        <div class="dni-feature-card reveal-on-scroll stagger-3" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Team Mentorship & Strategy</h3>
+          <p>Supervised developer teams, delegated technical responsibilities, and aligned software goals with core
+            security standards.</p>
+        </div>
+
+        <div class="dni-feature-card reveal-on-scroll stagger-4" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-shield-virus"></i></div>
+          <h3>Cybersecurity & Ethical Hacking</h3>
+          <p>Performed vulnerability research, security audits, root-cause threat mitigation, and penetration testing
+            for digital systems.</p>
+        </div>
+
+        <div class="dni-feature-card reveal-on-scroll stagger-5" data-tilt>
+          <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
+          <h3>Operational Security & Threat Analysis</h3>
+          <p>Managed operational security (OPSEC) protocols, encrypted communication channels, digital footprint
+            protection, and secure network infrastructure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION WITH INTERACTIVE ANIMATED PROGRESS BARS -->
+    <section id="skills" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">TECHNICAL FOCUS & SKILLS</span>
+        <h2>Core Technical Proficiency & Competencies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-box reveal-on-scroll stagger-1" data-tilt>
+          <div class="skill-head">
+            <i class="fa-solid fa-code"></i>
+            <h3>Software Development & Debugging</h3>
+          </div>
+          <p>Building clean, functional code, troubleshooting errors, and optimizing performance.</p>
+          <div class="skill-progress-bar">
+            <div class="progress-fill" data-progress="95%"></div>
+          </div>
+          <span class="progress-percent">95% Proficiency</span>
+        </div>
+
+        <div class="skill-box reveal-on-scroll stagger-2" data-tilt>
+          <div class="skill-head">
+            <i class="fa-solid fa-user-shield"></i>
+            <h3>Cybersecurity & Ethical Hacking</h3>
+          </div>
+          <p>Network security principles, system vulnerability assessments, and defensive security testing.</p>
+          <div class="skill-progress-bar">
+            <div class="progress-fill" data-progress="92%"></div>
+          </div>
+          <span class="progress-percent">92% Proficiency</span>
+        </div>
+
+        <div class="skill-box reveal-on-scroll stagger-3" data-tilt>
+          <div class="skill-head">
+            <i class="fa-solid fa-mask"></i>
+            <h3>Undercover OPSEC & Covert Ops</h3>
+          </div>
+          <p>Digital footprint anonymization, encrypted channels, hidden profile security & intel gathering.</p>
+          <div class="skill-progress-bar">
+            <div class="progress-fill" data-progress="98%"></div>
+          </div>
+          <span class="progress-percent">98% Mastered</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">EDUCATION</span>
+        <h2>Academic Qualifications</h2>
+      </div>
+
+      <div class="edu-list">
+        <div class="edu-item reveal-on-scroll stagger-1">
+          <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="edu-details">
+            <h3>Higher Secondary Education (+2 Science / Computer Science)</h3>
+            <span class="status-badge pulse-glow">Completed</span>
+          </div>
+        </div>
+
+        <div class="edu-item reveal-on-scroll stagger-2">
+          <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
+          <div class="edu-details">
+            <h3>Secondary Education Examination (SEE)</h3>
+            <span class="status-badge pulse-glow">Completed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-card reveal-on-scroll">
+      <div class="section-title">
+        <span class="section-tag">GET IN TOUCH</span>
+        <h2>Contact Saiman Sah</h2>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-info">
+          <div class="c-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Location:</strong>
+              <p>Nepal</p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>Email:</strong>
+              <p><a href="mailto:me@saimansah.com.np" class="email-link">me@saimansah.com.np</a></p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>Phone:</strong>
+              <p><a href="tel:+9779749933211" class="email-link">+977 9749933211</a></p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp:</strong>
+              <p><a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
+                  class="email-link">Message on WhatsApp</a></p>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <i class="fa-solid fa-share-nodes"></i>
+            <div>
+              <strong>Social Media:</strong>
+              <div class="contact-social-links">
+                <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer"
+                  class="social-chip facebook">
+                  <i class="fa-brands fa-facebook"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer"
+                  class="social-chip instagram">
+                  <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" class="social-chip x">
+                  <i class="fa-brands fa-x-twitter"></i> X
+                </a>
+                <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer"
+                  class="social-chip threads">
+                  <i class="fa-brands fa-threads"></i> Threads
+                </a>
+                <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
+                  class="social-chip whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="simple-contact-form" class="contact-form">
+          <input type="text" id="input-name" required placeholder="Your Name">
+          <input type="email" id="input-email" required placeholder="Your Email">
+          <textarea id="input-msg" rows="4" required placeholder="Your Message"></textarea>
+          <button type="submit" class="cyber-btn primary">
+            <i class="fa-solid fa-paper-plane"></i> <span>Send Message</span>
+          </button>
+          <div id="form-response"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Saiman Sah. All Rights Reserved. | Nepal 🇳🇵</p>
+      <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i
+            class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i
+            class="fa-brands fa-threads"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLASSIFIED VAULT MODAL -->
+  <div id="classified-vault-modal" class="modal">
+    <div class="modal-content vault-modal-content">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-user-shield"></i> RESTRICTED CLASSIFIED VAULT</span>
+        <button id="btn-vault-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="vault-modal-body">
+        <div id="vault-lock-screen" class="vault-lock-screen">
+          <div class="lock-icon-box float-anim">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3>RESTRICTED ACCESS LEVEL 5</h3>
+          <p class="lock-desc">Enter authorization clearance key to decrypt and view restricted operational record.</p>
+          <div class="vault-pass-form">
+            <div class="input-with-icon">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" id="vault-pass-input" placeholder="Enter Clearance Key..." autocomplete="off">
+            </div>
+            <button id="btn-vault-unlock" class="cyber-btn primary">
+              <i class="fa-solid fa-unlock"></i> <span>Unlock Vault</span>
+            </button>
+          </div>
+          <div id="vault-auth-error" class="vault-error-msg"></div>
+        </div>
+        <div id="vault-unlocked-content" class="vault-unlocked-content" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMINAL MODAL -->
+  <div id="terminal-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-terminal"></i> Terminal CLI</span>
+        <button id="btn-terminal-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="term-output">
+        <p class="term-line">Welcome to Saiman Sah's Terminal. Type <span class="highlight">'help'</span> for available
+          commands.</p>
+      </div>
+      <div class="modal-footer">
+        <span class="prompt">$</span>
+        <input type="text" id="term-input"
+          placeholder="Type a command (help, about, cars, gaming, skills, experience)...">
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING HOVERING WHATSAPP BUTTON -->
+  <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
+    class="whatsapp-float-btn" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="audio.js"></script>
+  <script src="particles.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

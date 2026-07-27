@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saiman Sah | Cyber Gateway</title>
   <meta name="description"
-    content="Official Cyber System Gateway of Saiman Sah — Developer, Ethical Hacker, Former Head of ODNI CTIIC (Undercover) Department.">
+    content="Official Cyber System Gateway of Saiman Sah — Developer, Ethical Hacker, Cybersecurity Researcher & Software Engineer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -27,10 +27,15 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <span class="logo-accent">&lt;/&gt;</span> SAIMAN SAH
+        <img src="assets/s_logo.svg" alt="S Logo" class="s-logo-img">
+        SAIMAN SAH
       </a>
 
       <div class="nav-actions">
+        <button id="btn-vault-open" class="cyber-btn vault-lock-btn sm" title="Access Restricted Vault">
+          <i class="fa-solid fa-lock"></i> <span>Classified Vault</span>
+        </button>
+
         <button id="btn-audio-toggle" class="icon-btn" title="Mute/Unmute Audio Sfx">
           <i class="fa-solid fa-volume-high"></i>
         </button>
@@ -51,9 +56,11 @@
     <div class="gateway-card glass-panel border-beam-box">
 
       <div class="gateway-header">
-        <span class="gateway-badge pulse-glow"><i class="fa-solid fa-shield-halved"></i> SAIMAN SAH SYSTEM GATEWAY</span>
+        <span class="gateway-badge pulse-glow"><i class="fa-solid fa-shield-halved"></i> SAIMAN SAH SYSTEM
+          GATEWAY</span>
         <h1>Select Mode to Enter</h1>
-        <p>Choose your path to explore professional technical accomplishments or personal gaming & garage highlights.</p>
+        <p>Choose your path to explore professional technical accomplishments or personal gaming & garage highlights.
+        </p>
       </div>
 
       <!-- CYBER HUD WIDGET -->
@@ -78,15 +85,15 @@
 
       <div class="gateway-options-grid">
         <!-- OPTION 1: PROFESSIONAL PORTFOLIO -->
-        <a href="pro.html" class="gateway-option-card" data-tilt>
+        <a href="professional.html" class="gateway-option-card" data-tilt>
           <div class="opt-icon-circle pro float-anim">
             <i class="fa-solid fa-briefcase"></i>
           </div>
-          <div class="opt-badge">CAREER & SECURITY</div>
+          <div class="opt-badge">PROFESSIONAL</div>
           <h2>Professional Portfolio</h2>
-          <p>ODNI CTIIC (Undercover) Head of Dept leadership tenure, cybersecurity operations, software engineering, and academic credentials.</p>
+
           <div class="cyber-btn primary full-width">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Enter Professional View</span>
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Enter Professional Bio</span>
           </div>
         </a>
 
@@ -95,11 +102,11 @@
           <div class="opt-icon-circle personal float-anim">
             <i class="fa-solid fa-gamepad"></i>
           </div>
-          <div class="opt-badge gold">CARS & GAMING</div>
+          <div class="opt-badge gold">PERSONAL</div>
           <h2>Personal Life & Hobbies</h2>
-          <p>BYD Atto 3 EV (130 km/h record), New Land Rover Defender 110 dream, PC Gaming (GTA V 3x, RDR 2 2x, COD, Hitman 3) & PS5.</p>
+
           <div class="cyber-btn secondary full-width">
-            <i class="fa-solid fa-car"></i> <span>Enter Personal & Gaming View</span>
+            <i class="fa-solid fa-car"></i> <span>Enter Personal Bio</span>
           </div>
         </a>
       </div>
@@ -113,13 +120,47 @@
       <p>&copy; 2026 Saiman Sah. All Rights Reserved. | Nepal 🇳🇵</p>
       <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-threads"></i></a>
+        <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i
+            class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i
+            class="fa-brands fa-threads"></i></a>
       </div>
     </div>
   </footer>
+
+  <!-- CLASSIFIED VAULT MODAL -->
+  <div id="classified-vault-modal" class="modal">
+    <div class="modal-content vault-modal-content">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-user-shield"></i> RESTRICTED CLASSIFIED VAULT</span>
+        <button id="btn-vault-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="vault-modal-body">
+        <div id="vault-lock-screen" class="vault-lock-screen">
+          <div class="lock-icon-box float-anim">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3>RESTRICTED ACCESS LEVEL 5</h3>
+          <p class="lock-desc">Enter authorization clearance key to decrypt and view Saiman Sah EXPERIENCE.</p>
+          <div class="vault-pass-form">
+            <div class="input-with-icon">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" id="vault-pass-input" placeholder="Enter Clearance Key..." autocomplete="off">
+            </div>
+            <button id="btn-vault-unlock" class="cyber-btn primary">
+              <i class="fa-solid fa-unlock"></i> <span>Unlock Vault</span>
+            </button>
+          </div>
+          <div id="vault-auth-error" class="vault-error-msg"></div>
+        </div>
+        <div id="vault-unlocked-content" class="vault-unlocked-content" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- TERMINAL MODAL -->
   <div id="terminal-modal" class="modal">
@@ -129,11 +170,13 @@
         <button id="btn-terminal-close" class="close-btn">&times;</button>
       </div>
       <div class="modal-body" id="term-output">
-        <p class="term-line">Welcome to Saiman Sah's Terminal. Type <span class="highlight">'help'</span> for available commands.</p>
+        <p class="term-line">Welcome to Saiman Sah's Terminal. Type <span class="highlight">'help'</span> for available
+          commands.</p>
       </div>
       <div class="modal-footer">
         <span class="prompt">$</span>
-        <input type="text" id="term-input" placeholder="Type a command (help, pro, personal, about, cars, gaming, dni)...">
+        <input type="text" id="term-input"
+          placeholder="Type a command (help, pro, personal, about, cars, gaming, skills)...">
       </div>
     </div>
   </div>

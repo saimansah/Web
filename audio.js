@@ -4,6 +4,7 @@
 
 const CyberAudio = (() => {
   let audioCtx = null;
+  // Default to unmuted unless explicitly muted by user
   let isMuted = localStorage.getItem('cyber_audio_muted') === 'true';
 
   function getAudioContext() {
@@ -14,10 +15,22 @@ const CyberAudio = (() => {
       }
     }
     if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
+      audioCtx.resume().catch(() => {});
     }
     return audioCtx;
   }
+
+  // Unlock Audio Context on any user interaction gesture (Browser autoplay security policy)
+  function unlockAudio() {
+    const ctx = getAudioContext();
+    if (ctx && ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
+  }
+
+  window.addEventListener('pointerdown', unlockAudio, { passive: true });
+  window.addEventListener('keydown', unlockAudio, { passive: true });
+  window.addEventListener('click', unlockAudio, { passive: true });
 
   function playClick() {
     if (isMuted) return;
@@ -25,23 +38,25 @@ const CyberAudio = (() => {
     if (!ctx) return;
 
     try {
+      if (ctx.state === 'suspended') ctx.resume();
+
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
 
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.04);
+      osc.frequency.setValueAtTime(900, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.05);
 
-      gain.gain.setValueAtTime(0.08, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
 
       osc.connect(gain);
       gain.connect(ctx.destination);
 
       osc.start();
-      osc.stop(ctx.currentTime + 0.04);
+      osc.stop(ctx.currentTime + 0.05);
     } catch (e) {
-      console.warn("Audio error:", e);
+      console.warn("Audio play error:", e);
     }
   }
 
@@ -51,14 +66,16 @@ const CyberAudio = (() => {
     if (!ctx) return;
 
     try {
+      if (ctx.state === 'suspended') ctx.resume();
+
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
 
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(250, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.12);
+      osc.frequency.setValueAtTime(300, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1400, ctx.currentTime + 0.12);
 
-      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
 
       osc.connect(gain);
@@ -67,7 +84,7 @@ const CyberAudio = (() => {
       osc.start();
       osc.stop(ctx.currentTime + 0.12);
     } catch (e) {
-      console.warn("Audio error:", e);
+      console.warn("Audio play error:", e);
     }
   }
 
@@ -77,22 +94,24 @@ const CyberAudio = (() => {
     if (!ctx) return;
 
     try {
+      if (ctx.state === 'suspended') ctx.resume();
+
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
 
       osc.type = 'square';
-      osc.frequency.setValueAtTime(600 + Math.random() * 200, ctx.currentTime);
+      osc.frequency.setValueAtTime(650 + Math.random() * 250, ctx.currentTime);
 
-      gain.gain.setValueAtTime(0.03, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.03);
 
       osc.connect(gain);
       gain.connect(ctx.destination);
 
       osc.start();
-      osc.stop(ctx.currentTime + 0.02);
+      osc.stop(ctx.currentTime + 0.03);
     } catch (e) {
-      console.warn("Audio error:", e);
+      console.warn("Audio play error:", e);
     }
   }
 
@@ -102,29 +121,32 @@ const CyberAudio = (() => {
     if (!ctx) return;
 
     try {
+      if (ctx.state === 'suspended') ctx.resume();
+
       const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.06);
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.07);
 
-        gain.gain.setValueAtTime(0.06, ctx.currentTime + idx * 0.06);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.06 + 0.25);
+        gain.gain.setValueAtTime(0.18, ctx.currentTime + idx * 0.07);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.07 + 0.28);
 
         osc.connect(gain);
         gain.connect(ctx.destination);
 
-        osc.start(ctx.currentTime + idx * 0.06);
-        osc.stop(ctx.currentTime + idx * 0.06 + 0.25);
+        osc.start(ctx.currentTime + idx * 0.07);
+        osc.stop(ctx.currentTime + idx * 0.07 + 0.28);
       });
     } catch (e) {
-      console.warn("Audio error:", e);
+      console.warn("Audio play error:", e);
     }
   }
 
   function toggleMute() {
+    unlockAudio();
     isMuted = !isMuted;
     localStorage.setItem('cyber_audio_muted', isMuted);
     updateAudioBtnUI();
@@ -152,6 +174,11 @@ const CyberAudio = (() => {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Reset any muted localStorage state to unmuted default if not explicitly set
+    if (localStorage.getItem('cyber_audio_muted') === null) {
+      isMuted = false;
+      localStorage.setItem('cyber_audio_muted', 'false');
+    }
     updateAudioBtnUI();
     const btn = document.getElementById('btn-audio-toggle');
     if (btn) {
