@@ -1,12 +1,8 @@
-/* --- CLEAN URL HANDLER: Removes .html and index.html from URL address bar --- */
-(function cleanUrlHandler() {
+/* --- CLEAN URL HANDLER: Removes index.html from URL address bar --- */
+(function cleanIndexUrl() {
   if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
-    let path = window.location.pathname;
-    if (path.endsWith('/index.html') || path === '/index.html') {
-      const cleanPath = path.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
-      window.history.replaceState(null, '', cleanPath);
-    } else if (path.endsWith('.html')) {
-      const cleanPath = path.replace(/\.html$/, '') + window.location.search + window.location.hash;
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
+      const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
       window.history.replaceState(null, '', cleanPath);
     }
   }
@@ -222,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.onclick = (e) => {
         const targetHref = link.getAttribute('href');
-        if (!targetHref || !targetHref.startsWith('#') || targetHref === '#') return;
+        if (!targetHref || targetHref === '#' || targetHref.includes('.html')) return;
 
         const targetEl = document.querySelector(targetHref);
         if (targetEl) {
@@ -525,10 +521,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const passArg = parts[1] || '';
 
         if (mainCmd === 'pro') {
-          window.location.href = 'professional';
+          window.location.href = 'professional.html';
           return;
         } else if (mainCmd === 'personal') {
-          window.location.href = 'personal';
+          window.location.href = 'personal.html';
           return;
         }
 
