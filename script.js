@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- PHONE & WHATSAPP PIN ENCRYPTION ENGINE (PIN: 9749933211) ---
-  const PHONE_ENCRYPTED_DATA = "BVNdTxlQX1NCQgQVQVdVXFBZVFUUVVVdXlYeQF5GGwk+GRkPQEJQXxlUWFhKQA4QWURdGlZYXVRWElZDXFJaFElGX0FUEwcLXRlaX1JBQgwbUVUUSlxfW1URX1YZWlBBUF5UHFpfUVpSEQ0OHlgHF3d2d2dycWUReHR3fGpgE2d/fXZ0f3x9DxxBQVBXCT4FFldaRA87BVNdTxlQX1NCQgQVQVdVXFBZVFUUVFtXTVJQRhxYV1FbGwc5ExINQQcLR01LXF1VDw1QF1dVWEBADxNXWBpHVlVaVxJXUBRHXFZXVhNGVElNGlVaWlZdRhMPBRhdBxl3WkBUUk0XZFFWXVYIDR5KQ0ZWV1QNEg1QGV9GXF8OEUZUXQMcDQ4OCgQGCAgKBAYICBETUV1QSkQJG1xeUltdHFVeWlIZW1pVWV1QUFxNGw0YCwYGGQ4DDQAKAAEDAAgLG1gHDxxCDzsZFwhJBw9ARkNeV1AKBVATUF5QQkoKFl9YHlFAUF9dRBRfWB5EWlBFSlZESRlHVkpFHF5FUVxXEQ0OHlgHF2NRWEdAc0FBGXRcWE0JDx1CRUtYWl4HEw9TEVlLUlIEG1tHRkFCAxgbTlgdXlceXFxER1heVhx1YwcPbWdpaHIAZmdyCAhHS1oOQkATEU1WRl5cRw4QblNVVlpSGxNBV10MG1lbVklWXVdDEVdYRlxfVkFAVEMbF1dVWEBADxNSQFVRSxRRR1wRQlZUXVhVHlBaWEEZQFxYTUBSQkERSloUVFhBVFtfHE1YRBQMEQ0OWBFaW1VKSg4RVFAcW0VVV11AE1RQHE5fVU1KUkNCEw8FGF0HGX5WQUJQXlIUVlcTZFpQRUp2REkFHFIMDR5JCT4FFldaRA8=";
+  const PHONE_ENCRYPTED_DATA = "BVNdTxlQX1NCQgQVQVdVXFBZVFUUVVVdXlYeQF5GGwk+GRkPQEJQXxlUWFhKQA4QWURdGlZYXVRWElZDXFJaFElGX0FUEwcLXRlaX1JBQgwbUVUUSlxfW1URX1YZWlBBUF5UHFpfUVpSEQ0OHlgHF3d2d2dycWUReHR3fGpgE2d/fXZ0f3x9DxxBQVBXCT4FFldaRA87BVNdTxlQX1NCQgQVQVdVXFBZVFUUVFtXTVJQRhxYV1FbGwc5ExINQQcLR01LXF1VDw1QF1dVWEBADxNXWBpHVlVaVxJXUBRHXFZXVhNGVElNGlVaWlZdRhMPBRhdBxl3WkBUUk0XZFFWXVYIDR5KQ0ZWV1QNEg1QGV9GXF8OEUZUXQMcDQ4OCgQGCAgKBAYICBETUV1QSkQJG1xeUltdHFVeWlIZW1pVWV1QUFxNGw0YCwYGGQ4DDQAKAAEDAAgLG1gHDxxCDzsZFwhJBw9ARkNeV1AKBVATUF5QQkoKFl9YHlFAUF9dRBRfWB5EWlBFSlZESRlHVkpFHF5FUVxXEQ0OHlgHF2NRWEdAc0FBGXRcWE0JDx1CRUtYWl4HEw9TEVlLUlIEG1tHRkFCAxgbTlgdXlceXFxER1heVhx1YwcPbWdpaHIAZmdyCAhHS1oOQkATEUBTCRtMXV9dUlpcUxlOWB5fW19aGxdAWEtUVkYME2ZVWFhXWBESQ1RVChZXVlxDV19USxdaVktWVVdDQ1xFFhlaX1JBQgwbVE1bXEEeUEVfGURbWlBSXx9SWVBHFE5RUkdBUEFJF0dUGV5SQFZYVxpAVkkeBhAPDVAXV1VYQEAPE1dYGlZLWF1XQRFXWBpDUVhHQFNBQRsJCBZQDRN/VEJKVlNcGVxdEmZZWENHeElDDx1QDwUYRAczDxxWWEcH";
 
   function attemptUnlockPhone(providedPin) {
     const inputEl = document.getElementById('phone-pin-input');
@@ -403,37 +403,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (unlockedCard) {
         unlockedCard.style.display = 'block';
         const decrypted = decryptClassifiedVault(PHONE_ENCRYPTED_DATA, pin);
-        unlockedCard.innerHTML = decrypted || `
-          <div class="unlocked-badge-row">
-            <span class="hud-badge green-pulse"><i class="fa-solid fa-circle-check"></i> CONTACT ACCESS UNLOCKED</span>
-          </div>
-          <div class="unlocked-contact-info">
-            <p><strong><i class="fa-solid fa-phone text-accent"></i> Direct Phone:</strong> <a href="tel:+9779749933211" class="email-link highlight">+977 9749933211</a></p>
-            <p><strong><i class="fa-brands fa-whatsapp text-green"></i> WhatsApp Chat:</strong> <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="cyber-btn social-chip whatsapp sm margin-top-5"><i class="fa-brands fa-whatsapp"></i> Message on WhatsApp</a></p>
-          </div>
-        `;
+        unlockedCard.innerHTML = decrypted || '';
+
+        const unlockedWaEl = unlockedCard.querySelector('#unlocked-wa-link');
+        const unlockedWaUrl = unlockedWaEl ? unlockedWaEl.href : '#';
+
+        // Update floating WhatsApp button
+        const floatWaBtn = document.getElementById('float-whatsapp-btn');
+        if (floatWaBtn && unlockedWaUrl !== '#') {
+          floatWaBtn.href = unlockedWaUrl;
+          floatWaBtn.target = "_blank";
+          floatWaBtn.title = "Chat on WhatsApp";
+        }
+
+        // Update social whatsapp chip
+        const socialWaChip = document.getElementById('social-whatsapp-chip');
+        if (socialWaChip && unlockedWaUrl !== '#') {
+          socialWaChip.href = unlockedWaUrl;
+          socialWaChip.target = "_blank";
+          socialWaChip.innerHTML = `<i class="fa-brands fa-whatsapp"></i> WhatsApp`;
+        }
       }
 
       // Update hero phone pill if present
       const heroPhoneVal = document.getElementById('hero-phone-val');
       if (heroPhoneVal) {
         heroPhoneVal.innerHTML = `<a href="tel:+9779749933211" class="email-link">+977 9749933211</a>`;
-      }
-
-      // Update floating WhatsApp button
-      const floatWaBtn = document.getElementById('float-whatsapp-btn');
-      if (floatWaBtn) {
-        floatWaBtn.href = "https://wa.me/message/GR66ZSPQA3TVC1?src=qr";
-        floatWaBtn.target = "_blank";
-        floatWaBtn.title = "Chat on WhatsApp";
-      }
-
-      // Update social whatsapp chip
-      const socialWaChip = document.getElementById('social-whatsapp-chip');
-      if (socialWaChip) {
-        socialWaChip.href = "https://wa.me/message/GR66ZSPQA3TVC1?src=qr";
-        socialWaChip.target = "_blank";
-        socialWaChip.innerHTML = `<i class="fa-brands fa-whatsapp"></i> WhatsApp`;
       }
 
       if (errorEl) errorEl.textContent = '';
@@ -530,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const testPin = passArg || (mainCmd === '9749933211' ? '9749933211' : '');
           if (testPin === '9749933211' || attemptUnlockPhone(testPin)) {
             attemptUnlockPhone('9749933211');
-            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00ff66;font-weight:bold;">[CONTACT UNLOCKED — PIN VERIFIED]</span><br>Phone: +977 9749933211 | WhatsApp: https://wa.me/message/GR66ZSPQA3TVC1?src=qr`;
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00ff66;font-weight:bold;">[CONTACT UNLOCKED — PIN VERIFIED]</span><br>Phone & WhatsApp Unlocked! View details in the Contact section.`;
           } else {
             line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[CONTACT RESTRICTED] Enter PIN e.g.: '${mainCmd} <PIN>' or enter authorization PIN in the contact section.</span>`;
           }

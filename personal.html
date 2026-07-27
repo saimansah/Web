@@ -15,7 +15,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -283,41 +283,44 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT & DIRECT CONNECT SECTION -->
     <section id="contact" class="section-card reveal-on-scroll">
       <div class="section-title">
         <span class="section-tag">GET IN TOUCH</span>
-        <h2>Contact Saiman Sah</h2>
+        <h2>Contact & Direct Connect</h2>
       </div>
 
       <div class="contact-box">
         <div class="contact-info">
-          <div class="c-item">
+          <!-- CARD 1: LOCATION -->
+          <div class="c-item border-beam-box">
             <i class="fa-solid fa-location-dot"></i>
             <div>
-              <strong>Location:</strong>
-              <p>Nepal</p>
+              <strong>Base Location</strong>
+              <p class="email-link highlight">Nepal 🇳🇵</p>
             </div>
           </div>
 
-          <div class="c-item">
+          <!-- CARD 2: OFFICIAL EMAIL -->
+          <div class="c-item border-beam-box">
             <i class="fa-solid fa-envelope"></i>
             <div>
-              <strong>Email:</strong>
-              <p><a href="mailto:me@saimansah.com.np" class="email-link">me@saimansah.com.np</a></p>
+              <strong>Official Email</strong>
+              <p><a href="mailto:me@saimansah.com.np" class="email-link highlight">me@saimansah.com.np</a></p>
             </div>
           </div>
 
+          <!-- CARD 3: PHONE & WHATSAPP (PIN RESTRICTED) -->
           <div class="c-item phone-lock-card-box border-beam-box">
             <i class="fa-solid fa-user-shield text-pink"></i>
             <div class="phone-lock-details">
-              <strong>Phone & WhatsApp (PIN Restricted):</strong>
+              <strong>Phone & WhatsApp (PIN Restricted)</strong>
               <div id="phone-lock-form-wrap" class="phone-lock-form-wrap">
-                <p class="lock-hint-sm">Enter Phone number to reveal Phone & WhatsApp details.</p>
+                <p class="lock-hint-sm">Enter Saiman's Phone number to reveal Phone & WhatsApp contact.</p>
                 <div class="pin-input-group">
-                  <input type="password" id="phone-pin-input" placeholder="Enter PIN..." autocomplete="off">
-                  <button id="btn-phone-unlock" class="cyber-btn primary sm"><i class="fa-solid fa-key"></i>
-                    Reveal</button>
+                  <input type="password" id="phone-pin-input" placeholder="Enter Phone Number of Saiman"
+                    autocomplete="off">
+                  <button id="btn-phone-unlock" class="cyber-btn primary sm"><i class="fa-solid fa-key"></i> Reveal</button>
                 </div>
                 <div id="phone-pin-error" class="vault-error-msg"></div>
               </div>
@@ -325,10 +328,11 @@
             </div>
           </div>
 
-          <div class="c-item">
+          <!-- CARD 4: SOCIAL MEDIA NETWORK -->
+          <div class="c-item border-beam-box">
             <i class="fa-solid fa-share-nodes"></i>
             <div>
-              <strong>Social Media:</strong>
+              <strong>Social Network Hub</strong>
               <div class="contact-social-links">
                 <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer"
                   class="social-chip facebook">
@@ -352,16 +356,6 @@
             </div>
           </div>
         </div>
-
-        <form id="simple-contact-form" class="contact-form">
-          <input type="text" id="input-name" required placeholder="Your Name">
-          <input type="email" id="input-email" required placeholder="Your Email">
-          <textarea id="input-msg" rows="4" required placeholder="Your Message"></textarea>
-          <button type="submit" class="cyber-btn primary">
-            <i class="fa-solid fa-paper-plane"></i> <span>Send Message</span>
-          </button>
-          <div id="form-response"></div>
-        </form>
       </div>
     </section>
 
@@ -370,7 +364,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-content">
-      <p>&copy; 2026 Saiman Sah. All Rights Reserved. | Nepal 🇳🇵</p>
+      <p>&copy; 2026 Saiman Sah. All Rights Reserved. Designed by Saiman Sah | Nepal 🇳🇵</p>
       <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
       <div class="footer-socials">
         <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
@@ -437,7 +431,6 @@
   <a href="#contact" id="float-whatsapp-btn" class="whatsapp-float-btn"
     title="PIN Protected — Click to Unlock Phone & WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
-    <span>WhatsApp</span>
   </a>
 
   <script src="audio.js"></script>
