@@ -16,11 +16,17 @@
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <!-- Clean URL script (removes index.html from URL bar) -->
+  <!-- Clean URL script (removes .html and index.html from URL bar) -->
   <script>
-    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
-      history.replaceState(null, '', window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash);
-    }
+    (function() {
+      if (!window.history || !window.history.replaceState) return;
+      var path = window.location.pathname;
+      if (path.endsWith('/index.html') || path === '/index.html') {
+        history.replaceState(null, '', path.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash);
+      } else if (path.endsWith('.html')) {
+        history.replaceState(null, '', path.replace(/\.html$/, '') + window.location.search + window.location.hash);
+      }
+    })();
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -90,7 +96,7 @@
 
       <div class="gateway-options-grid">
         <!-- OPTION 1: PROFESSIONAL PORTFOLIO -->
-        <a href="professional.html" class="gateway-option-card" data-tilt>
+        <a href="professional" class="gateway-option-card" data-tilt>
           <div class="opt-icon-circle pro float-anim">
             <i class="fa-solid fa-briefcase"></i>
           </div>
@@ -103,7 +109,7 @@
         </a>
 
         <!-- OPTION 2: PERSONAL LIFE & GAMING -->
-        <a href="personal.html" class="gateway-option-card" data-tilt>
+        <a href="personal" class="gateway-option-card" data-tilt>
           <div class="opt-icon-circle personal float-anim">
             <i class="fa-solid fa-gamepad"></i>
           </div>
