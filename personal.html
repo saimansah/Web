@@ -308,20 +308,20 @@
             </div>
           </div>
 
-          <div class="c-item">
-            <i class="fa-solid fa-phone"></i>
-            <div>
-              <strong>Phone:</strong>
-              <p><a href="tel:+9779749933211" class="email-link">+977 9749933211</a></p>
-            </div>
-          </div>
-
-          <div class="c-item">
-            <i class="fa-brands fa-whatsapp"></i>
-            <div>
-              <strong>WhatsApp:</strong>
-              <p><a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
-                  class="email-link">Message on WhatsApp</a></p>
+          <div class="c-item phone-lock-card-box border-beam-box">
+            <i class="fa-solid fa-user-shield text-pink"></i>
+            <div class="phone-lock-details">
+              <strong>Phone & WhatsApp (PIN Restricted):</strong>
+              <div id="phone-lock-form-wrap" class="phone-lock-form-wrap">
+                <p class="lock-hint-sm">Enter Phone number to reveal Phone & WhatsApp details.</p>
+                <div class="pin-input-group">
+                  <input type="password" id="phone-pin-input" placeholder="Enter PIN..." autocomplete="off">
+                  <button id="btn-phone-unlock" class="cyber-btn primary sm"><i class="fa-solid fa-key"></i>
+                    Reveal</button>
+                </div>
+                <div id="phone-pin-error" class="vault-error-msg"></div>
+              </div>
+              <div id="phone-unlocked-card" class="phone-unlocked-card" style="display:none;"></div>
             </div>
           </div>
 
@@ -345,9 +345,8 @@
                   class="social-chip threads">
                   <i class="fa-brands fa-threads"></i> Threads
                 </a>
-                <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
-                  class="social-chip whatsapp">
-                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                <a href="#contact" id="social-whatsapp-chip" class="social-chip whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp <i class="fa-solid fa-lock lock-icon-mini"></i>
                 </a>
               </div>
             </div>
@@ -435,8 +434,8 @@
   </div>
 
   <!-- FLOATING HOVERING WHATSAPP BUTTON -->
-  <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer"
-    class="whatsapp-float-btn" title="Chat on WhatsApp">
+  <a href="#contact" id="float-whatsapp-btn" class="whatsapp-float-btn"
+    title="PIN Protected — Click to Unlock Phone & WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
     <span>WhatsApp</span>
   </a>

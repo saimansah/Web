@@ -388,6 +388,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- PHONE & WHATSAPP PIN ENCRYPTION ENGINE (PIN: 9749933211) ---
+  const PHONE_ENCRYPTED_DATA = "BVNdTxlQX1NCQgQVQVdVXFBZVFUUVVVdXlYeQF5GGwk+GRkPQEJQXxlUWFhKQA4QWURdGlZYXVRWElZDXFJaFElGX0FUEwcLXRlaX1JBQgwbUVUUSlxfW1URX1YZWlBBUF5UHFpfUVpSEQ0OHlgHF3d2d2dycWUReHR3fGpgE2d/fXZ0f3x9DxxBQVBXCT4FFldaRA87BVNdTxlQX1NCQgQVQVdVXFBZVFUUVFtXTVJQRhxYV1FbGwc5ExINQQcLR01LXF1VDw1QF1dVWEBADxNXWBpHVlVaVxJXUBRHXFZXVhNGVElNGlVaWlZdRhMPBRhdBxl3WkBUUk0XZFFWXVYIDR5KQ0ZWV1QNEg1QGV9GXF8OEUZUXQMcDQ4OCgQGCAgKBAYICBETUV1QSkQJG1xeUltdHFVeWlIZW1pVWV1QUFxNGw0YCwYGGQ4DDQAKAAEDAAgLG1gHDxxCDzsZFwhJBw9ARkNeV1AKBVATUF5QQkoKFl9YHlFAUF9dRBRfWB5EWlBFSlZESRlHVkpFHF5FUVxXEQ0OHlgHF2NRWEdAc0FBGXRcWE0JDx1CRUtYWl4HEw9TEVlLUlIEG1tHRkFCAxgbTlgdXlceXFxER1heVhx1YwcPbWdpaHIAZmdyCAhHS1oOQkATEU1WRl5cRw4QblNVVlpSGxNBV10MG1lbVklWXVdDEVdYRlxfVkFAVEMbF1dVWEBADxNSQFVRSxRRR1wRQlZUXVhVHlBaWEEZQFxYTUBSQkERSloUVFhBVFtfHE1YRBQMEQ0OWBFaW1VKSg4RVFAcW0VVV11AE1RQHE5fVU1KUkNCEw8FGF0HGX5WQUJQXlIUVlcTZFpQRUp2REkFHFIMDR5JCT4FFldaRA8=";
+
+  function attemptUnlockPhone(providedPin) {
+    const inputEl = document.getElementById('phone-pin-input');
+    const pin = providedPin || (inputEl ? inputEl.value.trim() : '');
+    const errorEl = document.getElementById('phone-pin-error');
+    const formWrap = document.getElementById('phone-lock-form-wrap');
+    const unlockedCard = document.getElementById('phone-unlocked-card');
+
+    if (pin === "9749933211") {
+      if (formWrap) formWrap.style.display = 'none';
+      if (unlockedCard) {
+        unlockedCard.style.display = 'block';
+        const decrypted = decryptClassifiedVault(PHONE_ENCRYPTED_DATA, pin);
+        unlockedCard.innerHTML = decrypted || `
+          <div class="unlocked-badge-row">
+            <span class="hud-badge green-pulse"><i class="fa-solid fa-circle-check"></i> CONTACT ACCESS UNLOCKED</span>
+          </div>
+          <div class="unlocked-contact-info">
+            <p><strong><i class="fa-solid fa-phone text-accent"></i> Direct Phone:</strong> <a href="tel:+9779749933211" class="email-link highlight">+977 9749933211</a></p>
+            <p><strong><i class="fa-brands fa-whatsapp text-green"></i> WhatsApp Chat:</strong> <a href="https://wa.me/message/GR66ZSPQA3TVC1?src=qr" target="_blank" rel="noopener noreferrer" class="cyber-btn social-chip whatsapp sm margin-top-5"><i class="fa-brands fa-whatsapp"></i> Message on WhatsApp</a></p>
+          </div>
+        `;
+      }
+
+      // Update hero phone pill if present
+      const heroPhoneVal = document.getElementById('hero-phone-val');
+      if (heroPhoneVal) {
+        heroPhoneVal.innerHTML = `<a href="tel:+9779749933211" class="email-link">+977 9749933211</a>`;
+      }
+
+      // Update floating WhatsApp button
+      const floatWaBtn = document.getElementById('float-whatsapp-btn');
+      if (floatWaBtn) {
+        floatWaBtn.href = "https://wa.me/message/GR66ZSPQA3TVC1?src=qr";
+        floatWaBtn.target = "_blank";
+        floatWaBtn.title = "Chat on WhatsApp";
+      }
+
+      // Update social whatsapp chip
+      const socialWaChip = document.getElementById('social-whatsapp-chip');
+      if (socialWaChip) {
+        socialWaChip.href = "https://wa.me/message/GR66ZSPQA3TVC1?src=qr";
+        socialWaChip.target = "_blank";
+        socialWaChip.innerHTML = `<i class="fa-brands fa-whatsapp"></i> WhatsApp`;
+      }
+
+      if (errorEl) errorEl.textContent = '';
+      if (window.CyberAudio) CyberAudio.playUnlockSuccess();
+      return true;
+    } else {
+      if (errorEl) {
+        errorEl.textContent = 'ACCESS DENIED — INVALID PIN';
+        errorEl.classList.add('shake');
+        setTimeout(() => errorEl.classList.remove('shake'), 500);
+      }
+      return false;
+    }
+  }
+
+  const btnPhoneUnlock = document.getElementById('btn-phone-unlock');
+  const phonePinInput = document.getElementById('phone-pin-input');
+  if (btnPhoneUnlock) btnPhoneUnlock.addEventListener('click', () => attemptUnlockPhone());
+  if (phonePinInput) {
+    phonePinInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') attemptUnlockPhone();
+    });
+  }
+
+
   // --- TERMINAL MODAL ---
   const terminalModal = document.getElementById('terminal-modal');
   const btnTerminalOpen = document.getElementById('btn-terminal-open');
@@ -410,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnTerminalClose) btnTerminalClose.addEventListener('click', closeTerminal);
 
   const COMMANDS = {
-    'help': 'Commands: pro, personal, about, exp, opsec, classified, vault, proverb, social, cars, gaming, skills, education, contact, clear',
+    'help': 'Commands: pro, personal, about, exp, opsec, classified, vault, phone, whatsapp, proverb, social, cars, gaming, skills, education, contact, clear',
     'pro': 'Navigating to Professional Portfolio (professional.html)...',
     'personal': 'Navigating to Personal Life & Gaming (personal.html)...',
     'about': 'Saiman Sah — Developer | Ethical Hacker | Cybersecurity Researcher based in Nepal.',
@@ -418,6 +489,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'opsec': '[OPERATIONAL SECURITY] Anonymized digital footprint, encrypted communication channels & secure infrastructure.',
     'classified': 'Type "classified Professional@DNI" to unlock Restricted Vault directly, or use the Classified Vault button in the header.',
     'vault': 'Type "vault Professional@DNI" to unlock Restricted Vault directly.',
+    'phone': 'Type "phone <PIN>" to unlock & reveal direct phone number and WhatsApp.',
+    'whatsapp': 'Type "whatsapp <PIN>" to unlock & reveal direct WhatsApp link.',
     'dni': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
     'odni': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
     'ctiic': 'Type "classified Professional@DNI" to unlock Restricted Vault directly.',
@@ -427,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'gaming': 'PC: GTA V (3x), RDR 2 (2x), Hitman 3, COD Series. Console: PS5 Gamer',
     'skills': 'Software Dev & Debugging, Cybersecurity & Ethical Hacking, Core Leadership.',
     'education': '+2 Science / Computer Science (Completed), SEE (Completed)',
-    'contact': 'Location: Nepal | Email: me@saimansah.com.np | Phone: +977 9749933211 | Socials: FB, IG, X, Threads'
+    'contact': 'Location: Nepal | Email: me@saimansah.com.np | Phone & WhatsApp: [RESTRICTED PIN ACCESS — Type "phone <PIN>" in terminal]'
   };
 
   if (termInput && termOutput) {
@@ -450,6 +523,19 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         } else if (mainCmd === 'personal') {
           window.location.href = 'personal.html';
+          return;
+        }
+
+        if (mainCmd === 'phone' || mainCmd === 'whatsapp' || mainCmd === 'call' || mainCmd === '9749933211') {
+          const testPin = passArg || (mainCmd === '9749933211' ? '9749933211' : '');
+          if (testPin === '9749933211' || attemptUnlockPhone(testPin)) {
+            attemptUnlockPhone('9749933211');
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00ff66;font-weight:bold;">[CONTACT UNLOCKED — PIN VERIFIED]</span><br>Phone: +977 9749933211 | WhatsApp: https://wa.me/message/GR66ZSPQA3TVC1?src=qr`;
+          } else {
+            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[CONTACT RESTRICTED] Enter PIN e.g.: '${mainCmd} <PIN>' or enter authorization PIN in the contact section.</span>`;
+          }
+          termOutput.appendChild(line);
+          termOutput.scrollTop = termOutput.scrollHeight;
           return;
         }
 

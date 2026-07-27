@@ -2372,3 +2372,102 @@ body.modal-open {
   text-align: center;
   margin-top: 20px;
 }
+
+/* PHONE & WHATSAPP PIN UNLOCK STYLES */
+.phone-lock-card-box {
+  background: rgba(18, 26, 43, 0.85);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phone-lock-details {
+  flex: 1;
+}
+
+.lock-hint-sm {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+
+.pin-input-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  max-width: 420px;
+}
+
+.pin-input-group input {
+  flex: 1;
+  padding: 8px 14px;
+  background: rgba(11, 15, 25, 0.9);
+  border: 1px solid rgba(0, 243, 255, 0.4);
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.pin-input-group input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+}
+
+.phone-unlocked-card {
+  padding-top: 8px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.unlocked-badge-row {
+  margin-bottom: 10px;
+}
+
+.unlocked-contact-info p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.pill-unlock-link {
+  color: #ff0055;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.pill-unlock-link:hover {
+  transform: scale(1.2);
+}
+
+/* ENHANCED ANIMATIONS & GRAPHICS */
+@keyframes borderBeam {
+  0% { border-color: rgba(0, 243, 255, 0.3); box-shadow: 0 0 10px rgba(0, 243, 255, 0.1); }
+  50% { border-color: rgba(0, 243, 255, 0.85); box-shadow: 0 0 25px rgba(0, 243, 255, 0.45); }
+  100% { border-color: rgba(0, 243, 255, 0.3); box-shadow: 0 0 10px rgba(0, 243, 255, 0.1); }
+}
+
+.border-beam-box {
+  animation: borderBeam 4s infinite ease-in-out;
+}
+
+.cyber-hud-card:hover, .stat-counter-card:hover, .avatar-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 243, 255, 0.25);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.s-logo-top-badge {
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.s-logo-top-badge:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 35px rgba(0, 243, 255, 0.9);
+}
