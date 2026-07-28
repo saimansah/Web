@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < raw.length; i++) {
         str += String.fromCharCode(raw.charCodeAt(i) ^ key.charCodeAt(i % key.length));
       }
-      if (str.includes('classified-vault-header')) {
+      if (str.includes('classified-vault-header') || str.includes('unlocked-badge-row') || str.includes('unlocked-contact-info')) {
         return str;
       }
       return null;
@@ -395,37 +395,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- PHONE & WHATSAPP PIN ENCRYPTION ENGINE (PIN: 9749933211) ---
-  const PHONE_ENCRYPTED_DATA = "BVNdTxlQX1NCQgQVQVdVXFBZVFUUVVVdXlYeQF5GGwk+GRkPQEJQXxlUWFhKQA4QWURdGlZYXVRWElZDXFJaFElGX0FUEwcLXRlaX1JBQgwbUVUUSlxfW1URX1YZWlBBUF5UHFpfUVpSEQ0OHlgHF3d2d2dycWUReHR3fGpgE2d/fXZ0f3x9DxxBQVBXCT4FFldaRA87BVNdTxlQX1NCQgQVQVdVXFBZVFUUVFtXTVJQRhxYV1FbGwc5ExINQQcLR01LXF1VDw1QF1dVWEBADxNXWBpHVlVaVxJXUBRHXFZXVhNGVElNGlVaWlZdRhMPBRhdBxl3WkBUUk0XZFFWXVYIDR5KQ0ZWV1QNEg1QGV9GXF8OEUZUXQMcDQ4OCgQGCAgKBAYICBETUV1QSkQJG1xeUltdHFVeWlIZW1pVWV1QUFxNGw0YCwYGGQ4DDQAKAAEDAAgLG1gHDxxCDzsZFwhJBw9ARkNeV1AKBVATUF5QQkoKFl9YHlFAUF9dRBRfWB5EWlBFSlZESRlHVkpFHF5FUVxXEQ0OHlgHF2NRWEdAc0FBGXRcWE0JDx1CRUtYWl4HEw9TEVlLUlIEG1tHRkFCAxgbTlgdXlceXFxER1heVhx1YwcPbWdpaHIAZmdyCAhHS1oOQkATEUBTCRtMXV9dUlpcUxlOWB5fW19aGxdAWEtUVkYME2ZVWFhXWBESQ1RVChZXVlxDV19USxdaVktWVVdDQ1xFFhlaX1JBQgwbVE1bXEEeUEVfGURbWlBSXx9SWVBHFE5RUkdBUEFJF0dUGV5SQFZYVxpAVkkeBhAPDVAXV1VYQEAPE1dYGlZLWF1XQRFXWBpDUVhHQFNBQRsJCBZQDRN/VEJKVlNcGVxdEmZZWENHeElDDx1QDwUYRAczDxxWWEcH";
+  const PHONE_ENCRYPTED_DATA = "BVNdTxlQX1NCQgQVQVdVXFBZVFUUVVVdXlYeQF5GGwk+GRkPQEJQXxlUWFhKQA4QWURdGlZYXVRWElZDXFJaFElGX0FUEwcLXRlaX1JBQgwbUVUUSlxfW1URX1YZWlBBUF5UHFpfUVpSEQ0OHlgHF3d2d2dycWUReHR3fGpgE2d/fXZ0f3x9DxxBQVBXCT4FFldaRA87BVNdTxlQX1NCQgQVQVdVXFBZVFUUVFtXTVJQRhxYV1FbGwc5ExINQQcLR01LXF1VDw1QF1dVWEBADxNXWBpHVlVaVxJXUBRHXFZXVhNGVElNGlVaWlZdRhMPBRhdBxl3WkBUUk0XZFFWXVYIDR5KQ0ZWV1QNEg1QGV9GXF8OEUZUXQMcDQ4OCgQGCAgKBAYICBETUV1QSkQJG1xeUltdHFVeWlIZW1pVWV1QUFxNGw0YCwYGGQ4DDQAKAAEDAAgLG1gHDxxCDzsZFwhdUEUTQUVIVVIJG1RSQVVYXxRDW0kDEwICQUkCFQozGRMTEg1QGV9GXF8OEVpFRUlEDhYWRFIcXFQWWlFKSlJUVx52awECY2pjYnMCZW90BQZKQVAPQEMbF11dBBFGXF1eWlxRXRREUh9dWFdcFhlNUkFVVEUEFWtbVVJdWRMRS1JYBBtdXF1BVFdSRhlXXEFXV1RLRVFLGxNQXlBCSgoWWkBRVkAcU01ZFEpWUFpTXRxaX11JGURbU0VCWEdEGUpeEQwNWBlUWFhKQA4QV1AUVUZYV1dAEldQFEBcWE1AUkJBEwcLG1AHE3BaUEUZWFoZbltSRkJwSUcIFlgNORIRDRZTXU8HOQ8dVVhPCQ==";
 
   function attemptUnlockPhone(providedPin) {
     const inputEl = document.getElementById('phone-pin-input');
-    const pin = providedPin || (inputEl ? inputEl.value.trim() : '');
+    const rawPin = providedPin || (inputEl ? inputEl.value.trim() : '');
+    const cleanPin = rawPin.replace(/\D/g, '');
     const errorEl = document.getElementById('phone-pin-error');
     const formWrap = document.getElementById('phone-lock-form-wrap');
     const unlockedCard = document.getElementById('phone-unlocked-card');
 
-    if (pin === "9749933211") {
+    if (cleanPin === "9749933211" || cleanPin.endsWith("9749933211") || rawPin === "9749933211") {
+      const targetPin = "9749933211";
       if (formWrap) formWrap.style.display = 'none';
       if (unlockedCard) {
         unlockedCard.style.display = 'block';
-        const decrypted = decryptClassifiedVault(PHONE_ENCRYPTED_DATA, pin);
+        const decrypted = decryptClassifiedVault(PHONE_ENCRYPTED_DATA, targetPin);
         unlockedCard.innerHTML = decrypted || '';
 
-        const unlockedWaEl = unlockedCard.querySelector('#unlocked-wa-link');
-        const unlockedWaUrl = unlockedWaEl ? unlockedWaEl.href : '#';
+        const waUrl = "https://wa.me/message/GR66ZSPQA3TVC1?src=qr";
 
         // Update floating WhatsApp button
         const floatWaBtn = document.getElementById('float-whatsapp-btn');
-        if (floatWaBtn && unlockedWaUrl !== '#') {
-          floatWaBtn.href = unlockedWaUrl;
+        if (floatWaBtn) {
+          floatWaBtn.href = waUrl;
           floatWaBtn.target = "_blank";
           floatWaBtn.title = "Chat on WhatsApp";
         }
 
         // Update social whatsapp chip
         const socialWaChip = document.getElementById('social-whatsapp-chip');
-        if (socialWaChip && unlockedWaUrl !== '#') {
-          socialWaChip.href = unlockedWaUrl;
+        if (socialWaChip) {
+          socialWaChip.href = waUrl;
           socialWaChip.target = "_blank";
           socialWaChip.innerHTML = `<i class="fa-brands fa-whatsapp"></i> WhatsApp`;
         }
