@@ -751,10 +751,404 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('spec-val-accel').textContent = data.accel;
             document.getElementById('spec-lbl-accel').textContent = data.lblAccel;
             panel.style.opacity = '1';
+
+            // Sync Accelerator Simulator vehicle target
+            if (window.setSimulatorVehicle) {
+              window.setSimulatorVehicle(carKey);
+            }
           }, 150);
         }
       });
     });
+  }
+
+  // --- 4.1 INTERACTIVE ACCELERATOR & SPEEDOMETER SIMULATOR LOGIC ---
+  const pedalBtn = document.getElementById('accelerator-pedal');
+  if (pedalBtn) {
+    let currentSpeed = 0;
+    let targetTopSpeed = 130; // BYD Atto 3 default record
+    let currentVehicle = 'atto3';
+    let driveMode = 'sport';
+    let isAccelerating = false;
+    let topSpeedTriggered = false;
+    let animFrameId = null;
+
+    const speedValEl = document.getElementById('sim-speed-val');
+    const carTagEl = document.getElementById('sim-car-tag');
+    const gaugeFillPath = document.getElementById('gauge-fill-path');
+    const rpmValEl = document.getElementById('sim-rpm-val');
+    const gearValEl = document.getElementById('sim-gear-val');
+    const pedalStatusEl = document.getElementById('pedal-status-text');
+    const topSpeedAlert = document.getElementById('top-speed-record-alert');
+    const tsRecordVal = document.getElementById('ts-record-val');
+    const tsRecordDesc = document.getElementById('ts-record-desc');
+    const modeBtns = document.querySelectorAll('.sim-mode-btn');
+    const hudTopSpeedBtn = document.getElementById('hud-top-speed-btn');
+
+    // Drive Mode selection
+    modeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        driveMode = btn.getAttribute('data-mode') || 'sport';
+        if (window.CyberAudio) CyberAudio.playClick();
+      });
+    });
+
+    // Expose vehicle switcher sync
+    window.setSimulatorVehicle = (carKey) => {
+      currentVehicle = carKey;
+      if (carKey === 'defender') {
+        targetTopSpeed = 191;
+        if (carTagEl) carTagEl.textContent = 'DEFENDER 110';
+        if (tsRecordVal) tsRecordVal.textContent = '191';
+        if (tsRecordDesc) tsRecordDesc.textContent = 'Maximum Vehicle Top Speed Capability on Land Rover Defender 110!';
+      } else {
+        targetTopSpeed = 130;
+        if (carTagEl) carTagEl.textContent = 'BYD ATTO 3';
+        if (tsRecordVal) tsRecordVal.textContent = '130';
+        if (tsRecordDesc) tsRecordDesc.textContent = 'Personal Maximum Top Speed Record Hit on BYD Atto 3 Highway Run!';
+      }
+      resetSpeedometer();
+    };
+
+    function resetSpeedometer() {
+      currentSpeed = 0;
+      topSpeedTriggered = false;
+      if (speedValEl) {
+        speedValEl.textContent = '0';
+        speedValEl.classList.remove('top-speed-flash');
+      }
+      if (topSpeedAlert) topSpeedAlert.classList.remove('active');
+      if (gaugeFillPath) gaugeFillPath.style.strokeDashoffset = '420';
+      if (rpmValEl) rpmValEl.textContent = '800 RPM';
+      if (gearValEl) gearValEl.textContent = 'IDLE (P)';
+      updateLEDs(0);
+      if (window.CyberAudio && window.CyberAudio.stopEngineRev) {
+        window.CyberAudio.stopEngineRev();
+      }
+    }
+
+    function getAccelStep() {
+      switch (driveMode) {
+        case 'eco': return 0.7;
+        case 'launch': return 2.6;
+        case 'sport':
+        default: return 1.4;
+      }
+    }
+
+    function updateLEDs(ratio) {
+      const activeCount = Math.floor(ratio * 8);
+      for (let i = 1; i <= 8; i++) {
+        const led = document.getElementById(`led-${i}`);
+        if (led) {
+          if (i <= activeCount) {
+            led.classList.add('active');
+          } else {
+            led.classList.remove('active');
+          }
+        }
+      }
+    }
+
+    function speedLoop() {
+      const step = getAccelStep();
+
+      if (isAccelerating) {
+        currentSpeed += step;
+        if (currentSpeed >= targetTopSpeed) {
+          currentSpeed = targetTopSpeed;
+          if (!topSpeedTriggered) {
+            topSpeedTriggered = true;
+            if (speedValEl) speedValEl.classList.add('top-speed-flash');
+            if (topSpeedAlert) topSpeedAlert.classList.add('active');
+            if (window.CyberAudio && window.CyberAudio.playTopSpeedChime) {
+              window.CyberAudio.playTopSpeedChime();
+            }
+          }
+        }
+      } else {
+        currentSpeed -= step * 1.3; // Regenerative braking deceleration
+        if (currentSpeed <= 0) {
+          currentSpeed = 0;
+          topSpeedTriggered = false;
+          if (speedValEl) speedValEl.classList.remove('top-speed-flash');
+          if (topSpeedAlert) topSpeedAlert.classList.remove('active');
+        }
+      }
+
+      // Update UI elements
+      const speedRatio = currentSpeed / targetTopSpeed;
+
+      if (speedValEl) speedValEl.textContent = Math.floor(currentSpeed);
+
+      // SVG Arc Fill (Max offset: 420, active arc length ~315)
+      if (gaugeFillPath) {
+        const offset = 420 - (315 * speedRatio);
+        gaugeFillPath.style.strokeDashoffset = offset.toString();
+      }
+
+      // Tachometer RPM
+      const rpm = 800 + Math.floor(speedRatio * 7200);
+      if (rpmValEl) rpmValEl.textContent = `${rpm} RPM`;
+
+      // Gear readout
+      if (gearValEl) {
+        if (currentSpeed === 0) gearValEl.textContent = 'IDLE (P)';
+        else if (currentSpeed < 35) gearValEl.textContent = 'Accelerating';
+        else if (currentSpeed < 70) gearValEl.textContent = 'Accelerating';
+        else if (currentSpeed < 105) gearValEl.textContent = 'Accelerating';
+        else if (currentSpeed < targetTopSpeed) gearValEl.textContent = 'Accelerating';
+        else gearValEl.textContent = 'Accelerated(MAX)';
+      }
+
+      // Shift LEDs
+      updateLEDs(speedRatio);
+
+      // Engine Sound
+      if (window.CyberAudio && window.CyberAudio.playEngineRev) {
+        if (currentSpeed > 0) {
+          window.CyberAudio.playEngineRev(speedRatio, currentSpeed >= targetTopSpeed);
+        } else {
+          window.CyberAudio.stopEngineRev();
+        }
+      }
+
+      // Continue animation loop if speed > 0 or user pressing pedal
+      if (isAccelerating || currentSpeed > 0) {
+        animFrameId = requestAnimationFrame(speedLoop);
+      } else {
+        animFrameId = null;
+        if (pedalStatusEl) pedalStatusEl.textContent = 'STATUS: IDLE (STATIONARY)';
+      }
+    }
+
+    function startAccelerating(e) {
+      if (e) e.preventDefault();
+      if (isAccelerating) return;
+      isAccelerating = true;
+      pedalBtn.classList.add('pressed');
+      if (pedalStatusEl) pedalStatusEl.textContent = 'STATUS: ACCELERATING (FULL THROTTLE 🚀)';
+      if (!animFrameId) {
+        animFrameId = requestAnimationFrame(speedLoop);
+      }
+    }
+
+    function stopAccelerating(e) {
+      if (e) e.preventDefault();
+      if (!isAccelerating) return;
+      isAccelerating = false;
+      pedalBtn.classList.remove('pressed');
+      if (pedalStatusEl) {
+        pedalStatusEl.textContent = currentSpeed > 0 ? 'STATUS: REGEN BRAKING ⚡' : 'STATUS: IDLE (STATIONARY)';
+      }
+    }
+
+    // Pedal mouse & touch handlers
+    pedalBtn.addEventListener('mousedown', startAccelerating);
+    pedalBtn.addEventListener('mouseup', stopAccelerating);
+    pedalBtn.addEventListener('mouseleave', stopAccelerating);
+
+    pedalBtn.addEventListener('touchstart', startAccelerating, { passive: false });
+    pedalBtn.addEventListener('touchend', stopAccelerating, { passive: false });
+    pedalBtn.addEventListener('touchcancel', stopAccelerating, { passive: false });
+
+    // HUD Top Speed Click Handler
+    if (hudTopSpeedBtn) {
+      hudTopSpeedBtn.addEventListener('click', () => {
+        const simCard = document.querySelector('.accelerator-simulator-card');
+        if (simCard) {
+          simCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          pedalBtn.classList.add('pressed');
+          setTimeout(() => pedalBtn.classList.remove('pressed'), 400);
+        }
+      });
+    }
+  }
+
+  // --- 4.2 INTERACTIVE MOUNTAIN ALTITUDE DRAG CURSOR SLIDER LOGIC ---
+  const altSlider = document.getElementById('altitude-drag-slider');
+  if (altSlider) {
+    let currentAltM = 0;
+    const targetPeakM = 4200;
+    let peakTriggered = false;
+    let animInterval = null;
+
+    const cursorHandle = document.getElementById('climber-cursor-handle');
+    const sliderFillProgress = document.getElementById('slider-fill-progress');
+    const cursorTooltipVal = document.getElementById('cursor-tooltip-val');
+    const altMValEl = document.getElementById('sim-alt-m-val');
+    const altFtValEl = document.getElementById('sim-alt-ft-val');
+    const trailTagEl = document.getElementById('sim-trail-tag');
+    const o2FillEl = document.getElementById('sim-o2-fill');
+    const o2ValEl = document.getElementById('sim-o2-val');
+    const pressValEl = document.getElementById('sim-press-val');
+    const trailFillEl = document.getElementById('sim-trail-fill');
+    const peakAlert = document.getElementById('peak-altitude-record-alert');
+    const trekStatusEl = document.getElementById('trek-status-text');
+    const btnQuickSummit = document.getElementById('btn-quick-summit');
+    const btnQuickReset = document.getElementById('btn-quick-reset');
+    const hudAltitudeBtn = document.getElementById('hud-altitude-btn');
+
+    function updateCheckpoints(alt) {
+      [1000, 2000, 3000, 4200].forEach(m => {
+        const tick = document.getElementById(`tick-${m}`);
+        if (tick) {
+          if (alt >= m) tick.classList.add('reached');
+          else tick.classList.remove('reached');
+        }
+      });
+    }
+
+    function setAltitude(altM) {
+      const clampedAlt = Math.max(0, Math.min(targetPeakM, altM));
+      currentAltM = clampedAlt;
+      const altRatio = currentAltM / targetPeakM;
+      const percentStr = `${(altRatio * 100).toFixed(2)}%`;
+
+      // Slider & Cursor Knob UI
+      altSlider.value = currentAltM;
+      if (cursorHandle) cursorHandle.style.left = percentStr;
+      if (sliderFillProgress) sliderFillProgress.style.width = percentStr;
+      if (trailFillEl) trailFillEl.style.width = percentStr;
+
+      const meters = Math.floor(currentAltM);
+      const feet = Math.floor(currentAltM * 3.28084);
+
+      if (cursorTooltipVal) cursorTooltipVal.textContent = `${meters}m`;
+      if (altMValEl) altMValEl.textContent = meters.toLocaleString();
+      if (altFtValEl) altFtValEl.textContent = feet.toLocaleString();
+
+      // Oxygen & Pressure
+      const o2Percent = 100 - Math.floor(altRatio * 38);
+      if (o2FillEl) o2FillEl.style.width = `${o2Percent}%`;
+
+      if (o2ValEl) {
+        if (currentAltM < 1000) o2ValEl.textContent = `${o2Percent}% O₂ (SEA LEVEL AIR)`;
+        else if (currentAltM < 2500) o2ValEl.textContent = `${o2Percent}% O₂ (MODERATE ALTITUDE)`;
+        else if (currentAltM < 3800) o2ValEl.textContent = `${o2Percent}% O₂ (HIGH ALTITUDE ZONE)`;
+        else o2ValEl.textContent = `${o2Percent}% O₂ (THIN AIR PEAK)`;
+      }
+
+      const pressHpa = Math.floor(1013 - (altRatio * 413));
+      if (pressValEl) pressValEl.textContent = `${pressHpa} hPa`;
+
+      // Trail Location Tag
+      if (trailTagEl) {
+        if (currentAltM === 0) trailTagEl.textContent = 'TRAILHEAD (BASE CAMP)';
+        else if (currentAltM < 1500) trailTagEl.textContent = 'HIMALAYAN VALLEY PASS';
+        else if (currentAltM < 3000) trailTagEl.textContent = 'ALPINE FOREST RIDGE';
+        else if (currentAltM < 4200) trailTagEl.textContent = 'SNOW LINE EXPEDITION';
+        else trailTagEl.textContent = '🚩 4,200M SUMMIT RECORD REACHED!';
+      }
+
+      // Checkpoints
+      updateCheckpoints(meters);
+
+      // Status text
+      if (trekStatusEl) {
+        if (currentAltM >= targetPeakM) {
+          trekStatusEl.textContent = 'STATUS: 🏆 SUMMIT CONQUERED (4,200m / 13,780 FT)';
+        } else if (currentAltM > 0) {
+          trekStatusEl.textContent = `STATUS: ASCENDING TRAIL (${meters}m / ${feet} FT)`;
+        } else {
+          trekStatusEl.textContent = 'STATUS: AT BASE CAMP (0m) — DRAG CURSOR TO CLIMB PEAK';
+        }
+      }
+
+      // Sound FX
+      if (window.CyberAudio && window.CyberAudio.playClimbWind) {
+        if (currentAltM > 0) {
+          window.CyberAudio.playClimbWind(altRatio, currentAltM >= targetPeakM);
+        } else {
+          window.CyberAudio.stopClimbWind();
+        }
+      }
+
+      // Peak Summit Record Alert
+      if (currentAltM >= targetPeakM) {
+        if (!peakTriggered) {
+          peakTriggered = true;
+          if (altMValEl) altMValEl.classList.add('peak-alt-flash');
+          if (peakAlert) peakAlert.classList.add('active');
+          if (window.CyberAudio && window.CyberAudio.playPeakSummitChime) {
+            window.CyberAudio.playPeakSummitChime();
+          }
+        }
+      } else {
+        if (peakTriggered) {
+          peakTriggered = false;
+          if (altMValEl) altMValEl.classList.remove('peak-alt-flash');
+          if (peakAlert) peakAlert.classList.remove('active');
+        }
+      }
+    }
+
+    function animateToAltitude(targetAlt) {
+      if (animInterval) clearInterval(animInterval);
+      const startAlt = currentAltM;
+      const distance = targetAlt - startAlt;
+      const duration = 1200; // ms
+      const startTime = performance.now();
+
+      if (cursorHandle) cursorHandle.classList.add('active');
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        // Easing cubic out
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = startAlt + (distance * ease);
+
+        setAltitude(current);
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          if (cursorHandle) cursorHandle.classList.remove('active');
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    // Input events
+    altSlider.addEventListener('input', (e) => {
+      if (animInterval) clearInterval(animInterval);
+      if (cursorHandle) cursorHandle.classList.add('active');
+      setAltitude(parseFloat(e.target.value));
+    });
+
+    altSlider.addEventListener('change', () => {
+      if (cursorHandle) cursorHandle.classList.remove('active');
+    });
+
+    // Quick action buttons
+    if (btnQuickSummit) {
+      btnQuickSummit.addEventListener('click', () => {
+        if (window.CyberAudio) CyberAudio.playClick();
+        animateToAltitude(4200);
+      });
+    }
+
+    if (btnQuickReset) {
+      btnQuickReset.addEventListener('click', () => {
+        if (window.CyberAudio) CyberAudio.playClick();
+        animateToAltitude(0);
+      });
+    }
+
+    // HUD Altitude Button Click Handler
+    if (hudAltitudeBtn) {
+      hudAltitudeBtn.addEventListener('click', () => {
+        const simCard = document.querySelector('.altimeter-simulator-card');
+        if (simCard) {
+          simCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          animateToAltitude(4200);
+        }
+      });
+    }
   }
 
   // --- 5. GAMING FILTER GUI (personal.html) ---

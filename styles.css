@@ -3197,3 +3197,1034 @@ body.page-loaded .container {
     height: 2px;
   }
 }
+
+/* ==========================================================================
+   INTERACTIVE ACCELERATOR & SPEEDOMETER SIMULATOR STYLES
+   ========================================================================== */
+.accelerator-simulator-card {
+  position: relative;
+  background: rgba(13, 19, 33, 0.75);
+  border: 1px solid rgba(0, 243, 255, 0.25);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  margin-top: 25px;
+}
+
+.sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.sim-title h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 6px 0 4px 0;
+  letter-spacing: 0.5px;
+}
+
+.sim-title p {
+  color: var(--text-muted, #a0aec0);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.sim-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 10px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sim-mode-toggle .mode-lbl {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold, #ffd700);
+  letter-spacing: 1px;
+  margin-right: 4px;
+  padding-left: 4px;
+}
+
+.sim-mode-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a0aec0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-mode-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sim-mode-btn.active {
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(0, 150, 255, 0.4));
+  border-color: #00f3ff;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+}
+
+.sim-mode-btn[data-mode="sport"].active {
+  background: linear-gradient(135deg, rgba(255, 77, 77, 0.25), rgba(255, 0, 85, 0.4));
+  border-color: #ff0055;
+  box-shadow: 0 0 12px rgba(255, 0, 85, 0.5);
+}
+
+.sim-mode-btn[data-mode="launch"].active {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 140, 0, 0.4));
+  border-color: #ffd700;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
+}
+
+/* SIM BODY LAYOUT */
+.sim-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .sim-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.speedometer-hud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: rgba(5, 10, 20, 0.6);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(0, 243, 255, 0.15);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.speed-dial-box {
+  position: relative;
+  width: 220px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-gauge-svg {
+  width: 220px;
+  height: 220px;
+  transform: rotate(0deg);
+}
+
+.gauge-bg-path {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.gauge-fill-path {
+  transition: stroke-dashoffset 0.08s linear, stroke 0.2s ease;
+  filter: drop-shadow(0 0 8px #00f3ff);
+}
+
+.speed-readout {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.speed-number {
+  font-family: 'Fira Code', monospace, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(0, 243, 255, 0.6);
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.speed-number.top-speed-flash {
+  color: #ffd700;
+  text-shadow: 0 0 25px #ffd700, 0 0 50px #ff0055;
+  animation: speedFlash 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes speedFlash {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+
+.speed-unit {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold, #ffd700);
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.vehicle-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a0aec0;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* TACHOMETER SHIFT LIGHTS */
+.tachometer-box {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.tacho-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #a0aec0;
+  letter-spacing: 1px;
+}
+
+.shift-lights-bar {
+  display: flex;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shift-led {
+  width: 12px;
+  height: 16px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.1s ease;
+}
+
+.shift-led.green.active {
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+.shift-led.cyan.active {
+  background: #00f3ff;
+  box-shadow: 0 0 10px #00f3ff;
+}
+
+.shift-led.gold.active {
+  background: #ffd700;
+  box-shadow: 0 0 12px #ffd700;
+}
+
+.shift-led.red.active {
+  background: #ff0055;
+  box-shadow: 0 0 14px #ff0055;
+  animation: ledPulse 0.15s ease-in-out infinite alternate;
+}
+
+@keyframes ledPulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+.tacho-info {
+  display: flex;
+  gap: 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.gear-badge {
+  color: var(--accent-gold, #ffd700);
+  font-weight: 700;
+}
+
+/* TOP SPEED RECORD ALERT CARD */
+.top-speed-record-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 30, 0.95);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.92);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.5), inset 0 0 25px rgba(255, 215, 0, 0.2);
+  z-index: 10;
+}
+
+.top-speed-record-alert.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.ts-icon-glow {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 0 20px #ffd700;
+}
+
+.ts-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ffd700;
+  letter-spacing: 2px;
+}
+
+.ts-text h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 2px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.ts-speed-highlight {
+  font-family: 'Fira Code', monospace;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffd700;
+  line-height: 1.1;
+  text-shadow: 0 0 15px #ffd700;
+}
+
+.ts-speed-highlight .unit {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.ts-text p {
+  font-size: 0.8rem;
+  color: #cbd5e0;
+  margin: 4px 0 0 0;
+}
+
+/* PEDAL CONTROL PANEL & 3D ACCELERATOR PEDAL */
+.pedal-control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px;
+}
+
+.pedal-instruction {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-cyan, #00f3ff);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.pedal-btn {
+  position: relative;
+  width: 140px;
+  height: 190px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  perspective: 600px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.pedal-base {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 120px;
+  height: 25px;
+  background: #0a0e17;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px 4px 12px 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.pedal-surface {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 130px;
+  height: 175px;
+  background: linear-gradient(180deg, #2a3447 0%, #151c28 50%, #0d121c 100%);
+  border: 2px solid rgba(0, 243, 255, 0.4);
+  border-radius: 12px;
+  transform-origin: bottom center;
+  transform: perspective(600px) rotateX(10deg);
+  transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 10px;
+}
+
+.pedal-grooves {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.pedal-grooves span {
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.pedal-icon {
+  font-size: 1.8rem;
+  color: #00f3ff;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.pedal-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.5);
+}
+
+/* PEDAL PRESSED DOWN STATE */
+.pedal-btn.pressed .pedal-surface,
+.pedal-btn:active .pedal-surface {
+  transform: perspective(600px) rotateX(24deg) translateY(10px) scale(0.97);
+  border-color: #ffd700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.pedal-btn.pressed .pedal-icon,
+.pedal-btn:active .pedal-icon {
+  color: #ffd700;
+  transform: translateY(-4px) scale(1.15);
+}
+
+.pedal-status-hud {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-green, #00ff88);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.clickable-hud {
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.clickable-hud:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold, #ffd700);
+}
+
+/* ==========================================================================
+   INTERACTIVE ALTIMETER & MOUNTAIN PEAK SIMULATOR STYLES
+   ========================================================================== */
+.altimeter-simulator-card {
+  position: relative;
+  background: rgba(13, 19, 33, 0.75);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  margin-top: 25px;
+}
+
+.climb-pace-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a0aec0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.climb-pace-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.climb-pace-btn.active {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 140, 0, 0.4));
+  border-color: #ffd700;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.climb-pace-btn[data-pace="sprint"].active {
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.25), rgba(0, 150, 255, 0.4));
+  border-color: #00f3ff;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.5);
+}
+
+.altimeter-hud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: rgba(5, 10, 20, 0.65);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.altitude-readout-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.alt-number-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.alt-number {
+  font-family: 'Fira Code', monospace, sans-serif;
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #ffd700;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.alt-number.peak-alt-flash {
+  color: #ffffff;
+  text-shadow: 0 0 25px #ffd700, 0 0 50px #00f3ff;
+  animation: altFlash 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes altFlash {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+
+.alt-unit-lbl {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.alt-sub-ft {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00f3ff;
+  margin-top: 2px;
+}
+
+.alt-sub-ft .unit {
+  font-size: 0.75rem;
+  color: #a0aec0;
+}
+
+.trail-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-gold, #ffd700);
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* ENVIRONMENT HUD (OXYGEN & PRESSURE) */
+.environment-hud-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .environment-hud-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+.env-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.env-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #a0aec0;
+  letter-spacing: 1px;
+}
+
+.oxygen-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 2px 0;
+}
+
+.oxygen-fill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0055 0%, #ffd700 40%, #00ff88 100%);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+.env-val {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* MOUNTAIN TRAIL TRACK & CHECKPOINTS */
+.mountain-trail-visualizer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trail-track-bar {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: visible;
+}
+
+.trail-fill-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #00f3ff 0%, #ffd700 60%, #ff0055 100%);
+  border-radius: 8px;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+.climber-pulse-marker {
+  position: absolute;
+  right: -10px;
+  top: -8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffd700;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  box-shadow: 0 0 12px #ffd700;
+}
+
+.trail-milestone-ticks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.tick-item {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #718096;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.tick-item small {
+  font-size: 0.65rem;
+  color: #a0aec0;
+}
+
+.tick-item.reached {
+  color: #00f3ff;
+  font-weight: 700;
+}
+
+.tick-item.reached small {
+  color: #ffffff;
+}
+
+.tick-item.gold-peak.reached {
+  color: #ffd700;
+  font-weight: 800;
+  transform: scale(1.08);
+}
+
+/* PEAK ALTITUDE RECORD ALERT CARD */
+.peak-altitude-record-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 30, 0.95);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.92);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), inset 0 0 25px rgba(255, 215, 0, 0.2);
+  z-index: 10;
+}
+
+.peak-altitude-record-alert.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.peak-icon-glow {
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #ff0055);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 0 25px #ffd700;
+}
+
+.peak-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.peak-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ffd700;
+  letter-spacing: 2px;
+}
+
+.peak-text h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 2px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.peak-speed-highlight {
+  font-family: 'Fira Code', monospace;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #ffd700;
+  line-height: 1.1;
+  text-shadow: 0 0 15px #ffd700;
+}
+
+.peak-speed-highlight .unit {
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+.peak-text p {
+  font-size: 0.8rem;
+  color: #cbd5e0;
+  margin: 4px 0 0 0;
+}
+
+/* TREK CONTROLLER PANEL & 3D TREKKING BUTTON */
+.trek-control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px;
+}
+
+.trek-instruction {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-gold, #ffd700);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+/* INTERACTIVE MOUNTAIN ALTITUDE DRAG CURSOR STYLES */
+.altitude-cursor-control-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 10px;
+  width: 100%;
+}
+
+.cursor-instruction {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-gold, #ffd700);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.mountain-cursor-slider-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.slider-track-background {
+  position: absolute;
+  width: 100%;
+  height: 16px;
+  background: linear-gradient(90deg, #070c12 0%, #172733 50%, #291e10 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.slider-fill-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #00f3ff 0%, #ffd700 65%, #ff0055 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.6);
+  transition: width 0.05s linear;
+}
+
+/* CLIMBER CURSOR HANDLE */
+.climber-cursor-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 20px #ffd700, 0 4px 12px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  z-index: 5;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  pointer-events: none;
+}
+
+.climber-cursor-handle.active,
+.climber-cursor-handle:active {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 0 30px #ffd700, 0 0 45px #00f3ff;
+}
+
+.cursor-badge-icon {
+  font-size: 1.3rem;
+  color: #000000;
+}
+
+.cursor-tooltip {
+  position: absolute;
+  top: -36px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #000000;
+  background: #ffd700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+.cursor-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 4px 0 4px;
+  border-style: solid;
+  border-color: #ffd700 transparent transparent transparent;
+}
+
+/* OVERLAID INVISIBLE RANGE INPUT FOR FLUID INTERACTION */
+.altitude-range-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  margin: 0;
+}
+
+/* QUICK ACTION BUTTONS */
+.cursor-quick-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quick-alt-btn {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.3));
+  border: 1px solid #ffd700;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-alt-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(255, 140, 0, 0.6));
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.quick-alt-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #a0aec0;
+}
+
+.quick-alt-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: #00f3ff;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.trek-status-hud {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-gold, #ffd700);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.5px;
+}

@@ -176,6 +176,160 @@ const CyberAudio = (() => {
     }
   }
 
+  let revOsc = null;
+  let revGain = null;
+
+  function playEngineRev(ratio, isTopSpeed) {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    try {
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const clampedRatio = Math.max(0, Math.min(1, ratio));
+      const targetFreq = 110 + (clampedRatio * 740) + (isTopSpeed ? 40 : 0);
+      const targetVolume = clampedRatio > 0.02 ? 0.05 + (clampedRatio * 0.18) : 0;
+
+      if (!revOsc) {
+        revOsc = ctx.createOscillator();
+        revGain = ctx.createGain();
+
+        revOsc.type = 'sawtooth';
+        revOsc.frequency.setValueAtTime(110, ctx.currentTime);
+        revGain.gain.setValueAtTime(0, ctx.currentTime);
+
+        revOsc.connect(revGain);
+        revGain.connect(ctx.destination);
+        revOsc.start();
+      }
+
+      revOsc.frequency.cancelScheduledValues(ctx.currentTime);
+      revGain.gain.cancelScheduledValues(ctx.currentTime);
+
+      revOsc.frequency.setTargetAtTime(targetFreq, ctx.currentTime, 0.05);
+      revGain.gain.setTargetAtTime(targetVolume, ctx.currentTime, 0.05);
+
+    } catch (e) {
+      console.warn("Engine sound error:", e);
+    }
+  }
+
+  function stopEngineRev() {
+    if (revGain && audioCtx) {
+      try {
+        revGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.1);
+      } catch (e) {}
+    }
+  }
+
+  function playTopSpeedChime() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    try {
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51]; // C5, E5, G5, C6, E6
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.06);
+
+        gain.gain.setValueAtTime(0.3, ctx.currentTime + idx * 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.06 + 0.4);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(ctx.currentTime + idx * 0.06);
+        osc.stop(ctx.currentTime + idx * 0.06 + 0.4);
+      });
+    } catch (e) {
+      console.warn("CyberAudio error:", e);
+    }
+  }
+
+  let windOsc = null;
+  let windGain = null;
+
+  function playClimbWind(ratio, isPeak) {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    try {
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const clampedRatio = Math.max(0, Math.min(1, ratio));
+      const targetFreq = 180 + (clampedRatio * 480) + (isPeak ? 50 : 0);
+      const targetVolume = clampedRatio > 0.02 ? 0.04 + (clampedRatio * 0.16) : 0;
+
+      if (!windOsc) {
+        windOsc = ctx.createOscillator();
+        windGain = ctx.createGain();
+
+        windOsc.type = 'triangle';
+        windOsc.frequency.setValueAtTime(180, ctx.currentTime);
+        windGain.gain.setValueAtTime(0, ctx.currentTime);
+
+        windOsc.connect(windGain);
+        windGain.connect(ctx.destination);
+        windOsc.start();
+      }
+
+      windOsc.frequency.cancelScheduledValues(ctx.currentTime);
+      windGain.gain.cancelScheduledValues(ctx.currentTime);
+
+      windOsc.frequency.setTargetAtTime(targetFreq, ctx.currentTime, 0.08);
+      windGain.gain.setTargetAtTime(targetVolume, ctx.currentTime, 0.08);
+
+    } catch (e) {
+      console.warn("Climb wind sound error:", e);
+    }
+  }
+
+  function stopClimbWind() {
+    if (windGain && audioCtx) {
+      try {
+        windGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.12);
+      } catch (e) {}
+    }
+  }
+
+  function playPeakSummitChime() {
+    if (isMuted) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    try {
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const notes = [293.66, 369.99, 440.00, 587.33, 739.99, 880.00]; // D4, F#4, A4, D5, F#5, A5
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+
+        gain.gain.setValueAtTime(0.28, ctx.currentTime + idx * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.5);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(ctx.currentTime + idx * 0.08);
+        osc.stop(ctx.currentTime + idx * 0.08 + 0.5);
+      });
+    } catch (e) {
+      console.warn("CyberAudio error:", e);
+    }
+  }
+
   function toggleMute() {
     unlockAudio();
     isMuted = !isMuted;
@@ -207,7 +361,7 @@ const CyberAudio = (() => {
   function bindInteractiveSounds() {
     document.body.addEventListener('click', (e) => {
       unlockAudio();
-      const target = e.target.closest('button, a, input, textarea, .cyber-btn, .social-chip, .whatsapp-float-btn, .gateway-option-card, .spec-tab-btn, .filter-pill, .close-btn, .stat-counter-card');
+      const target = e.target.closest('button, a, input, textarea, .cyber-btn, .social-chip, .whatsapp-float-btn, .gateway-option-card, .spec-tab-btn, .filter-pill, .close-btn, .stat-counter-card, .pedal-btn, .trek-btn, .mountain-summit-btn');
       if (target) {
         playClick();
       }
@@ -234,6 +388,12 @@ const CyberAudio = (() => {
     playTerminalKey,
     playChime,
     playUnlockSuccess,
+    playEngineRev,
+    stopEngineRev,
+    playTopSpeedChime,
+    playClimbWind,
+    stopClimbWind,
+    playPeakSummitChime,
     toggleMute,
     isAudioMuted
   };

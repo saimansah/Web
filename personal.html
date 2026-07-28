@@ -85,17 +85,21 @@
 
       <!-- CYBER HUD STATUS BAR -->
       <div class="cyber-hud-card mini">
-        <div class="hud-item">
+        <div class="hud-item clickable-hud" id="hud-altitude-btn"
+          title="Click to test Altimeter Simulator & view Peak Elevation!">
           <span class="hud-label">ALTITUDE RECORD</span>
-          <span class="hud-value gold"><i class="fa-solid fa-mountain-sun"></i> 4,200M (13,780 FT)</span>
+          <span class="hud-value gold"><i class="fa-solid fa-mountain-sun"></i> 4,200M (13,780 FT) <i
+              class="fa-solid fa-angles-down" style="font-size: 0.75rem; margin-left: 4px;"></i></span>
         </div>
         <div class="hud-item">
           <span class="hud-label">GARAGE STATUS</span>
           <span class="hud-value active-green"><span class="status-light green"></span> BYD ATTO 3 </span>
         </div>
-        <div class="hud-item">
+        <div class="hud-item clickable-hud" id="hud-top-speed-btn"
+          title="Click to test Accelerator Simulator & view Top Speed!">
           <span class="hud-label">TOP SPEED RECORD</span>
-          <span class="hud-value gold"><i class="fa-solid fa-gauge-high"></i> 130 KM/H</span>
+          <span class="hud-value gold"><i class="fa-solid fa-gauge-high"></i> 130 KM/H <i
+              class="fa-solid fa-angles-down" style="font-size: 0.75rem; margin-left: 4px;"></i></span>
         </div>
         <div class="hud-item">
           <span class="hud-label">GAMING DEVICES</span>
@@ -192,6 +196,117 @@
           </div>
         </div>
       </div>
+
+      <!-- INTERACTIVE ALTIMETER & MOUNTAIN PEAK SIMULATOR -->
+      <div class="altimeter-simulator-card glass-panel reveal-on-scroll margin-top-25">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span class="opt-badge gold"><i class="fa-solid fa-mountain-sun"></i> INTERACTIVE ALTIMETER SIMULATOR</span>
+            <h3>Saiman's Personal Altitude Record</h3>
+            <p>Move the button to find out Saiman's Highest Altitude reached</p>
+          </div>
+
+        </div>
+
+        <div class="sim-body">
+          <!-- DIGITAL ALTIMETER HUD DIAL & ELEVATION BAR -->
+          <div class="altimeter-hud">
+            <div class="altitude-readout-box">
+              <div class="alt-number-wrap">
+                <span class="alt-number" id="sim-alt-m-val">0</span>
+                <span class="alt-unit-lbl">METERS</span>
+              </div>
+              <div class="alt-sub-ft">
+                <span id="sim-alt-ft-val">0</span> <span class="unit">FEET</span>
+              </div>
+              <span class="trail-tag" id="sim-trail-tag">TRAILHEAD (BASE CAMP)</span>
+            </div>
+
+            <!-- ATMOSPHERIC OXYGEN & BAROMETRIC HUD -->
+            <div class="environment-hud-box">
+              <div class="env-item">
+                <span class="env-label"><i class="fa-solid fa-lungs"></i> OXYGEN LEVEL</span>
+                <div class="oxygen-bar-wrap">
+                  <div class="oxygen-fill-bar" id="sim-o2-fill" style="width: 100%;"></div>
+                </div>
+                <span class="env-val green" id="sim-o2-val">100% O₂ (SEA LEVEL)</span>
+              </div>
+              <div class="env-item">
+                <span class="env-label"><i class="fa-solid fa-wind"></i> PRESSURE</span>
+                <span class="env-val cyan" id="sim-press-val">1013 hPa (NORMAL)</span>
+              </div>
+            </div>
+
+            <!-- VERTICAL ELEVATION TRACK WITH LANDMARK CHECKPOINTS -->
+            <div class="mountain-trail-visualizer">
+              <div class="trail-track-bar">
+                <div class="trail-fill-bar" id="sim-trail-fill" style="width: 0%;">
+                  <span class="climber-pulse-marker"><i class="fa-solid fa-person-hiking"></i></span>
+                </div>
+              </div>
+              <div class="trail-milestone-ticks">
+                <div class="tick-item" id="tick-1000"><span>1,000m</span> <small>Valley Pass</small></div>
+                <div class="tick-item" id="tick-2000"><span>2,000m</span> <small>High Forest</small></div>
+                <div class="tick-item" id="tick-3000"><span>3,000m</span> <small>Alpine Ridge</small></div>
+                <div class="tick-item gold-peak" id="tick-4200"><span>4,200m</span> <small>🚩 PEAK SUMMIT</small></div>
+              </div>
+            </div>
+
+            <!-- PEAK ALTITUDE RECORD ACHIEVED ALERT CARD -->
+            <div class="peak-altitude-record-alert" id="peak-altitude-record-alert">
+              <div class="peak-icon-glow pulse-glow">
+                <i class="fa-solid fa-flag"></i>
+              </div>
+              <div class="peak-text">
+                <div class="peak-badge">⚡ SUMMIT CONQUERED ⚡</div>
+                <h4>PEAK ALTITUDE RECORD REACHED!</h4>
+                <div class="peak-speed-highlight">
+                  <span id="peak-record-val">4,200</span> <span class="unit">METERS (13,780 FT)</span>
+                </div>
+                <p>Saiman's Maximum Elevation Record Conquered in Nepal's High-Altitude Himalayas!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- INTERACTIVE MOUNTAIN ALTITUDE DRAG CURSOR PANEL -->
+          <div class="altitude-cursor-control-panel">
+            <div class="cursor-instruction">
+              <i class="fa-solid fa-up-long"></i> <span>DRAG THE CLIMBER CURSOR TO THE TOP TO CONQUER 4,200M</span>
+            </div>
+
+            <!-- INTERACTIVE SLIDER GAUGES CONTAINER -->
+            <div class="mountain-cursor-slider-box">
+              <div class="slider-track-background">
+                <div class="slider-fill-progress" id="slider-fill-progress" style="width: 0%;"></div>
+
+                <!-- MOUNTAIN CLIMBER CURSOR HANDLE -->
+                <div class="climber-cursor-handle" id="climber-cursor-handle" style="left: 0%;">
+                  <div class="cursor-badge-icon float-anim">
+                    <i class="fa-solid fa-person-hiking"></i>
+                  </div>
+                  <span class="cursor-tooltip" id="cursor-tooltip-val">0m</span>
+                </div>
+              </div>
+
+              <!-- SLIDER INPUT FOR TOUCH & MOUSE DRAGGING -->
+              <input type="range" id="altitude-drag-slider" class="altitude-range-slider" min="0" max="4200" value="0"
+                step="10" title="Drag to adjust altitude reached">
+            </div>
+
+            <!-- QUICK AUTO-CLIMB / RESET BUTTONS -->
+            <div class="cursor-quick-actions">
+              <button class="quick-alt-btn" id="btn-quick-summit"><i class="fa-solid fa-flag"></i> Auto Summit
+                (4,200m)</button>
+              <button class="quick-alt-btn secondary" id="btn-quick-reset"><i class="fa-solid fa-arrows-rotate"></i>
+                Reset Base Camp</button>
+            </div>
+
+            <div class="trek-status-hud" id="trek-status-text">
+              STATUS: AT BASE CAMP (0m) — DRAG CURSOR TO CLIMB PEAK
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- AUTOMOTIVE SECTION (CARS & RIDES WITH INTERACTIVE SPEC SWITCHER GUI) -->
@@ -254,6 +369,115 @@
                 <span class="metric-value" id="spec-val-accel">7.3 Seconds</span>
                 <span class="metric-label" id="spec-lbl-accel">0–100 km/h Acceleration</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE ACCELERATOR & SPEEDOMETER SIMULATOR -->
+      <div class="accelerator-simulator-card glass-panel reveal-on-scroll margin-top-25">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span class="opt-badge gold"><i class="fa-solid fa-bolt"></i> INTERACTIVE SIMULATOR</span>
+            <h3>Saiman's Personal Highest Speed Record</h3>
+            <p>Click & hold or tap the Accelerator Pedal below to accelerate and experience top speed acheived by
+              Saiman!
+            </p>
+          </div>
+          <div class="sim-mode-toggle">
+            <span class="mode-lbl">DRIVE MODE:</span>
+            <button class="sim-mode-btn active" data-mode="sport"><i class="fa-solid fa-fire"></i> SPORT</button>
+            <button class="sim-mode-btn" data-mode="eco"><i class="fa-solid fa-leaf"></i> ECO</button>
+            <button class="sim-mode-btn" data-mode="launch"><i class="fa-solid fa-rocket"></i> LAUNCH CONTROL</button>
+          </div>
+        </div>
+
+        <div class="sim-body">
+          <!-- DIGITAL SPEEDOMETER HUD DIAL -->
+          <div class="speedometer-hud">
+            <div class="speed-dial-box">
+              <svg class="speed-gauge-svg" viewBox="0 0 200 200">
+                <!-- Background Arc -->
+                <path class="gauge-bg-path" d="M 30 150 A 85 85 0 1 1 170 150" fill="none"
+                  stroke="rgba(255, 255, 255, 0.1)" stroke-width="12" stroke-linecap="round" />
+                <!-- Dynamic Speed Progress Arc -->
+                <path id="gauge-fill-path" class="gauge-fill-path" d="M 30 150 A 85 85 0 1 1 170 150" fill="none"
+                  stroke="url(#speed-gradient)" stroke-width="12" stroke-dasharray="420" stroke-dashoffset="420"
+                  stroke-linecap="round" />
+                <!-- Gradients -->
+                <defs>
+                  <linearGradient id="speed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f3ff" />
+                    <stop offset="60%" stop-color="#ffd700" />
+                    <stop offset="100%" stop-color="#ff0055" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <div class="speed-readout">
+                <span class="speed-number" id="sim-speed-val">0</span>
+                <span class="speed-unit">KM / H</span>
+                <span class="vehicle-tag" id="sim-car-tag">BYD ATTO 3</span>
+              </div>
+            </div>
+
+            <!-- RPM TACHOMETER SHIFT LIGHTS -->
+            <div class="tachometer-box">
+              <div class="tacho-label">ENGINE REV / TACHOMETER (RPM)</div>
+              <div class="shift-lights-bar">
+                <span class="shift-led green" id="led-1"></span>
+                <span class="shift-led green" id="led-2"></span>
+                <span class="shift-led cyan" id="led-3"></span>
+                <span class="shift-led cyan" id="led-4"></span>
+                <span class="shift-led gold" id="led-5"></span>
+                <span class="shift-led gold" id="led-6"></span>
+                <span class="shift-led red" id="led-7"></span>
+                <span class="shift-led red" id="led-8"></span>
+              </div>
+              <div class="tacho-info">
+                <span id="sim-rpm-val">800 RPM</span>
+                <span class="gear-badge" id="sim-gear-val">DRIVE (D)</span>
+              </div>
+            </div>
+
+            <!-- TOP SPEED REACHED RECORD NOTIFICATION CARD -->
+            <div class="top-speed-record-alert" id="top-speed-record-alert">
+              <div class="ts-icon-glow pulse-glow">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <div class="ts-text">
+                <div class="ts-badge">⚡ RECORD ACHIEVED ⚡</div>
+                <h4>TOP SPEED REACHED!</h4>
+                <div class="ts-speed-highlight">
+                  <span id="ts-record-val">130</span> <span class="unit">KM/H</span>
+                </div>
+                <p id="ts-record-desc">Personal Maximum Top Speed Record Hit on BYD Atto 3 Highway Run!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PEDAL CONTROLLER PANEL -->
+          <div class="pedal-control-panel">
+            <div class="pedal-instruction">
+              <i class="fa-solid fa-hand-pointer"></i> <span>PRESS & HOLD OR CLICK ACCELERATOR</span>
+            </div>
+
+            <!-- 3D METAL & CARBON FIBER ACCELERATOR PEDAL BUTTON -->
+            <button id="accelerator-pedal" class="pedal-btn" title="Hold or Click to Accelerate">
+              <div class="pedal-surface">
+                <div class="pedal-grooves">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="pedal-icon">
+                  <i class="fa-solid fa-angles-up"></i>
+                </div>
+                <span class="pedal-text">ACCELERATE</span>
+              </div>
+              <div class="pedal-base"></div>
+            </button>
+
+            <div class="pedal-status-hud" id="pedal-status-text">
+              STATUS: IDLE (STATIONARY)
             </div>
           </div>
         </div>
