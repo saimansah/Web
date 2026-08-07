@@ -1,33 +1,43 @@
 /* ==========================================================================
-   SAIMAN SAH PORTFOLIO — ULTRA-PREMIUM INTERACTIVE ANIMATION ENGINE
+   SAIMAN SAH PORTFOLIO v2.0 — PREMIUM INTERACTIVE ANIMATION ENGINE
    Magnetic cursors, glitch reveals, parallax depth, scramble text,
-   smooth section transitions, interactive hover FX, and more.
+   smooth section transitions, spring physics, morphing gradients,
+   and cinematic micro-interactions.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // =====================================================================
-  // 1. CUSTOM CYBER CURSOR TRAIL — glowing dot follows mouse with decay
+  // 1. CUSTOM CYBER CURSOR TRAIL — glowing dot follows mouse with physics
   // =====================================================================
   const cursorTrail = (() => {
-    const TRAIL_LENGTH = 12;
+    const TRAIL_LENGTH = 14;
     const dots = [];
+    const colors = [
+      'rgba(0, 229, 255, 0.8)',
+      'rgba(0, 229, 255, 0.6)',
+      'rgba(168, 85, 247, 0.5)',
+      'rgba(168, 85, 247, 0.4)',
+      'rgba(0, 229, 255, 0.3)',
+    ];
 
     for (let i = 0; i < TRAIL_LENGTH; i++) {
       const dot = document.createElement('div');
       dot.className = 'cyber-cursor-dot';
+      const size = Math.max(2, 8 - i * 0.5);
+      const colorIdx = Math.min(i, colors.length - 1);
       dot.style.cssText = `
         position: fixed; pointer-events: none; z-index: 99999;
-        width: ${8 - i * 0.5}px; height: ${8 - i * 0.5}px;
+        width: ${size}px; height: ${size}px;
         border-radius: 50%;
-        background: rgba(0, 243, 255, ${0.7 - i * 0.05});
-        box-shadow: 0 0 ${6 - i * 0.4}px rgba(0, 243, 255, ${0.5 - i * 0.04});
-        transition: transform 0.05s ease;
+        background: ${colors[colorIdx]};
+        box-shadow: 0 0 ${Math.max(2, 8 - i * 0.5)}px ${colors[colorIdx]};
         will-change: transform;
         opacity: 0;
+        transition: none;
       `;
       document.body.appendChild(dot);
-      dots.push({ el: dot, x: 0, y: 0 });
+      dots.push({ el: dot, x: -100, y: -100 });
     }
 
     let mouseX = -100, mouseY = -100;
@@ -50,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function update() {
       let prevX = mouseX, prevY = mouseY;
       dots.forEach((dot, i) => {
-        const speed = 0.35 - i * 0.02;
+        const speed = 0.4 - i * 0.022;
         dot.x += (prevX - dot.x) * speed;
         dot.y += (prevY - dot.y) * speed;
-        dot.el.style.transform = `translate(${dot.x - 4}px, ${dot.y - 4}px)`;
+        dot.el.style.transform = `translate3d(${dot.x - 4}px, ${dot.y - 4}px, 0)`;
         prevX = dot.x;
         prevY = dot.y;
       });
@@ -85,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < length; i++) {
           const from = oldText[i] || '';
           const to = newText[i] || '';
-          const start = Math.floor(Math.random() * 30);
-          const end = start + Math.floor(Math.random() * 30);
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
           this.queue.push({ from, to, start, end });
         }
         cancelAnimationFrame(this.frameRequest);
@@ -140,23 +150,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // =====================================================================
-  // 3. MAGNETIC BUTTON EFFECT — buttons attract towards cursor
+  // 3. MAGNETIC BUTTON EFFECT — buttons attract towards cursor with spring
   // =====================================================================
   document.querySelectorAll('.cyber-btn, .gateway-option-card, .spec-tab-btn, .filter-pill').forEach(btn => {
+    let animFrame = null;
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+
     btn.addEventListener('mousemove', (e) => {
       const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.03)`;
+      targetX = (e.clientX - rect.left - rect.width / 2) * 0.2;
+      targetY = (e.clientY - rect.top - rect.height / 2) * 0.2;
+
+      if (!animFrame) {
+        animFrame = requestAnimationFrame(function animate() {
+          currentX += (targetX - currentX) * 0.15;
+          currentY += (targetY - currentY) * 0.15;
+          btn.style.transform = `translate(${currentX}px, ${currentY}px) scale(1.03)`;
+
+          if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+            animFrame = requestAnimationFrame(animate);
+          } else {
+            animFrame = null;
+          }
+        });
+      }
     });
 
     btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translate(0, 0) scale(1)';
-      btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
+      targetX = 0;
+      targetY = 0;
+      if (animFrame) {
+        cancelAnimationFrame(animFrame);
+        animFrame = null;
+      }
 
-    btn.addEventListener('mouseenter', () => {
-      btn.style.transition = 'transform 0.1s ease-out';
+      // Spring back animation
+      function springBack() {
+        currentX += (0 - currentX) * 0.12;
+        currentY += (0 - currentY) * 0.12;
+        btn.style.transform = `translate(${currentX}px, ${currentY}px) scale(1)`;
+        if (Math.abs(currentX) > 0.1 || Math.abs(currentY) > 0.1) {
+          requestAnimationFrame(springBack);
+        } else {
+          btn.style.transform = '';
+        }
+      }
+      requestAnimationFrame(springBack);
     });
   });
 
@@ -168,19 +208,27 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroSection) {
     const heroText = heroSection.querySelector('.hero-text');
     const heroAvatar = heroSection.querySelector('.hero-avatar-box');
+    let pX = 0, pY = 0, tpX = 0, tpY = 0;
 
     document.addEventListener('mousemove', (e) => {
       const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 2;
-      const y = (e.clientY / innerHeight - 0.5) * 2;
+      tpX = (e.clientX / innerWidth - 0.5) * 2;
+      tpY = (e.clientY / innerHeight - 0.5) * 2;
+    });
+
+    function parallaxLoop() {
+      pX += (tpX - pX) * 0.06;
+      pY += (tpY - pY) * 0.06;
 
       if (heroText) {
-        heroText.style.transform = `translate(${x * 8}px, ${y * 4}px)`;
+        heroText.style.transform = `translate3d(${pX * 10}px, ${pY * 5}px, 0)`;
       }
       if (heroAvatar) {
-        heroAvatar.style.transform = `translate(${-x * 12}px, ${-y * 6}px)`;
+        heroAvatar.style.transform = `translate3d(${-pX * 15}px, ${-pY * 8}px, 0)`;
       }
-    });
+      requestAnimationFrame(parallaxLoop);
+    }
+    parallaxLoop();
   }
 
 
@@ -195,17 +243,17 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         children.forEach((child, i) => {
           child.style.opacity = '0';
-          child.style.transform = 'translateY(30px) scale(0.95)';
+          child.style.transform = 'translateY(30px) scale(0.96)';
           setTimeout(() => {
-            child.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            child.style.transition = 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
             child.style.opacity = '1';
             child.style.transform = 'translateY(0) scale(1)';
-          }, 100 + i * 80);
+          }, 80 + i * 70);
         });
         cascadeObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
 
   document.querySelectorAll('.dni-grid, .skills-grid, .edu-list, .contact-info, .game-achievements-list, .travel-tags-wrapper, .stat-counters-grid').forEach(el => {
     cascadeObserver.observe(el);
@@ -215,13 +263,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // =====================================================================
   // 6. GLOW-ON-HOVER SPOTLIGHT — radial glow follows mouse on cards
   // =====================================================================
-  document.querySelectorAll('.section-card, .hero-card, .game-card, .garage-card, .travel-card, .c-item').forEach(card => {
+  document.querySelectorAll('.section-card, .hero-card, .game-card, .garage-card, .travel-card, .c-item, .public-dni-hero-card, .gateway-option-card, .dni-feature-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       card.style.setProperty('--spotlight-x', `${x}px`);
       card.style.setProperty('--spotlight-y', `${y}px`);
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
     });
   });
 
@@ -233,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
 
   function updateActiveNav() {
-    const scrollY = window.scrollY + 100;
+    const scrollY = window.scrollY + 120;
     sections.forEach(section => {
       const top = section.offsetTop;
       const height = section.offsetHeight;
@@ -266,6 +316,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = `${progress}%`;
+
+    // Navbar scroll class
+    if (navbar) {
+      if (scrollTop > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
   }
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
@@ -289,16 +348,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // =====================================================================
   // 10. HOVER PARTICLE BURST — tiny particles fly out of hovered cards
   // =====================================================================
-  function createParticleBurst(x, y, count = 6) {
+  function createParticleBurst(x, y, count = 8) {
+    const particleColors = ['#00e5ff', '#a855f7', '#fbbf24'];
     for (let i = 0; i < count; i++) {
       const p = document.createElement('div');
       p.className = 'hover-particle';
       const angle = (Math.PI * 2 * i) / count + Math.random() * 0.5;
-      const distance = 40 + Math.random() * 30;
+      const distance = 35 + Math.random() * 40;
       const tx = Math.cos(angle) * distance;
       const ty = Math.sin(angle) * distance;
+      const color = particleColors[Math.floor(Math.random() * particleColors.length)];
       p.style.left = `${x}px`;
       p.style.top = `${y}px`;
+      p.style.background = color;
       p.style.setProperty('--tx', `${tx}px`);
       p.style.setProperty('--ty', `${ty}px`);
       document.body.appendChild(p);
@@ -306,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  document.querySelectorAll('.dni-feature-card, .skill-box, .game-item, .stat-counter-card').forEach(card => {
+  document.querySelectorAll('.dni-feature-card, .skill-box, .game-item, .stat-counter-card, .public-dni-hero-card').forEach(card => {
     card.addEventListener('mouseenter', (e) => {
       const rect = card.getBoundingClientRect();
       createParticleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
@@ -315,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // =====================================================================
-  // 11. BADGE COUNTER TICK ANIMATION — numbers increment with sound
+  // 11. BADGE COUNTER TICK ANIMATION — numbers increment with pop
   // =====================================================================
   const tickObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -326,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isNaN(target)) return;
 
         let current = 0;
-        const step = Math.max(1, Math.floor(target / 40));
+        const step = Math.max(1, Math.floor(target / 45));
         const interval = setInterval(() => {
           current = Math.min(current + step, target);
           el.textContent = current;
@@ -335,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = target;
             el.classList.add('counter-done');
           }
-        }, 30);
+        }, 28);
       }
     });
   }, { threshold: 0.5 });
@@ -353,12 +415,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroElements = document.querySelectorAll('.hero-card .badge-pill, .hero-card .hero-name, .hero-card .hero-subtitle, .hero-card .cyber-hud-card, .hero-card .hero-btns, .hero-card .avatar-card');
   heroElements.forEach((el, i) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(25px)';
+    el.style.transform = 'translateY(30px)';
     setTimeout(() => {
-      el.style.transition = 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+      el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
-    }, 300 + i * 120);
+    }, 200 + i * 100);
   });
+
+  // Gateway card entrance
+  const gatewayCard = document.querySelector('.gateway-card');
+  if (gatewayCard) {
+    const gatewayElements = gatewayCard.querySelectorAll('.gateway-badge, .gateway-header h1, .gateway-header p, .cyber-hud-card, .gateway-options-grid');
+    gatewayElements.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(25px)';
+      setTimeout(() => {
+        el.style.transition = 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, 400 + i * 120);
+    });
+  }
 
 });

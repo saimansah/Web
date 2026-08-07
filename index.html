@@ -7,13 +7,13 @@
   <!-- Favicon link -->
   <link rel="icon" type="image/svg+xml" href="assets/s_logo.svg" />
   <link rel="apple-touch-icon" href="assets/s_logo.svg" />
-  <title>Saiman Sah | Bio Data</title>
+  <title>Saiman Sah | Bio Data Gateway</title>
   <meta name="description"
-    content="Official Bio Data of Saiman Sah — Developer, Ethical Hacker, Cybersecurity Researcher & Software Developer">
+    content="Official Bio Data Gateway of Saiman Sah — Developer, Ethical Hacker, Cybersecurity Researcher & Software Developer">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Mukta:wght@400;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Clean URL script (removes index.html from URL bar) -->
@@ -41,8 +41,8 @@
       </a>
 
       <div class="nav-actions">
-        <button id="btn-vault-open" class="cyber-btn vault-lock-btn sm" title="Access Restricted Vault">
-          <i class="fa-solid fa-lock"></i> <span>Secret Vault</span>
+        <button id="btn-terminal-open" class="cyber-btn sm secondary" title="Open Command Terminal CLI">
+          <i class="fa-solid fa-terminal"></i> <span>CLI Terminal</span>
         </button>
 
         <button id="btn-audio-toggle" class="icon-btn" title="Mute/Unmute Audio Sfx">
@@ -61,6 +61,13 @@
     <div class="gateway-card glass-panel border-beam-box">
 
       <div class="gateway-header">
+        <!-- HOLOGRAPHIC S LOGO BRAND BADGE -->
+        <div class="gateway-brand-hero float-anim">
+          <div class="gateway-logo-ring">
+            <img src="assets/s_logo.svg" alt="Saiman Sah Logo" class="gateway-hero-logo">
+          </div>
+        </div>
+
         <span class="gateway-badge pulse-glow"><i class="fa-solid fa-shield-halved"></i> SAIMAN SAH SYSTEM
           GATEWAY</span>
         <h1>Select Mode to Enter</h1>
@@ -68,34 +75,56 @@
         </p>
       </div>
 
-      <!-- CYBER HUD WIDGET -->
+      <!-- CYBER HUD WIDGET DASHBOARD -->
       <div class="cyber-hud-card">
-        <div class="hud-item">
-          <span class="hud-label">SYSTEM STATUS</span>
+        <div class="hud-item border-beam-box">
+          <div class="hud-item-header">
+            <i class="fa-solid fa-server hud-icon green"></i>
+            <span class="hud-label">SYSTEM STATUS</span>
+          </div>
           <span class="hud-value active-green"><span class="status-light green"></span> ONLINE (SECURE)</span>
         </div>
-        <div class="hud-item">
-          <span class="hud-label">CLEARANCE LEVEL</span>
-          <span class="hud-value gold"><i class="fa-solid fa-lock"></i> RESTRICTED (LEVEL 5)</span>
+
+        <div class="hud-item border-beam-box">
+          <div class="hud-item-header">
+            <i class="fa-solid fa-shield-halved hud-icon gold"></i>
+            <span class="hud-label">CLEARANCE LEVEL</span>
+          </div>
+          <span class="hud-value gold"><i class="fa-solid fa-lock"></i> RESTRICTED (L5)</span>
         </div>
-        <div class="hud-item">
-          <span class="hud-label">LATENCY / PING</span>
+
+        <div class="hud-item border-beam-box">
+          <div class="hud-item-header">
+            <i class="fa-solid fa-signal hud-icon cyan"></i>
+            <span class="hud-label">LATENCY / PING</span>
+          </div>
           <span class="hud-value cyan" id="hud-ping-val">12 ms</span>
         </div>
-        <div class="hud-item">
-          <span class="hud-label">LOCATION</span>
-          <span class="hud-value">NEPAL 🇳🇵</span>
+
+        <div class="hud-item border-beam-box">
+          <div class="hud-item-header">
+            <i class="fa-solid fa-earth-asia hud-icon purple"></i>
+            <span class="hud-label">BASE LOCATION</span>
+          </div>
+          <span class="hud-value purple">NEPAL 🇳🇵</span>
         </div>
       </div>
 
       <div class="gateway-options-grid">
         <!-- OPTION 1: PROFESSIONAL PORTFOLIO -->
-        <a href="professional.html" class="gateway-option-card" data-tilt>
+        <a href="professional.html" class="gateway-option-card pro-card-gateway" data-tilt>
           <div class="opt-icon-circle pro float-anim">
-            <i class="fa-solid fa-briefcase"></i>
+            <i class="fa-solid fa-user-shield"></i>
           </div>
           <div class="opt-badge">PROFESSIONAL</div>
           <h2>Professional Portfolio</h2>
+          <p class="opt-desc-sm">Cybersecurity operations, software development, ODNI CTIIC operational record, and technical credentials.</p>
+
+          <div class="opt-preview-tags">
+            <span class="preview-tag cyan-tag"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</span>
+            <span class="preview-tag cyan-tag"><i class="fa-solid fa-code"></i> Software Dev</span>
+            <span class="preview-tag gold-tag"><i class="fa-solid fa-id-card-clip"></i> Badge No. 118</span>
+          </div>
 
           <div class="cyber-btn primary full-width">
             <i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Enter Professional Bio</span>
@@ -103,17 +132,36 @@
         </a>
 
         <!-- OPTION 2: PERSONAL LIFE & GAMING -->
-        <a href="personal.html" class="gateway-option-card" data-tilt>
+        <a href="personal.html" class="gateway-option-card personal-card-gateway" data-tilt>
           <div class="opt-icon-circle personal float-anim">
             <i class="fa-solid fa-gamepad"></i>
           </div>
           <div class="opt-badge gold">PERSONAL</div>
           <h2>Personal Life & Hobbies</h2>
+          <p class="opt-desc-sm">High-altitude trekking (4,200m), BYD Atto 3 EV (130 km/h top speed), Defender 110 dream, and PC/PS5 gaming.</p>
+
+          <div class="opt-preview-tags">
+            <span class="preview-tag gold-tag"><i class="fa-solid fa-mountain-sun"></i> 4,200m Trek</span>
+            <span class="preview-tag cyan-tag"><i class="fa-solid fa-car-battery"></i> BYD Atto 3</span>
+            <span class="preview-tag purple-tag"><i class="fa-solid fa-desktop"></i> PC + PS5</span>
+          </div>
 
           <div class="cyber-btn secondary full-width">
             <i class="fa-solid fa-car"></i> <span>Enter Personal Bio</span>
           </div>
         </a>
+      </div>
+
+      <!-- DIRECT QUICK SOCIAL HUBS BAR -->
+      <div class="gateway-social-quickbar">
+        <span class="quickbar-label">DIRECT SOCIAL CONNECT:</span>
+        <div class="quickbar-links">
+          <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/shah_saiman" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/sah_saiman" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.threads.net/@shah_saiman" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-threads"></i></a>
+          <a href="mailto:me@saimansah.com.np" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
       </div>
 
     </div>
@@ -123,7 +171,7 @@
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2026 Saiman Sah. All Rights Reserved. Designed by Saiman Sah | Nepal 🇳🇵</p>
-      <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
+      <div class="footer-proverb">"अंतः अस्ति प्रारंभः" — End is Beginning</div>
       <div class="footer-socials">
         <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
             class="fa-brands fa-facebook"></i></a>
@@ -137,35 +185,6 @@
     </div>
   </footer>
 
-  <!-- CLASSIFIED VAULT MODAL -->
-  <div id="classified-vault-modal" class="modal">
-    <div class="modal-content vault-modal-content">
-      <div class="modal-header">
-        <span><i class="fa-solid fa-user-shield"></i> RESTRICTED CLASSIFIED VAULT</span>
-        <button id="btn-vault-close" class="close-btn">&times;</button>
-      </div>
-      <div class="modal-body" id="vault-modal-body">
-        <div id="vault-lock-screen" class="vault-lock-screen">
-          <div class="lock-icon-box float-anim">
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <h3>RESTRICTED ACCESS LEVEL 5</h3>
-          <p class="lock-desc">Enter authorization clearance key to decrypt and view Saiman Sah EXPERIENCE.</p>
-          <div class="vault-pass-form">
-            <div class="input-with-icon">
-              <i class="fa-solid fa-key"></i>
-              <input type="password" id="vault-pass-input" placeholder="Enter Clearance Key..." autocomplete="off">
-            </div>
-            <button id="btn-vault-unlock" class="cyber-btn primary">
-              <i class="fa-solid fa-unlock"></i> <span>Unlock Vault</span>
-            </button>
-          </div>
-          <div id="vault-auth-error" class="vault-error-msg"></div>
-        </div>
-        <div id="vault-unlocked-content" class="vault-unlocked-content" style="display:none;"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- TERMINAL MODAL -->
   <div id="terminal-modal" class="modal">

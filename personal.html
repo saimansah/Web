@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Mukta:wght@400;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Clean URL script (removes index.html from URL bar) -->
@@ -49,9 +49,6 @@
       </nav>
 
       <div class="nav-actions">
-        <button id="btn-vault-open" class="cyber-btn vault-lock-btn sm" title="Access Restricted Vault">
-          <i class="fa-solid fa-lock"></i> <span>Secret Vault</span>
-        </button>
 
         <a href="./" class="cyber-btn secondary sm" id="btn-reopen-gateway">
           <i class="fa-solid fa-arrows-rotate"></i> <span>Switch Mode</span>
@@ -78,32 +75,44 @@
         <h2>Personal Life, Travel, Automotive & Gaming Universe</h2>
         <p class="beyond-text">
           Fond of high-altitude wilderness traveling & mountain treks (highest point reached: <strong>4,200 meters /
-            ~13,780 feet</strong>), exploring high-speed automotive engineering, and mastering epic gaming campaigns on
+            ~13,780 feet</strong>), exploring high-speed automotive performance, and mastering epic gaming campaigns on
           PC & PS5.
         </p>
       </div>
 
       <!-- CYBER HUD STATUS BAR -->
       <div class="cyber-hud-card mini">
-        <div class="hud-item clickable-hud" id="hud-altitude-btn"
+        <div class="hud-item clickable-hud border-beam-box" id="hud-altitude-btn"
           title="Click to test Altimeter Simulator & view Peak Elevation!">
-          <span class="hud-label">ALTITUDE RECORD</span>
-          <span class="hud-value gold"><i class="fa-solid fa-mountain-sun"></i> 4,200M (13,780 FT) <i
-              class="fa-solid fa-angles-down" style="font-size: 0.75rem; margin-left: 4px;"></i></span>
+          <div class="hud-item-header">
+            <i class="fa-solid fa-mountain-sun hud-icon gold"></i>
+            <span class="hud-label">ALTITUDE RECORD</span>
+          </div>
+          <span class="hud-value gold">4,200M (13,780 FT) <i class="fa-solid fa-angles-down"
+              style="font-size: 0.75rem; margin-left: 4px;"></i></span>
         </div>
-        <div class="hud-item">
-          <span class="hud-label">GARAGE STATUS</span>
-          <span class="hud-value active-green"><span class="status-light green"></span> BYD ATTO 3 </span>
+        <div class="hud-item border-beam-box">
+          <div class="hud-item-header">
+            <i class="fa-solid fa-car-battery hud-icon green"></i>
+            <span class="hud-label">GARAGE STATUS</span>
+          </div>
+          <span class="hud-value active-green"><span class="status-light green"></span> BYD ATTO 3</span>
         </div>
-        <div class="hud-item clickable-hud" id="hud-top-speed-btn"
+        <div class="hud-item clickable-hud border-beam-box" id="hud-top-speed-btn"
           title="Click to test Accelerator Simulator & view Top Speed!">
-          <span class="hud-label">TOP SPEED RECORD</span>
-          <span class="hud-value gold"><i class="fa-solid fa-gauge-high"></i> 130 KM/H <i
-              class="fa-solid fa-angles-down" style="font-size: 0.75rem; margin-left: 4px;"></i></span>
+          <div class="hud-item-header">
+            <i class="fa-solid fa-gauge-high hud-icon gold"></i>
+            <span class="hud-label">TOP SPEED RECORD</span>
+          </div>
+          <span class="hud-value gold">130 KM/H <i class="fa-solid fa-angles-down"
+              style="font-size: 0.75rem; margin-left: 4px;"></i></span>
         </div>
-        <div class="hud-item">
-          <span class="hud-label">GAMING DEVICES</span>
-          <span class="hud-value cyan"><i class="fa-solid fa-desktop"></i> PC + PS5 </span>
+        <div class="hud-item border-beam-box">
+          <div class="hud-item-header">
+            <i class="fa-solid fa-gamepad hud-icon cyan"></i>
+            <span class="hud-label">GAMING DEVICES</span>
+          </div>
+          <span class="hud-value cyan"><i class="fa-solid fa-desktop"></i> PC + PS5</span>
         </div>
       </div>
     </section>
@@ -271,16 +280,21 @@
           <!-- INTERACTIVE MOUNTAIN ALTITUDE DRAG CURSOR PANEL -->
           <div class="altitude-cursor-control-panel">
             <div class="cursor-instruction">
-              <i class="fa-solid fa-up-long"></i> <span>DRAG THE CLIMBER CURSOR TO THE TOP TO CONQUER 4,200M</span>
+              <i class="fa-solid fa-up-long"></i> <span>DRAG THE CLIMBER CURSOR UP THE MOUNTAIN TO REACH 4,200M</span>
             </div>
 
-            <!-- INTERACTIVE SLIDER GAUGES CONTAINER -->
-            <div class="mountain-cursor-slider-box">
-              <div class="slider-track-background">
-                <div class="slider-fill-progress" id="slider-fill-progress" style="width: 0%;"></div>
+            <!-- INTERACTIVE VERTICAL HILL SLIDER GAUGES CONTAINER -->
+            <div class="mountain-cursor-slider-box vertical-hill">
+              <div class="hill-top-peak">
+                <i class="fa-solid fa-flag-checkered gold-icon"></i>
+                <span class="hill-peak-label">4,200M PEAK SUMMIT</span>
+              </div>
+
+              <div class="slider-track-background vertical">
+                <div class="slider-fill-progress vertical" id="slider-fill-progress" style="height: 0%;"></div>
 
                 <!-- MOUNTAIN CLIMBER CURSOR HANDLE -->
-                <div class="climber-cursor-handle" id="climber-cursor-handle" style="left: 0%;">
+                <div class="climber-cursor-handle vertical" id="climber-cursor-handle" style="bottom: 0%;">
                   <div class="cursor-badge-icon float-anim">
                     <i class="fa-solid fa-person-hiking"></i>
                   </div>
@@ -288,9 +302,14 @@
                 </div>
               </div>
 
-              <!-- SLIDER INPUT FOR TOUCH & MOUSE DRAGGING -->
-              <input type="range" id="altitude-drag-slider" class="altitude-range-slider" min="0" max="4200" value="0"
-                step="10" title="Drag to adjust altitude reached">
+              <div class="hill-bottom-base">
+                <i class="fa-solid fa-campground green-icon"></i>
+                <span class="hill-base-label">BASE CAMP (0M)</span>
+              </div>
+
+              <!-- SLIDER INPUT FOR TOUCH & MOUSE DRAGGING (VERTICAL DOWN-TO-UP) -->
+              <input type="range" id="altitude-drag-slider" class="altitude-range-slider vertical" min="0" max="4200"
+                value="0" step="10" title="Drag climber cursor up to adjust altitude reached">
             </div>
 
             <!-- QUICK AUTO-CLIMB / RESET BUTTONS -->
@@ -302,7 +321,7 @@
             </div>
 
             <div class="trek-status-hud" id="trek-status-text">
-              STATUS: AT BASE CAMP (0m) — DRAG CURSOR TO CLIMB PEAK
+              STATUS: AT BASE CAMP (0m) — DRAG CURSOR UP TO CLIMB PEAK
             </div>
           </div>
         </div>
@@ -321,9 +340,6 @@
         <div class="switcher-tabs">
           <button class="spec-tab-btn active" data-car="atto3">
             <i class="fa-solid fa-car-battery"></i> BYD Atto 3 (Current Ride)
-          </button>
-          <button class="spec-tab-btn" data-car="defender">
-            <i class="fa-solid fa-mountain"></i> Land Rover Defender 110 (1st Dream Car)
           </button>
         </div>
 
@@ -407,9 +423,9 @@
                 <!-- Gradients -->
                 <defs>
                   <linearGradient id="speed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#00f3ff" />
-                    <stop offset="60%" stop-color="#ffd700" />
-                    <stop offset="100%" stop-color="#ff0055" />
+                    <stop offset="0%" stop-color="#00e5ff" />
+                    <stop offset="60%" stop-color="#fbbf24" />
+                    <stop offset="100%" stop-color="#ef4444" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -421,9 +437,9 @@
               </div>
             </div>
 
-            <!-- RPM TACHOMETER SHIFT LIGHTS -->
-            <div class="tachometer-box">
-              <div class="tacho-label">ENGINE REV / TACHOMETER (RPM)</div>
+            <!-- RPM  SHIFT LIGHTS -->
+            <div class="-box">
+              <div class="tacho-label" id="sim-tacho-label"><i class="fa-solid fa-bolt"></i> EV MOTOR POWER / (RPM)</div>
               <div class="shift-lights-bar">
                 <span class="shift-led green" id="led-1"></span>
                 <span class="shift-led green" id="led-2"></span>
@@ -462,17 +478,17 @@
               <i class="fa-solid fa-hand-pointer"></i> <span>PRESS & HOLD OR CLICK ACCELERATOR</span>
             </div>
 
-            <!-- 3D METAL & CARBON FIBER ACCELERATOR PEDAL BUTTON -->
+            <!-- REALISTIC 3D AUTOMOTIVE ACCELERATOR PEDAL BUTTON -->
             <button id="accelerator-pedal" class="pedal-btn" title="Hold or Click to Accelerate">
-              <div class="pedal-surface">
-                <div class="pedal-grooves">
-                  <span></span><span></span><span></span><span></span>
-                </div>
-                <div class="pedal-icon">
-                  <i class="fa-solid fa-angles-up"></i>
+              <div class="pedal-surface real-pedal">
+                <div class="real-pedal-grips">
+                  <div class="grip-strip"></div>
+                  <div class="grip-strip"></div>
+                  <div class="grip-strip"></div>
                 </div>
                 <span class="pedal-text">ACCELERATE</span>
               </div>
+              <div class="pedal-arm"></div>
               <div class="pedal-base"></div>
             </button>
 
@@ -509,7 +525,7 @@
             <div class="garage-badge-tag gold">DREAM VEHICLE</div>
             <div class="garage-icon"><i class="fa-solid fa-mountain"></i></div>
             <h3>New Land Rover Defender 110</h3>
-            <p>1st Dream Car — Ultimate luxury 4x4 off-road terrain capability & robust engineering.</p>
+            <p>1st Dream Car — Ultimate luxury 4x4 off-road terrain capability & robust automotive design.</p>
 
             <div class="dream-goal-pill pulse-glow">
               <i class="fa-solid fa-star"></i>
@@ -692,7 +708,7 @@
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2026 Saiman Sah. All Rights Reserved. Designed by Saiman Sah | Nepal 🇳🇵</p>
-      <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
+      <div class="footer-proverb">"अंतः अस्ति प्रारंभः" — End is Beginning</div>
       <div class="footer-socials">
         <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
             class="fa-brands fa-facebook"></i></a>
@@ -706,35 +722,6 @@
     </div>
   </footer>
 
-  <!-- CLASSIFIED VAULT MODAL -->
-  <div id="classified-vault-modal" class="modal">
-    <div class="modal-content vault-modal-content">
-      <div class="modal-header">
-        <span><i class="fa-solid fa-user-shield"></i> RESTRICTED CLASSIFIED VAULT</span>
-        <button id="btn-vault-close" class="close-btn">&times;</button>
-      </div>
-      <div class="modal-body" id="vault-modal-body">
-        <div id="vault-lock-screen" class="vault-lock-screen">
-          <div class="lock-icon-box float-anim">
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <h3>RESTRICTED ACCESS LEVEL 5</h3>
-          <p class="lock-desc">Enter authorization clearance key to decrypt and view restricted operational record.</p>
-          <div class="vault-pass-form">
-            <div class="input-with-icon">
-              <i class="fa-solid fa-key"></i>
-              <input type="password" id="vault-pass-input" placeholder="Enter Clearance Key..." autocomplete="off">
-            </div>
-            <button id="btn-vault-unlock" class="cyber-btn primary">
-              <i class="fa-solid fa-unlock"></i> <span>Unlock Vault</span>
-            </button>
-          </div>
-          <div id="vault-auth-error" class="vault-error-msg"></div>
-        </div>
-        <div id="vault-unlocked-content" class="vault-unlocked-content" style="display:none;"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- TERMINAL MODAL -->
   <div id="terminal-modal" class="modal">

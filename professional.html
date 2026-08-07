@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Mukta:wght@400;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Clean URL script (removes index.html from URL bar) -->
@@ -49,9 +49,6 @@
       </nav>
 
       <div class="nav-actions">
-        <button id="btn-vault-open" class="cyber-btn vault-lock-btn sm" title="Access Restricted Vault">
-          <i class="fa-solid fa-lock"></i> <span>Secret Vault</span>
-        </button>
 
         <a href="./" class="cyber-btn secondary sm" id="btn-reopen-gateway">
           <i class="fa-solid fa-arrows-rotate"></i> <span>Switch Mode</span>
@@ -75,8 +72,13 @@
     <section id="about" class="hero-card reveal-on-scroll">
       <div class="hero-grid">
         <div class="hero-text">
-          <div class="badge-pill">
-            <i class="fa-solid fa-shield-halved"></i> <span>Ethical Hacker & Developer</span>
+          <div class="info-pills margin-bottom-10">
+            <div class="badge-pill">
+              <i class="fa-solid fa-shield-halved"></i> <span>Ethical Hacker & Developer</span>
+            </div>
+            <div class="badge-pill gold">
+              <i class="fa-solid fa-brain"></i> <span>100% Self-Learned Specialist</span>
+            </div>
           </div>
 
           <h1 class="hero-name">
@@ -89,16 +91,25 @@
 
           <!-- CYBER HUD STATUS BAR -->
           <div class="cyber-hud-card mini">
-            <div class="hud-item">
-              <span class="hud-label">STATUS</span>
-              <span class="hud-value active-green"><span class="status-light green"></span> ACTIVE</span>
+            <div class="hud-item border-beam-box">
+              <div class="hud-item-header">
+                <i class="fa-solid fa-server hud-icon green"></i>
+                <span class="hud-label">SYSTEM STATUS</span>
+              </div>
+              <span class="hud-value active-green"><span class="status-light green"></span> ONLINE (SECURE)</span>
             </div>
-            <div class="hud-item">
-              <span class="hud-label">ROLE</span>
+            <div class="hud-item border-beam-box">
+              <div class="hud-item-header">
+                <i class="fa-solid fa-user-gear hud-icon cyan"></i>
+                <span class="hud-label">PRIMARY ROLE</span>
+              </div>
               <span class="hud-value cyan">Ethical Hacker & Dev</span>
             </div>
-            <div class="hud-item">
-              <span class="hud-label">LATENCY</span>
+            <div class="hud-item border-beam-box">
+              <div class="hud-item-header">
+                <i class="fa-solid fa-signal hud-icon gold"></i>
+                <span class="hud-label">LATENCY / PING</span>
+              </div>
               <span class="hud-value gold" id="hud-ping-val">12 ms</span>
             </div>
           </div>
@@ -116,9 +127,9 @@
           </div>
 
           <p class="hero-bio">
-            Experienced Developer and Ethical Hacker specializing in cybersecurity research, system vulnerability
+            100% Self-Learned Developer and Ethical Hacker specializing in cybersecurity research, system vulnerability
             assessment, and full-stack software development. Based in Nepal, I build, debug, and secure high-stakes
-            digital applications.
+            digital applications through continuous self-driven exploration and practice.
           </p>
 
           <!-- QUICK INFO BADGES -->
@@ -211,9 +222,9 @@
             <div class="avatar-status-pill pulse-glow">
               <span class="status-light green"></span> Verified Cyber Profile
             </div>
-            <button id="hero-vault-trigger" class="classified-pill-btn margin-top-10">
-              <i class="fa-solid fa-user-shield"></i> Secret Vault <i class="fa-solid fa-lock lock-icon-mini"></i>
-            </button>
+            <a href="#experience" class="classified-pill-btn margin-top-10" style="text-decoration:none;">
+              <i class="fa-solid fa-building-shield"></i> ODNI CTIIC Record <i class="fa-solid fa-chevron-down"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -222,46 +233,97 @@
     <!-- PROFESSIONAL EXPERIENCE & TECHNICAL LEADERSHIP SECTION -->
     <section id="experience" class="section-card reveal-on-scroll">
       <div class="section-title">
-        <span class="section-tag">EXPERIENCE & LEADERSHIP</span>
-        <h2>Engineering & <span class="highlight">Security Operations</span></h2>
-        <p class="section-date"><i class="fa-regular fa-calendar-days"></i> Technical Leadership & Cybersecurity
-          Portfolio</p>
+        <span class="section-tag"><i class="fa-solid fa-building-shield"></i> OFFICIAL OPERATIONAL RECORD</span>
+        <h2>ODNI CTIIC &mdash; <span class="highlight">Leadership & Technical History</span></h2>
+        <p class="section-date"><i class="fa-regular fa-calendar-days"></i> Technical Leadership & Cybersecurity Portfolio</p>
+      </div>
+
+      <!-- PUBLIC ODNI CTIIC HERO FEATURE BANNER CARD -->
+      <div class="public-dni-hero-card border-beam-box reveal-on-scroll" data-tilt>
+        <div class="public-dni-glow-bg"></div>
+        <div class="public-dni-content-wrapper">
+          <div class="public-dni-emblem-wrap float-anim">
+            <div class="emblem-aura-glow"></div>
+            <img src="assets/dni_logo.png" alt="ODNI CTIIC Emblem" class="public-dni-emblem-img">
+          </div>
+          <div class="public-dni-details">
+            <div class="public-dni-header-badge pulse-glow">
+              <span class="badge-icon"><i class="fa-solid fa-user-shield"></i></span>
+              <span class="badge-text">VERIFIED OPERATIONAL RECORD</span>
+            </div>
+            <h3 class="public-dni-title">ODNI CTIIC DEPARTMENT</h3>
+            <div class="public-dni-roles-wrapper">
+              <div class="public-dni-role-pill">
+                <i class="fa-solid fa-user-gear"></i>
+                <span>ODNI CTIIC Cyber Executive</span>
+              </div>
+              <div class="public-dni-badge-box pulse-glow">
+                <i class="fa-solid fa-id-card-clip"></i>
+                <span class="badge-box-label">BADGE NO:</span>
+                <span class="badge-box-num">118</span>
+              </div>
+            </div>
+
+            <div class="public-dni-dates-grid">
+              <div class="dni-date-chip">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div class="chip-text">
+                  <span class="chip-label">Tenure (A.D.)</span>
+                  <span class="chip-val">Aug 31, 2024 &ndash; Jul 22, 2026</span>
+                </div>
+              </div>
+              <div class="dni-date-chip">
+                <i class="fa-solid fa-calendar-week"></i>
+                <div class="chip-text">
+                  <span class="chip-label">Tenure (B.S.)</span>
+                  <span class="chip-val">Bhadra 15, 2081 &ndash; Shrawan 6, 2083 B.S.</span>
+                </div>
+              </div>
+              <div class="dni-date-chip green-highlight pulse-glow">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <div class="chip-text">
+                  <span class="chip-label">Total Duration</span>
+                  <span class="chip-val green-text">1 Year, 10 Months, 22 Days (690 Days)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-subtitle-divider">
+        <span><i class="fa-solid fa-shield-halved"></i> Key Core Competencies & Departmental Responsibilities</span>
       </div>
 
       <div class="dni-grid">
         <div class="dni-feature-card reveal-on-scroll stagger-1" data-tilt>
           <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
           <h3>Technical Leadership</h3>
-          <p>Led technical operations, managing project workflows, development architecture, and strategic execution
-            across software initiatives.</p>
+          <p>Led technical operations, managing project workflows, development architecture, and strategic execution across software initiatives.</p>
         </div>
 
         <div class="dni-feature-card reveal-on-scroll stagger-2" data-tilt>
           <div class="card-icon"><i class="fa-solid fa-bug"></i></div>
-          <h3>Software Engineering & Debugging</h3>
-          <p>Directed complex software architecture, automated testing, and deep-level debugging to guarantee system
-            stability and reliability.</p>
+          <h3>Software Development & Debugging</h3>
+          <p>Directed complex software architecture, automated testing, and deep-level debugging to guarantee system stability and reliability.</p>
         </div>
 
         <div class="dni-feature-card reveal-on-scroll stagger-3" data-tilt>
           <div class="card-icon"><i class="fa-solid fa-users"></i></div>
           <h3>Team Mentorship & Strategy</h3>
-          <p>Supervised developer teams, delegated technical responsibilities, and aligned software goals with core
-            security standards.</p>
+          <p>Supervised developer teams, delegated technical responsibilities, and aligned software goals with core security standards.</p>
         </div>
 
         <div class="dni-feature-card reveal-on-scroll stagger-4" data-tilt>
           <div class="card-icon"><i class="fa-solid fa-shield-virus"></i></div>
           <h3>Cybersecurity & Ethical Hacking</h3>
-          <p>Performed vulnerability research, security audits, root-cause threat mitigation, and penetration testing
-            for digital systems.</p>
+          <p>Performed vulnerability research, security audits, root-cause threat mitigation, and penetration testing for digital systems.</p>
         </div>
 
         <div class="dni-feature-card reveal-on-scroll stagger-5" data-tilt>
           <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
           <h3>Operational Security & Threat Analysis</h3>
-          <p>Managed operational security (OPSEC) protocols, encrypted communication channels, digital footprint
-            protection, and secure network infrastructure.</p>
+          <p>Managed operational security (OPSEC) protocols, encrypted communication channels, digital footprint protection, and secure network infrastructure.</p>
         </div>
       </div>
     </section>
@@ -309,18 +371,39 @@
           </div>
           <span class="progress-percent">98% Mastered</span>
         </div>
+
+        <div class="skill-box reveal-on-scroll stagger-4" data-tilt>
+          <div class="skill-head">
+            <i class="fa-solid fa-brain"></i>
+            <h3>100% Self-Learned Technical Mastery</h3>
+          </div>
+          <p>Autodidactic cybersecurity research, independent software development, vulnerability assessment, and rapid technology adaptation.</p>
+          <div class="skill-progress-bar">
+            <div class="progress-fill" data-progress="100%"></div>
+          </div>
+          <span class="progress-percent">100% Self-Learned</span>
+        </div>
       </div>
     </section>
 
     <!-- EDUCATION SECTION -->
     <section id="education" class="section-card reveal-on-scroll">
       <div class="section-title">
-        <span class="section-tag">EDUCATION</span>
-        <h2>Academic Qualifications</h2>
+        <span class="section-tag">EDUCATION & LEARNING JOURNEY</span>
+        <h2>Academic Qualifications & 100% Self-Learned Mastery</h2>
       </div>
 
       <div class="edu-list">
-        <div class="edu-item reveal-on-scroll stagger-1">
+        <div class="edu-item self-learned-edu-card reveal-on-scroll stagger-1 border-beam-box">
+          <div class="edu-icon gold"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="edu-details">
+            <h3>100% Self-Learned Cybersecurity & Software Development</h3>
+            <p class="edu-desc-sm">Ethical hacking, software development architecture, vulnerability assessment, system debugging, and operational security — 100% self-learned through hands-on practice & autodidactic research.</p>
+            <span class="status-badge gold pulse-glow">100% Self-Learned & Mastered</span>
+          </div>
+        </div>
+
+        <div class="edu-item reveal-on-scroll stagger-2">
           <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
           <div class="edu-details">
             <h3>Higher Secondary Education (+2 Science / Computer Science)</h3>
@@ -328,7 +411,7 @@
           </div>
         </div>
 
-        <div class="edu-item reveal-on-scroll stagger-2">
+        <div class="edu-item reveal-on-scroll stagger-3">
           <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
           <div class="edu-details">
             <h3>Secondary Education Examination (SEE)</h3>
@@ -338,7 +421,6 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <!-- CONTACT & DIRECT CONNECT SECTION -->
     <section id="contact" class="section-card reveal-on-scroll">
       <div class="section-title">
@@ -421,7 +503,7 @@
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2026 Saiman Sah. All Rights Reserved. Designed by Saiman Sah | Nepal 🇳🇵</p>
-      <div class="footer-proverb">“अंतः अस्ति प्रारंभः” — End is Beginning</div>
+      <div class="footer-proverb">"अंतः अस्ति प्रारंभः" — End is Beginning</div>
       <div class="footer-socials">
         <a href="https://www.facebook.com/shahsaiman" target="_blank" rel="noopener noreferrer" title="Facebook"><i
             class="fa-brands fa-facebook"></i></a>
@@ -435,35 +517,6 @@
     </div>
   </footer>
 
-  <!-- CLASSIFIED VAULT MODAL -->
-  <div id="classified-vault-modal" class="modal">
-    <div class="modal-content vault-modal-content">
-      <div class="modal-header">
-        <span><i class="fa-solid fa-user-shield"></i> RESTRICTED CLASSIFIED VAULT</span>
-        <button id="btn-vault-close" class="close-btn">&times;</button>
-      </div>
-      <div class="modal-body" id="vault-modal-body">
-        <div id="vault-lock-screen" class="vault-lock-screen">
-          <div class="lock-icon-box float-anim">
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <h3>RESTRICTED ACCESS LEVEL 5</h3>
-          <p class="lock-desc">Enter authorization clearance key to decrypt and view restricted operational record.</p>
-          <div class="vault-pass-form">
-            <div class="input-with-icon">
-              <i class="fa-solid fa-key"></i>
-              <input type="password" id="vault-pass-input" placeholder="Enter Clearance Key..." autocomplete="off">
-            </div>
-            <button id="btn-vault-unlock" class="cyber-btn primary">
-              <i class="fa-solid fa-unlock"></i> <span>Unlock Vault</span>
-            </button>
-          </div>
-          <div id="vault-auth-error" class="vault-error-msg"></div>
-        </div>
-        <div id="vault-unlocked-content" class="vault-unlocked-content" style="display:none;"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- TERMINAL MODAL -->
   <div id="terminal-modal" class="modal">

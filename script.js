@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gateway_subtitle: "Choose your path to explore professional technical accomplishments or personal gaming & garage highlights.",
       badge_pro_path: "PROFESSIONAL",
       title_pro_path: "Professional Portfolio",
-      desc_pro_path: "Cybersecurity operations, software engineering, technical projects, and academic credentials.",
+      desc_pro_path: "Cybersecurity operations, software development, technical projects, and academic credentials.",
       btn_enter_pro: "Enter Professional Bio",
 
       badge_personal_path: "CARS & GAMING",
@@ -43,18 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
       spotlight_badge: "PHILOSOPHY",
       spotlight_quote: "अन्तः अस्ति प्रारम्भः",
       spotlight_meaning: "End is Beginning",
-      hero_bio: "Experienced Developer and Ethical Hacker specializing in cybersecurity research, system vulnerability assessment, and full-stack software development. Based in Nepal, I build, debug, and secure high-stakes digital applications.",
+      hero_bio: "100% Self-Learned Developer and Ethical Hacker specializing in cybersecurity research, system vulnerability assessment, and full-stack software development. Based in Nepal, I build, debug, and secure high-stakes digital applications.",
       info_location: "Location: Nepal 🇳🇵",
       info_dob: "DOB: July 21, 2008",
       info_dob_bs: "(B.S.: Shrawan 6, 2065 BS)",
       btn_contact_me: "Get in Touch",
       btn_view_exp: "View Experience",
       tag_leadership: "EXPERIENCE & LEADERSHIP",
-      exp_heading: "Engineering & Security Operations",
+      exp_heading: "Technical & Security Operations",
 
       pillar1_title: "Technical Leadership",
       pillar1_desc: "Led technical operations, managing project workflows, development architecture, and strategic execution across software initiatives.",
-      pillar2_title: "Software Engineering & Debugging",
+      pillar2_title: "Software Development & Debugging",
       pillar2_desc: "Directed complex software architecture, automated testing, and deep-level debugging to guarantee system stability and reliability.",
       pillar3_title: "Team Mentorship & Strategy",
       pillar3_desc: "Supervised developer teams, delegated technical responsibilities, and aligned software goals with core security standards.",
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // PERSONAL & GAMING PAGE TRANSLATIONS
       tag_personal_title: "BEYOND THE CODE",
       personal_hero_title: "Personal Life, Automotive & Gaming Universe",
-      personal_hero_subtitle: "Exploring high-speed automotive engineering, mastering epic gaming campaigns on PC & PS5, and crafting custom tech setups.",
+      personal_hero_subtitle: "Exploring high-speed automotive performance, mastering epic gaming campaigns on PC & PS5, and crafting custom tech setups.",
       tag_garage: "GARAGE & AUTOMOTIVE",
       garage_heading: "My Automotive Passion",
       badge_current_ride: "CURRENT RIDE",
@@ -298,100 +298,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // --- CLASSIFIED ODNI CTIIC VAULT ENCRYPTED ENGINE ---
-  const ODNI_ENCRYPTED_DATA = "eQoNV1MBCQYaHVNLDQskHRdIFQsAA0QYDxwCE2gGAUAXBxdFV2ROSVIUNQ8KARAOBBQaU0wBGwNoDAVFFAdFFQwKThkbCzYLSUYfDRJFV1IHSQ0LJB0XHFEEBEoaAQIACkcjD0lNHAEOSgYeCwdMWXlBDR9TMCA0PTwnKjoiAU4lYjAnNjRJIis/KytlW0Q1UzcrKyYtJSwqW2odFEAdXG9HSVIGW1AoASAtATA2LC4qTkY8AAMgHAdOBQcXTkl6Ti0LFyQcEEwWDBEGBU44CBsLMVJLSUFcb0dJUh5JDQskHRccURQEEgUaQxobBTEHEE0WQFskBQ8dGgcBLAsAATwSABUIGgcGAAYpTjZEEA0XA0lITiULBiELFlIbCxVHIQcdHQEVPFJLUU1oWUgNBxhXZG15Cg1XUwEJBhodU0sKCSxDEkAGDhFKCg8cDU4FKhwARAFPBwIIA0MLAR9nUG4BU14BDh9ODQUPFDZTRlcSFwkTRAsDCwICKEMWTgRAW21JTk5JUgMsGERCHwMWFFRMAgYJCGgZFkADEgAVS04dHRcLIFNGVhoGEQ9TX11ZHh9+TgxEGgUNE1NfXVkeH35OCUABBQwJU15OCBsTKk5VEwMaXkVXZE5JTkdlTlhIHgVFFBsNU0sPFDYLEFJcBgsONgIBDgFJNQADA1MDCRNUTCEtIC5lLTBoOiFFIgQMAgwDRWUNCEAAEVhFDQAHRAsKJwIBTF4LCABJCAIGDxNoDwpIHkBFFB0XAgxTRTIHAFUbWFRUWR4WUk4PIAcDSQdYVFRZHhZSTggnBAFCB08DDh1UDQYAEyQHChpTAAoVDQscRBwGIQcRUklXVUJSTFBjTkdlTlgOFwsTWWNkTklOWy1dWm43LCxHKjonIC1GbTsqZTYwJig/KzxATiMAPiVzJy8gKT1SQQFdWU9ORAFTXhVHCgIPGh1aZxgFVB8WSBUGAgtLUC8gDwABHARFIwweDxsaCiAAEAFnQjAJDQscCgERIBxEbh0ODAkMTiEZCxUkGg1XFl5KF1dkTklOR3kKDVdTAQkGGh1TSxgGMAIQDBcDEQIaQwwGFkV7ZEQBU0JFR1UdHggAWXkHREIfAxYUVEwICEMVIAkRTRIQRQEIQw0IAgIrCgVTXgYEHhpMUFVBDntOMEQdFxcCU04vHAlHdl9IAUFSV1NJfU4jGwtlXFYNU1BVVV9SQRoeBitQbgFTQkVHSVIdGQ8Je1INARAOBBQaU0wPD0o2AQhIF0IDBkQNDwULCSEPFgwEBwAMS1BSRgdZZSxKcl1YRSUBDwobD0d0W0gBQVJdVkl9TjoGFSQZBU9TVElHW15WWk4laz1KHVwRFQYHUGRJTkdlTkQdABIECUkNAggdFHhMFFQfEQBKDgIBHk4ANwsBT14WAB8dTFBVB0cmAgVSAF9HAQhDHQYCDiFOAkBeAQkICgVMV1JILFBEZQYQBBMAAQBTTlZlNwFAAU5FVllOIwYAEy0dSAFBUEUjCBcdSUZRfF5EZRIbFk5VQR0ZDwl7ZEQBU0JZSA0HGFdkR2VSS0UaFFttVUEKABhZ";
-
-  function decryptClassifiedVault(enc, key) {
+  // --- GENERIC XOR DECRYPTION HELPER ---
+  function decryptData(enc, key) {
     try {
       const raw = atob(enc);
       let str = '';
       for (let i = 0; i < raw.length; i++) {
         str += String.fromCharCode(raw.charCodeAt(i) ^ key.charCodeAt(i % key.length));
       }
-      if (str.includes('classified-vault-header') || str.includes('unlocked-badge-row') || str.includes('unlocked-contact-info')) {
-        return str;
-      }
-      return null;
+      return str;
     } catch (e) {
       return null;
     }
-  }
-
-  const vaultModal = document.getElementById('classified-vault-modal');
-  const btnVaultOpen = document.getElementById('btn-vault-open');
-  const heroVaultTrigger = document.getElementById('hero-vault-trigger');
-  const btnVaultClose = document.getElementById('btn-vault-close');
-  const btnVaultUnlock = document.getElementById('btn-vault-unlock');
-  const vaultPassInput = document.getElementById('vault-pass-input');
-  const vaultLockScreen = document.getElementById('vault-lock-screen');
-  const vaultUnlockedContent = document.getElementById('vault-unlocked-content');
-  const vaultAuthError = document.getElementById('vault-auth-error');
-
-  function openVaultModal() {
-    if (vaultModal) {
-      vaultModal.classList.add('open');
-      if (vaultPassInput) vaultPassInput.focus();
-      if (window.CyberAudio) CyberAudio.playSwitch();
-    }
-  }
-
-  function closeVaultModal() {
-    if (vaultModal) vaultModal.classList.remove('open');
-  }
-
-  function attemptUnlockVault(inputPass) {
-    const pass = inputPass || (vaultPassInput ? vaultPassInput.value.trim() : '');
-    if (!pass) {
-      if (vaultAuthError) vaultAuthError.textContent = 'Please enter clearance key.';
-      return false;
-    }
-
-    const decryptedHtml = decryptClassifiedVault(ODNI_ENCRYPTED_DATA, pass);
-
-    if (decryptedHtml) {
-      if (vaultLockScreen) vaultLockScreen.style.display = 'none';
-      if (vaultUnlockedContent) {
-        vaultUnlockedContent.innerHTML = decryptedHtml;
-        vaultUnlockedContent.style.display = 'block';
-
-        const btnRelock = document.getElementById('btn-relock-vault');
-        if (btnRelock) {
-          btnRelock.onclick = relockVault;
-        }
-      }
-      if (vaultAuthError) vaultAuthError.textContent = '';
-      if (vaultPassInput) vaultPassInput.value = '';
-      if (window.CyberAudio) CyberAudio.playChime();
-      return true;
-    } else {
-      if (vaultAuthError) {
-        vaultAuthError.textContent = 'ACCESS DENIED — INVALID CLEARANCE KEY';
-        vaultAuthError.classList.add('shake');
-        setTimeout(() => vaultAuthError.classList.remove('shake'), 500);
-      }
-      return false;
-    }
-  }
-
-  function relockVault() {
-    if (vaultUnlockedContent) {
-      vaultUnlockedContent.innerHTML = '';
-      vaultUnlockedContent.style.display = 'none';
-    }
-    if (vaultLockScreen) vaultLockScreen.style.display = 'flex';
-    if (vaultPassInput) vaultPassInput.value = '';
-    if (vaultAuthError) vaultAuthError.textContent = '';
-  }
-
-  if (btnVaultOpen) btnVaultOpen.addEventListener('click', openVaultModal);
-  if (heroVaultTrigger) heroVaultTrigger.addEventListener('click', openVaultModal);
-  if (btnVaultClose) btnVaultClose.addEventListener('click', closeVaultModal);
-  if (btnVaultUnlock) btnVaultUnlock.addEventListener('click', () => attemptUnlockVault());
-  if (vaultPassInput) {
-    vaultPassInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') attemptUnlockVault();
-    });
   }
 
   // --- PHONE & WHATSAPP PIN ENCRYPTION ENGINE (PIN: 9749933211) ---
@@ -410,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (formWrap) formWrap.style.display = 'none';
       if (unlockedCard) {
         unlockedCard.style.display = 'block';
-        const decrypted = decryptClassifiedVault(PHONE_ENCRYPTED_DATA, targetPin);
+        const decrypted = decryptData(PHONE_ENCRYPTED_DATA, targetPin);
         unlockedCard.innerHTML = decrypted || '';
 
         const waUrl = "https://wa.me/message/GR66ZSPQA3TVC1?src=qr";
@@ -483,20 +401,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnTerminalClose) btnTerminalClose.addEventListener('click', closeTerminal);
 
   const COMMANDS = {
-    'help': 'Commands: pro, personal, travel, about, exp, opsec, classified, vault, phone, whatsapp, proverb, social, cars, gaming, skills, education, contact, clear',
+    'help': 'Commands: pro, personal, travel, about, exp, opsec, odni, ctiic, phone, whatsapp, proverb, social, cars, gaming, skills, education, contact, clear',
     'pro': 'Navigating to Professional Portfolio (professional.html)...',
     'personal': 'Navigating to Personal Life & Gaming (personal.html)...',
     'travel': 'Fond of traveling & high-altitude trekking | Highest point reached: 4,200 meters (~13,780 feet) above sea level in Nepal 🏔️',
     'about': 'Saiman Sah — Developer | Ethical Hacker | Cybersecurity Researcher based in Nepal.',
-    'exp': 'Engineering & Security Operations: Software architecture, vulnerability research & full-stack development.',
+    'exp': 'Technical & Security Operations: Software architecture, vulnerability research & full-stack development.',
     'opsec': '[OPERATIONAL SECURITY] Anonymized digital footprint, encrypted communication channels & secure infrastructure.',
-    'classified': 'Type "classified End!sbeginning" to unlock Secret Vault directly, or use the Secret Vault button in the header.',
-    'vault': 'Type "vault End!sbeginning" to unlock Secret Vault directly.',
     'phone': 'Type "phone <PIN>" to unlock & reveal direct phone number and WhatsApp.',
     'whatsapp': 'Type "whatsapp <PIN>" to unlock & reveal direct WhatsApp link.',
-    'dni': 'Type "classified End!sbeginning" to unlock Secret Vault directly.',
-    'odni': 'Type "classified End!sbeginning" to unlock Secret Vault directly.',
-    'ctiic': 'Type "classified End!sbeginning" to unlock Secret Vault directly.',
+    'dni': 'ODNI CTIIC Cyber Executive (Badge No. 118) — Official Operational Record published on Professional page.',
+    'odni': 'ODNI CTIIC Cyber Executive (Badge No. 118) — Official Operational Record published on Professional page.',
+    'ctiic': 'ODNI CTIIC Cyber Executive (Badge No. 118) — Official Operational Record published on Professional page.',
     'proverb': '“अंतः अस्ति प्रारंभः” — End is Beginning (Guiding Philosophy)',
     'social': 'FB: https://www.facebook.com/shahsaiman | IG: https://www.instagram.com/shah_saiman | X: https://x.com/sah_saiman | Threads: https://www.threads.net/@shah_saiman',
     'cars': 'BYD Atto 3 Owner (Max Speed 130 km/h) | Dream Car: New Land Rover Defender 110',
@@ -535,20 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
             attemptUnlockPhone('9749933211');
             line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00ff66;font-weight:bold;">[CONTACT UNLOCKED — PIN VERIFIED]</span><br>Phone & WhatsApp Unlocked! View details in the Contact section.`;
           } else {
+            if (window.CyberAudio && window.CyberAudio.playGlitchError) CyberAudio.playGlitchError();
             line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[CONTACT RESTRICTED] Enter PIN e.g.: '${mainCmd} <PIN>' or enter authorization PIN in the contact section.</span>`;
-          }
-          termOutput.appendChild(line);
-          termOutput.scrollTop = termOutput.scrollHeight;
-          return;
-        }
-
-        if (['dni', 'odni', 'ctiic', 'classified', 'vault', 'undercover', 'covert'].includes(mainCmd)) {
-          if (passArg === 'End!sbeginning' || (passArg && attemptUnlockVault(passArg))) {
-            openVaultModal();
-            attemptUnlockVault('End!sbeginning');
-            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#00f3ff;font-weight:bold;">[ACCESS GRANTED — RESTRICTED ACCESS LEVEL 5 UNLOCKED]</span><br>Head of Department — ODNI CTIIC (Undercover) Department (Aug 31, 2024 – Jul 22, 2026 / 690 Days). Secret Vault Unlocked!`;
-          } else {
-            line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">[SECRET VAULT LOCKED] Enter valid clearance key e.g.: 'classified End!sbeginning' or use the Secret Vault button in the header.</span>`;
           }
           termOutput.appendChild(line);
           termOutput.scrollTop = termOutput.scrollHeight;
@@ -558,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (COMMANDS[mainCmd]) {
           line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br>${COMMANDS[mainCmd]}`;
         } else {
+          if (window.CyberAudio && window.CyberAudio.playGlitchError) CyberAudio.playGlitchError();
           line.innerHTML = `<span class="prompt">$ ${rawCmd}</span><br><span style="color:#ff0055">Command not found: '${mainCmd}'. Type 'help'.</span>`;
         }
 
@@ -591,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const roles = [
       "Developer",
       "Ethical Hacker",
-      "Security Engineer",
+      "Cybersecurity Specialist",
       "Cybersecurity Researcher",
       "Tech Enthusiast",
       "Software Debugger"
@@ -712,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
       defender: {
         name: "New Land Rover Defender 110",
         badge: "DREAM VEHICLE",
-        desc: "1st Dream Car — Ultimate luxury 4x4 off-road terrain capability, robust aluminum architecture, and iconic adventure engineering.",
+        desc: "1st Dream Car — Ultimate luxury 4x4 off-road terrain capability, robust aluminum architecture, and iconic adventure design.",
         speed: "191 km/h",
         lblSpeed: "Top Vehicle Capability",
         power: "395 HP / 550 Nm",
@@ -798,16 +703,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Expose vehicle switcher sync
     window.setSimulatorVehicle = (carKey) => {
       currentVehicle = carKey;
+      const tachoLabelEl = document.getElementById('sim-tacho-label');
       if (carKey === 'defender') {
         targetTopSpeed = 191;
         if (carTagEl) carTagEl.textContent = 'DEFENDER 110';
         if (tsRecordVal) tsRecordVal.textContent = '191';
         if (tsRecordDesc) tsRecordDesc.textContent = 'Maximum Vehicle Top Speed Capability on Land Rover Defender 110!';
+        if (tachoLabelEl) tachoLabelEl.innerHTML = '<i class="fa-solid fa-fire"></i> ENGINE REV / TACHOMETER (RPM)';
       } else {
         targetTopSpeed = 130;
         if (carTagEl) carTagEl.textContent = 'BYD ATTO 3';
         if (tsRecordVal) tsRecordVal.textContent = '130';
         if (tsRecordDesc) tsRecordDesc.textContent = 'Personal Maximum Top Speed Record Hit on BYD Atto 3 Highway Run!';
+        if (tachoLabelEl) tachoLabelEl.innerHTML = '<i class="fa-solid fa-bolt"></i> EV MOTOR POWER / (RPM)';
       }
       resetSpeedometer();
     };
@@ -906,10 +814,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Shift LEDs
       updateLEDs(speedRatio);
 
-      // Engine Sound
+      // Engine / EV Motor Sound
       if (window.CyberAudio && window.CyberAudio.playEngineRev) {
         if (currentSpeed > 0) {
-          window.CyberAudio.playEngineRev(speedRatio, currentSpeed >= targetTopSpeed);
+          window.CyberAudio.playEngineRev(speedRatio, currentSpeed >= targetTopSpeed, currentVehicle);
         } else {
           window.CyberAudio.stopEngineRev();
         }
@@ -1007,10 +915,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const altRatio = currentAltM / targetPeakM;
       const percentStr = `${(altRatio * 100).toFixed(2)}%`;
 
-      // Slider & Cursor Knob UI
+      // Slider & Cursor Knob UI (Vertical Hill Down-to-Up)
       altSlider.value = currentAltM;
-      if (cursorHandle) cursorHandle.style.left = percentStr;
-      if (sliderFillProgress) sliderFillProgress.style.width = percentStr;
+      if (cursorHandle) cursorHandle.style.bottom = percentStr;
+      if (sliderFillProgress) sliderFillProgress.style.height = percentStr;
       if (trailFillEl) trailFillEl.style.width = percentStr;
 
       const meters = Math.floor(currentAltM);
