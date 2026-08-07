@@ -99,8 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Adjust count by screen density
-  const particleCount = Math.min(Math.floor((width * height) / 16000), 65);
+  // Adjust count by screen density and device size for high performance
+  const maxParticles = width < 600 ? 25 : 65;
+  const particleCount = Math.min(Math.floor((width * height) / 16000), maxParticles);
   const particles = Array.from({ length: particleCount }, () => new Particle());
 
   function animate() {

@@ -410,9 +410,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'opsec': '[OPERATIONAL SECURITY] Anonymized digital footprint, encrypted communication channels & secure infrastructure.',
     'phone': 'Type "phone <PIN>" to unlock & reveal direct phone number and WhatsApp.',
     'whatsapp': 'Type "whatsapp <PIN>" to unlock & reveal direct WhatsApp link.',
-    'dni': 'ODNI CTIIC Cyber Executive (Badge No. 118) — Official Operational Record published on Professional page.',
-    'odni': 'ODNI CTIIC Cyber Executive (Badge No. 118) — Official Operational Record published on Professional page.',
-    'ctiic': 'ODNI CTIIC Cyber Executive (Badge No. 118) — Official Operational Record published on Professional page.',
+    'dni': 'ODNI (Office of the Director of National Intelligence - USA) & CTIIC (Cyber Threat Intelligence Integration Center) — Cyber Executive (Badge No. 118)',
+    'odni': 'ODNI (Office of the Director of National Intelligence - USA) & CTIIC (Cyber Threat Intelligence Integration Center) — Cyber Executive (Badge No. 118)',
+    'ctiic': 'ODNI (Office of the Director of National Intelligence - USA) & CTIIC (Cyber Threat Intelligence Integration Center) — Cyber Executive (Badge No. 118)',
     'proverb': '“अंतः अस्ति प्रारंभः” — End is Beginning (Guiding Philosophy)',
     'social': 'FB: https://www.facebook.com/shahsaiman | IG: https://www.instagram.com/shah_saiman | X: https://x.com/sah_saiman | Threads: https://www.threads.net/@shah_saiman',
     'cars': 'BYD Atto 3 Owner (Max Speed 130 km/h) | Dream Car: New Land Rover Defender 110',
@@ -1141,6 +1141,27 @@ document.addEventListener('DOMContentLoaded', () => {
       ripple.remove();
     }, 600);
   });
+
+  // --- 8. SEAMLESS AUTOMATIC DEVICE DETECTION ENGINE ---
+  function autoDetectDevice() {
+    const userAgentMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
+    const coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    const smallScreen = window.innerWidth <= 768;
+
+    document.body.classList.remove('device-mode-pc', 'device-mode-mobile');
+
+    if (userAgentMobile || (coarsePointer && smallScreen) || smallScreen) {
+      document.body.classList.add('device-mode-mobile');
+    } else {
+      document.body.classList.add('device-mode-pc');
+    }
+  }
+
+  // Initial detection on page load
+  autoDetectDevice();
+
+  // Re-evaluate on viewport resize
+  window.addEventListener('resize', autoDetectDevice);
 
 });
 
