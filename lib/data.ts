@@ -14,7 +14,7 @@ export const PERSONAL_INFO = {
   stats: [
     { label: "Code Integrity", value: "100%" },
     { label: "ODNI CTIIC Service", value: "690 Days" },
-    { label: "Highest Trek Point", value: "4,200 m" },
+    { label: "Highest Trek Point", value: "5,116 m" },
     { label: "Top Speed Record", value: "130 km/h" },
   ],
   socials: {
@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
     category: "iot",
     technologies: ["C++", "FreeRTOS", "ESP32", "MQTT", "WebSockets", "React"],
     metrics: [
-      { label: "Tested Height", value: "4,200 m" },
+      { label: "Tested Height", value: "5,116 m" },
       { label: "Battery Life", value: "21 Days" },
       { label: "Reliability", value: "99.6%" },
     ],

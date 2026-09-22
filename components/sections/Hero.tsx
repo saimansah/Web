@@ -273,7 +273,7 @@ export function Hero() {
                   <div className="text-[10px] text-zinc-400 uppercase font-mono">Code Integrity</div>
                 </div>
                 <div className="rounded-lg bg-white/5 p-2.5 border border-white/5">
-                  <div className="text-lg font-bold text-purple-400 font-mono">4,200 m</div>
+                  <div className="text-lg font-bold text-purple-400 font-mono">5,116 m</div>
                   <div className="text-[10px] text-zinc-400 uppercase font-mono">Trek Elevation</div>
                 </div>
               </div>

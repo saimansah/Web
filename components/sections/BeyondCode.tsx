@@ -33,7 +33,7 @@ export function BeyondCode() {
 
         {/* 3 Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1: 4,200m Wilderness Trek */}
+          {/* Card 1: 5,116m Wilderness Trek */}
           <TiltCard
             maxTilt={8}
             glowColor="rgba(245, 158, 11, 0.15)"
@@ -50,20 +50,20 @@ export function BeyondCode() {
               </div>
 
               <h3 className="text-xl font-bold text-white mb-2">
-                4,200m Mountain Trek
+                5,116m Mountain Trek
               </h3>
               <p className="text-xs font-mono text-amber-400/90 mb-4">
-                ~13,780 Feet &bull; Himalayas, Nepal
+                ~16,785 Feet &bull; Himalayas, Nepal
               </p>
               <p className="text-sm text-zinc-300 leading-relaxed mb-6">
                 Passionate about hiking through high Himalayan mountain trails and wilderness passes.
-                Reached a personal high altitude of 4,200 meters.
+                Reached a personal high altitude of 5,116 meters.
               </p>
             </div>
 
             <div className="rounded-xl bg-obsidian-950/60 p-3.5 border border-white/5 flex items-center justify-between">
               <span className="text-xs font-mono text-zinc-400">Highest Point Reached</span>
-              <span className="text-base font-bold font-mono text-amber-300">4,200 M</span>
+              <span className="text-base font-bold font-mono text-amber-300">5,116 m</span>
             </div>
           </TiltCard>
 
