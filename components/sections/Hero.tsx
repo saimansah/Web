@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ShieldAlert,
+  Sparkles,
   ArrowUpRight,
   Terminal,
   Activity,
@@ -46,9 +46,9 @@ export function Hero() {
                 <span>VERIFIED PROFILE</span>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-mono font-medium text-amber-300 backdrop-blur-md">
-                <Award className="h-3.5 w-3.5" />
-                <span>ODNI CYBER EXECUTIVE (BADGE #118)</span>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono font-medium text-purple-300 backdrop-blur-md">
+                <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+                <span>CHAIRMAN • AI ALLIANCE (NEPAL)</span>
               </div>
 
               {/* Automatic Device Detection Badge */}
@@ -83,10 +83,9 @@ export function Hero() {
                 &amp; Secure Systems.
               </h1>
               <p className="text-base sm:text-lg text-zinc-300 max-w-2xl font-normal leading-relaxed">
-                Hi, I’m <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong> &mdash; a
-                full-stack developer and cybersecurity specialist from Nepal. Former Cyber Executive at{" "}
-                <span className="text-cyan-400 font-medium">ODNI CTIIC</span>, focused on clean code, modern
-                web apps, and practical security.
+                Hi, I’m <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong> &mdash; Chairman of{" "}
+                <span className="text-purple-400 font-medium">AI Alliance (Nepal)</span>, full-stack developer,
+                and cybersecurity specialist focused on clean code, modern web apps, and artificial intelligence innovation.
               </p>
             </div>
 
@@ -150,9 +149,9 @@ export function Hero() {
 
               <div className="rounded-xl border border-white/10 bg-obsidian-900/80 p-3 backdrop-blur-md">
                 <div className="text-[10px] font-mono text-zinc-400 flex items-center gap-1">
-                  <ShieldAlert className="h-3 w-3 text-cyan-400" /> BADGE ID
+                  <Sparkles className="h-3 w-3 text-purple-400" /> LEADERSHIP
                 </div>
-                <div className="text-xs font-semibold text-cyan-300 mt-1 font-mono">NO. 118</div>
+                <div className="text-xs font-semibold text-purple-300 mt-1 font-mono truncate">CHAIRMAN</div>
               </div>
 
               <div className="rounded-xl border border-white/10 bg-obsidian-900/80 p-3 backdrop-blur-md">
@@ -193,7 +192,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Identity Card & ODNI Spotlight */}
+          {/* Right Column: Identity Card & AI Alliance Spotlight */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -239,30 +238,29 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* ODNI CTIIC Spotlight Banner */}
-              <div className="rounded-xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-obsidian-850 to-cyan-500/10 p-4 mb-4">
+              {/* AI Alliance (Nepal) Spotlight Banner */}
+              <div className="rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 via-obsidian-850 to-cyan-500/10 p-4 mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <div className="relative h-7 w-7 rounded-full overflow-hidden border border-amber-400/50 bg-obsidian-900 p-0.5">
+                    <div className="relative h-8 w-8 rounded-full overflow-hidden border border-purple-400/50 bg-white p-0.5 shadow-sm">
                       <Image
-                        src="/assets/dni_logo.png"
-                        alt="ODNI CTIIC Emblem"
-                        width={28}
-                        height={28}
+                        src="/assets/ai_alliance_logo.png"
+                        alt="AI Alliance (Nepal) Emblem"
+                        width={32}
+                        height={32}
                         className="h-full w-full object-contain"
                       />
                     </div>
-                    <span className="text-xs font-bold tracking-wider text-amber-300 font-mono">
-                      ODNI CYBER EXECUTIVE
+                    <span className="text-xs font-bold tracking-wider text-purple-300 font-mono">
+                      CHAIRMAN &bull; AI ALLIANCE
                     </span>
                   </div>
-                  <span className="rounded bg-amber-400/20 px-2 py-0.5 text-[10px] font-mono font-bold text-amber-300 border border-amber-400/40">
-                    BADGE 118
+                  <span className="rounded bg-purple-400/20 px-2 py-0.5 text-[10px] font-mono font-bold text-purple-300 border border-purple-400/40">
+                    NEPAL 🇳🇵
                   </span>
                 </div>
                 <p className="text-xs text-zinc-300 leading-relaxed">
-                  Cyber Executive tenure of <strong>690 Days (Aug 2024 &ndash; Jul 2026)</strong> leading
-                  software architecture, testing, and system security.
+                  Leading <strong>AI Alliance (Nepal)</strong> to advance machine learning adoption, ethical tech governance, and empower national developer talent.
                 </p>
               </div>
 

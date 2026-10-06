@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="50%" stop-color="#00f3ff" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#00f3ff" />
+    </linearGradient>
+    <filter id="aiGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer Hexagonal Tech Shield -->
+  <polygon points="100,14 175,54 175,146 100,186 25,146 25,54" 
+           fill="rgba(11, 15, 25, 0.95)" 
+           stroke="url(#aiGrad)" 
+           stroke-width="4" 
+           filter="url(#aiGlow)" />
+
+  <!-- Inner Orbit Accent -->
+  <circle cx="100" cy="100" r="54" 
+          fill="none" 
+          stroke="rgba(0, 243, 255, 0.25)" 
+          stroke-width="1.5" 
+          stroke-dasharray="6,4" />
+
+  <!-- Neural Network Connections -->
+  <line x1="100" y1="56" x2="62" y2="82" stroke="rgba(168, 85, 247, 0.6)" stroke-width="2" />
+  <line x1="100" y1="56" x2="138" y2="82" stroke="rgba(0, 243, 255, 0.6)" stroke-width="2" />
+  <line x1="62" y1="82" x2="62" y2="128" stroke="rgba(168, 85, 247, 0.6)" stroke-width="2" />
+  <line x1="138" y1="82" x2="138" y2="128" stroke="rgba(0, 243, 255, 0.6)" stroke-width="2" />
+  <line x1="62" y1="128" x2="100" y2="148" stroke="rgba(168, 85, 247, 0.6)" stroke-width="2" />
+  <line x1="138" y1="128" x2="100" y2="148" stroke="rgba(0, 243, 255, 0.6)" stroke-width="2" />
+  
+  <line x1="100" y1="56" x2="100" y2="100" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" />
+  <line x1="62" y1="82" x2="100" y2="100" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" />
+  <line x1="138" y1="82" x2="100" y2="100" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" />
+  <line x1="62" y1="128" x2="100" y2="100" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" />
+  <line x1="138" y1="128" x2="100" y2="100" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" />
+  <line x1="100" y1="148" x2="100" y2="100" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" />
+
+  <!-- Outer Node Points -->
+  <circle cx="100" cy="56" r="5" fill="#a855f7" filter="url(#aiGlow)" />
+  <circle cx="62" cy="82" r="5" fill="#c084fc" filter="url(#aiGlow)" />
+  <circle cx="138" cy="82" r="5" fill="#00f3ff" filter="url(#aiGlow)" />
+  <circle cx="62" cy="128" r="5" fill="#a855f7" filter="url(#aiGlow)" />
+  <circle cx="138" cy="128" r="5" fill="#38bdf8" filter="url(#aiGlow)" />
+  <circle cx="100" cy="148" r="5" fill="#00f3ff" filter="url(#aiGlow)" />
+
+  <!-- Central AI Core Pulse -->
+  <circle cx="100" cy="100" r="14" fill="rgba(11, 15, 25, 0.9)" stroke="url(#coreGrad)" stroke-width="3" filter="url(#aiGlow)" />
+  <circle cx="100" cy="100" r="6" fill="#ffffff" filter="url(#aiGlow)" />
+
+  <!-- Corner Tech Accents -->
+  <circle cx="100" cy="24" r="2.5" fill="#00f3ff" />
+  <circle cx="165" cy="59" r="2.5" fill="#a855f7" />
+  <circle cx="165" cy="141" r="2.5" fill="#00f3ff" />
+  <circle cx="100" cy="176" r="2.5" fill="#a855f7" />
+  <circle cx="35" cy="141" r="2.5" fill="#00f3ff" />
+  <circle cx="35" cy="59" r="2.5" fill="#a855f7" />
+</svg>

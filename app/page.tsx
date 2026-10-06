@@ -24,7 +24,7 @@ export default function Home() {
       {/* Filterable Engineering Arsenal */}
       <SkillsMatrix />
 
-      {/* Official ODNI CTIIC Record & Timeline */}
+      {/* Executive Leadership & Timeline */}
       <ExperienceTimeline />
 
       {/* Personal Expeditions, Garage & Gaming */}

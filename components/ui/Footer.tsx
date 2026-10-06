@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowUp, Heart, ShieldAlert } from "lucide-react";
+import { ArrowUp, Heart, Sparkles } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/data";
 
 export function Footer() {
@@ -35,10 +35,10 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Center ODNI Badge Record */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-mono text-amber-300">
-            <ShieldAlert className="h-3.5 w-3.5" />
-            <span>ODNI CTIIC CYBER EXECUTIVE &bull; BADGE NO. 118</span>
+          {/* Center AI Alliance Badge Record */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-xs font-mono text-purple-300">
+            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+            <span>CHAIRMAN &bull; AI ALLIANCE (NEPAL)</span>
           </div>
 
           {/* Back to Top */}

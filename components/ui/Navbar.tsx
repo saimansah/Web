@@ -94,7 +94,7 @@ export function Navbar() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
               </span>
-              ODNI EXECUTIVE • BADGE 118
+              CHAIRMAN • AI ALLIANCE (NEPAL)
             </span>
           </div>
         </a>
@@ -177,8 +177,8 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono text-cyan-400">
-                <span className="flex items-center gap-1.5">
-                  <Shield className="h-3.5 w-3.5" /> ODNI Cyber Executive #118
+                <span className="flex items-center gap-1.5 text-purple-400">
+                  <Sparkles className="h-3.5 w-3.5" /> Chairman • AI Alliance (Nepal)
                 </span>
                 <span className="text-zinc-400">{PERSONAL_INFO.locationShort}</span>
               </div>

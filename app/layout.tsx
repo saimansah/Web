@@ -18,19 +18,19 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://saimansah.com.np"),
   title: {
-    default: "Saiman Sah | Full-Stack Engineer, Cyber Executive & Creative Technologist",
+    default: "Saiman Sah | Chairman of AI Alliance (Nepal), Full-Stack Engineer & Creative Technologist",
     template: "%s | Saiman Sah",
   },
   description:
-    "Official Portfolio & Dossier of Saiman Sah — Full-Stack Engineer, ODNI CTIIC Cyber Executive (Badge #118), and Creative Technologist based in Nepal.",
+    "Official Portfolio & Dossier of Saiman Sah — Chairman of AI Alliance (Nepal), Full-Stack Engineer, and Creative Technologist based in Nepal.",
   keywords: [
     "Saiman Sah",
     "Saiman",
     "Shah Saiman",
+    "Chairman of AI Alliance",
+    "AI Alliance Nepal",
+    "AI Alliance",
     "Full-Stack Engineer",
-    "Cyber Executive",
-    "ODNI CTIIC",
-    "ODNI CTIIC Badge 118",
     "Creative Technologist",
     "Cybersecurity Researcher",
     "Next.js Developer Nepal",
@@ -62,9 +62,9 @@ export const metadata: Metadata = {
     apple: "/assets/s_logo.svg",
   },
   openGraph: {
-    title: "Saiman Sah | Full-Stack Engineer, Cyber Executive & Creative Technologist",
+    title: "Saiman Sah | Chairman of AI Alliance (Nepal), Full-Stack Engineer & Creative Technologist",
     description:
-      "Official portfolio & dossier of Saiman Sah. Full-Stack Engineer, ODNI CTIIC Cyber Executive (Badge #118), and Creative Technologist based in Nepal.",
+      "Official portfolio & dossier of Saiman Sah. Chairman of AI Alliance (Nepal), Full-Stack Engineer, and Creative Technologist based in Nepal.",
     url: "https://saimansah.com.np",
     siteName: "Saiman Sah Portfolio",
     locale: "en_US",
@@ -74,15 +74,15 @@ export const metadata: Metadata = {
         url: "/assets/profile.png",
         width: 1200,
         height: 630,
-        alt: "Saiman Sah - Full-Stack Engineer & Cyber Executive",
+        alt: "Saiman Sah - Chairman of AI Alliance (Nepal) & Full-Stack Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saiman Sah | Full-Stack Engineer & Cyber Executive",
+    title: "Saiman Sah | Chairman of AI Alliance (Nepal) & Full-Stack Engineer",
     description:
-      "Official portfolio & dossier of Saiman Sah. Full-Stack Engineer, ODNI CTIIC Cyber Executive (Badge #118), and Creative Technologist.",
+      "Official portfolio & dossier of Saiman Sah. Chairman of AI Alliance (Nepal), Full-Stack Engineer, and Creative Technologist.",
     creator: "@sah_saiman",
     images: ["/assets/profile.png"],
   },
@@ -99,9 +99,9 @@ const jsonLd = {
       "alternateName": ["Saiman", "Shah Saiman", "Saiman Sah Nepal"],
       "url": "https://saimansah.com.np",
       "image": "https://saimansah.com.np/assets/profile.png",
-      "jobTitle": "Full-Stack Engineer & Cyber Executive",
+      "jobTitle": "Chairman of AI Alliance (Nepal) & Full-Stack Engineer",
       "description":
-        "Full-Stack Engineer, ODNI CTIIC Cyber Executive (Badge #118), and Creative Technologist based in Nepal.",
+        "Chairman of AI Alliance (Nepal), Full-Stack Engineer, and Creative Technologist based in Nepal.",
       "sameAs": [
         "https://www.linkedin.com/in/saiman-sah-0877b9435/",
         "https://x.com/sah_saiman",
@@ -116,9 +116,9 @@ const jsonLd = {
         "addressCountry": "Nepal",
       },
       "knowsAbout": [
+        "Artificial Intelligence",
         "Full-Stack Web Development",
         "Cybersecurity",
-        "Threat Intelligence",
         "Next.js",
         "React",
         "TypeScript",
@@ -134,7 +134,7 @@ const jsonLd = {
       "url": "https://saimansah.com.np",
       "name": "Saiman Sah Portfolio",
       "description":
-        "Official Portfolio & Dossier of Saiman Sah — Full-Stack Engineer & Cyber Executive",
+        "Official Portfolio & Dossier of Saiman Sah — Chairman of AI Alliance (Nepal) & Full-Stack Engineer",
       "publisher": {
         "@id": "https://saimansah.com.np/#person",
       },
@@ -144,7 +144,7 @@ const jsonLd = {
       "@type": "ProfilePage",
       "@id": "https://saimansah.com.np/#webpage",
       "url": "https://saimansah.com.np",
-      "name": "Saiman Sah | Full-Stack Engineer, Cyber Executive & Creative Technologist",
+      "name": "Saiman Sah | Chairman of AI Alliance (Nepal), Full-Stack Engineer & Creative Technologist",
       "isPartOf": {
         "@id": "https://saimansah.com.np/#website",
       },
