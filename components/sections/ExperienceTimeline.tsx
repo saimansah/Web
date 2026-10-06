@@ -31,7 +31,7 @@ export function ExperienceTimeline() {
             </span>
           </h2>
           <p className="mt-3 text-zinc-400 max-w-2xl text-sm sm:text-base">
-            Chairman of AI Alliance (Nepal), driving national artificial intelligence initiatives alongside a continuous engineering journey.
+            Chairperson of AI Alliance (Nepal), driving national artificial intelligence initiatives alongside a continuous engineering journey.
           </p>
         </div>
 

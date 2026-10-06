@@ -1,0 +1,36 @@
+# Saiman Sah — Complete Dossier & Knowledge Base
+
+## Overview
+- **Name**: Saiman Sah
+- **Known as**: Saiman, Shah Saiman, Saiman Sah Nepal
+- **Leadership Role**: Chairperson & Chairman, AI Alliance (Nepal)
+- **Profession**: Full-Stack Software Engineer, AI Leader, Systems Architect
+- **Official Website**: https://saimansah.com.np
+- **Location**: Kathmandu, Nepal
+
+## Executive Leadership: AI Alliance (Nepal)
+Saiman Sah serves as the Chairperson of AI Alliance (Nepal). AI Alliance (Nepal) is an innovation, research, and developer community dedicated to:
+1. Advancing national artificial intelligence adoption, research, and implementation across Nepal.
+2. Developing open-source tools, machine learning applications, and educational curricula for emerging engineers.
+3. Formulating ethical AI principles, data governance, and responsible deployment models for technological systems.
+4. Organizing hackathons, community meetups, technical mentorship programs, and academic collaboration.
+
+## Engineering Portfolio & Core Projects
+- **Sentinel Network Threat Detector**: High-speed real-time network traffic monitor and packet analysis engine utilizing Rust, TypeScript, Next.js, eBPF, and Redis.
+- **Aether Trekking Weather & GPS Tracker**: High-altitude outdoor telemetry unit tested at 5,116 meters in the Himalayas, built with ESP32, C++, FreeRTOS, MQTT, and React.
+- **Nexus 3D Web Visualizer**: GPU-accelerated interactive 3D particle constellation and shader animation platform built with Three.js, WebGL, GSAP, and Next.js.
+- **Apex Electric Vehicle Dashboard**: Live EV telemetry dashboard monitoring speed, CAN-bus signals, and battery efficiency, tested up to 130 km/h top speed.
+
+## Educational & Developmental Journey
+- 100% self-taught computer programmer and software architect.
+- Completed Higher Secondary Education (+2 Science) with a major in Computer Science, and Secondary Education Examination (SEE) in Nepal.
+- Active contributor to open source, robotics experimentation, and automotive telematics.
+
+## Official Contact & Verification Channels
+- Email: me@saimansah.com.np
+- LinkedIn: https://www.linkedin.com/in/saiman-sah-0877b9435/
+- X (Twitter): https://x.com/sah_saiman
+- GitHub: https://github.com/saimansah
+- Threads: https://www.threads.com/@sah_saiman
+- Instagram: https://www.instagram.com/sah_saiman
+- Facebook: https://www.facebook.com/sahsaiman

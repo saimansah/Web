@@ -48,7 +48,7 @@ export function Hero() {
 
               <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono font-medium text-purple-300 backdrop-blur-md">
                 <Sparkles className="h-3.5 w-3.5 text-purple-400" />
-                <span>CHAIRMAN • AI ALLIANCE (NEPAL)</span>
+                <span>CHAIRPERSON • AI ALLIANCE (NEPAL)</span>
               </div>
 
               {/* Automatic Device Detection Badge */}
@@ -83,7 +83,7 @@ export function Hero() {
                 &amp; Secure Systems.
               </h1>
               <p className="text-base sm:text-lg text-zinc-300 max-w-2xl font-normal leading-relaxed">
-                Hi, I’m <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong> &mdash; Chairman of{" "}
+                Hi, I’m <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong> &mdash; Chairperson of{" "}
                 <span className="text-purple-400 font-medium">AI Alliance (Nepal)</span>, full-stack developer,
                 and cybersecurity specialist focused on clean code, modern web apps, and artificial intelligence innovation.
               </p>
@@ -151,7 +151,7 @@ export function Hero() {
                 <div className="text-[10px] font-mono text-zinc-400 flex items-center gap-1">
                   <Sparkles className="h-3 w-3 text-purple-400" /> LEADERSHIP
                 </div>
-                <div className="text-xs font-semibold text-purple-300 mt-1 font-mono truncate">CHAIRMAN</div>
+                <div className="text-xs font-semibold text-purple-300 mt-1 font-mono truncate">CHAIRPERSON</div>
               </div>
 
               <div className="rounded-xl border border-white/10 bg-obsidian-900/80 p-3 backdrop-blur-md">
@@ -252,7 +252,7 @@ export function Hero() {
                       />
                     </div>
                     <span className="text-xs font-bold tracking-wider text-purple-300 font-mono">
-                      CHAIRMAN &bull; AI ALLIANCE
+                      CHAIRPERSON &bull; AI ALLIANCE
                     </span>
                   </div>
                   <span className="rounded bg-purple-400/20 px-2 py-0.5 text-[10px] font-mono font-bold text-purple-300 border border-purple-400/40">
@@ -260,7 +260,7 @@ export function Hero() {
                   </span>
                 </div>
                 <p className="text-xs text-zinc-300 leading-relaxed">
-                  Leading <strong>AI Alliance (Nepal)</strong> to advance machine learning adoption, ethical tech governance, and empower national developer talent.
+                  Leading <strong>AI Alliance (Nepal)</strong> as Chairperson to advance machine learning adoption, ethical tech governance, and empower national developer talent.
                 </p>
               </div>
 

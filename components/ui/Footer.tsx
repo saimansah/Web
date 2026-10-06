@@ -38,7 +38,7 @@ export function Footer() {
           {/* Center AI Alliance Badge Record */}
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-xs font-mono text-purple-300">
             <Sparkles className="h-3.5 w-3.5 text-purple-400" />
-            <span>CHAIRMAN &bull; AI ALLIANCE (NEPAL)</span>
+            <span>CHAIRPERSON &bull; AI ALLIANCE (NEPAL)</span>
           </div>
 
           {/* Back to Top */}

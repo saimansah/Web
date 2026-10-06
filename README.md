@@ -9,7 +9,7 @@ Built with Next.js 14 App Router, TypeScript, Tailwind CSS, Framer Motion, and G
 - **Next.js 14 App Router**: Server-side rendering, SEO metadata, and modular architecture.
 - **Adaptive Device Detection**: Automatic detection of mobile, tablet, and desktop environments with mobile-tailored UI dock and performance optimization.
 - **Physics-Based Micro-Interactions**: Magnetic buttons, 3D perspective cards, and particle canvas constellations.
-- **Executive Leadership**: Highlighting Chairman of AI Alliance (Nepal) leadership and verified credentials.
+- **Executive Leadership**: Highlighting Chairperson & Chairman of AI Alliance (Nepal) leadership and verified credentials.
 - **Accessible & Battery-Efficient**: Native reduced-motion support, touch-safe gesture handling, and automatic mobile particle throttling.
 
 ## 🛠️ Tech Stack
