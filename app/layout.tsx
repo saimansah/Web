@@ -239,11 +239,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark`}>
       <head>
-        <meta name="author" content="Saiman Sah" />
-        <meta
-          name="keywords"
-          content="Saiman Sah, Chairperson of AI Alliance, Chairman of AI Alliance, AI Alliance Nepal, Saiman Sah Nepal, Shah Saiman, Chairperson AI Alliance Nepal, Full-Stack Engineer Nepal"
-        />
         <meta name="subject" content="Saiman Sah - Chairperson of AI Alliance (Nepal)" />
         <meta name="topic" content="AI Alliance Nepal Chairperson" />
         <meta
@@ -253,7 +248,6 @@ export default function RootLayout({
         <meta name="coverage" content="Worldwide" />
         <meta name="distribution" content="Global" />
         <meta name="rating" content="General" />
-        <link rel="canonical" href="https://saimansah.com.np" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
