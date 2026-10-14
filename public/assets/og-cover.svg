@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Saiman Sah — Software, AI and Kathmandu</title>
+  <desc id="desc">Saiman Sah's portfolio cover with a dark starfield and a purple, pink, and blue nebula.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#050507"/><stop offset="1" stop-color="#0d0812"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#a650ed" stop-opacity=".28"/><stop offset="1" stop-color="#a650ed" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ring"><stop stop-color="#7778ff" stop-opacity="0"/><stop offset=".22" stop-color="#9178ff" stop-opacity=".88"/><stop offset=".49" stop-color="#f16aca"/><stop offset=".76" stop-color="#ffad87"/><stop offset="1" stop-color="#817bff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <ellipse cx="780" cy="340" rx="490" ry="270" fill="url(#glow)"/>
+  <g fill="#d7d3ee" opacity=".66"><circle cx="52" cy="68" r="1.4"/><circle cx="262" cy="110" r="1"/><circle cx="411" cy="54" r="1.2"/><circle cx="592" cy="144" r="1.1"/><circle cx="1084" cy="102" r="1.4"/><circle cx="1150" cy="244" r="1"/><circle cx="1052" cy="525" r="1.5"/><circle cx="782" cy="71" r="1"/><circle cx="146" cy="492" r="1.2"/><circle cx="431" cy="563" r="1.4"/><circle cx="655" cy="542" r="1"/></g>
+  <ellipse cx="830" cy="342" rx="310" ry="93" fill="none" stroke="url(#ring)" stroke-width="27" opacity=".8" transform="rotate(-12 830 342)"/>
+  <ellipse cx="830" cy="342" rx="220" ry="65" fill="none" stroke="#b988ff" stroke-opacity=".22" stroke-width="1" transform="rotate(25 830 342)"/>
+  <circle cx="830" cy="342" r="90" fill="url(#glow)"/>
+  <text x="90" y="150" fill="#b4aeba" font-family="Arial,sans-serif" font-size="18" font-weight="600" letter-spacing="5">SOFTWARE · AI · KATHMANDU</text>
+  <text x="86" y="295" fill="#f5f2f8" font-family="Arial,sans-serif" font-size="112" font-weight="700" letter-spacing="-8">SAIMAN</text>
+  <text x="86" y="399" fill="#f5f2f8" font-family="Arial,sans-serif" font-size="112" font-weight="700" letter-spacing="-8">SAH<tspan fill="#eb82d1">.</tspan></text>
+  <text x="92" y="465" fill="#b3afba" font-family="Arial,sans-serif" font-size="24" font-weight="500">I build software, explore AI, and learn by making.</text>
+  <text x="92" y="565" fill="#807c88" font-family="Arial,sans-serif" font-size="13" letter-spacing="2">SAIMANSAH.COM.NP</text>
+</svg>

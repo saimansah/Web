@@ -1,10 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { App } from "./App";
+import { NotFound } from "./NotFound";
+import "./styles.css";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const root = document.getElementById("root");
+
+if (!root) throw new Error("Missing app root element.");
+
+const path = window.location.pathname.replace(/\/+$/, "") || "/";
+const isHome = path === "/" || path === "/index.html";
+
+createRoot(root).render(
+  <StrictMode>
+    {isHome ? <App /> : <NotFound />}
+  </StrictMode>,
+);
