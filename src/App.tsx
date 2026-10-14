@@ -127,7 +127,6 @@ function ScrollProgress() {
 
 function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const timer = window.setInterval(() => setRoleIndex((index) => (index + 1) % roles.length), 4200);
@@ -135,7 +134,7 @@ function Hero() {
   }, []);
 
   return (
-    <HackerSequence paused={paused}>
+    <HackerSequence>
      
       <div className="hero-intro">
         <p className="eyebrow"><span className="eyebrow-number">01</span> / INTRODUCING</p>

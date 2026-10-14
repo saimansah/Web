@@ -2,7 +2,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 
 interface HackerSequenceProps {
-  paused: boolean;
+  paused?: boolean;
   children: ReactNode;
 }
 
@@ -268,7 +268,7 @@ function smoothstep(value: number) {
   return amount * amount * (3 - 2 * amount);
 }
 
-export function HackerSequence({ paused, children }: HackerSequenceProps) {
+export function HackerSequence({ paused = false, children }: HackerSequenceProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
