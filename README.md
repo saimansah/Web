@@ -21,7 +21,7 @@ npm run preview
 
 ## Certificates
 
-All 17 supplied PDFs are stored in `public/assets/certificates/` and linked from the certificate cards. The round arrow opens a PDF in a new tab. Cards with multiple files open a short menu with an individual link for each PDF.
+All 18 supplied PDFs are stored in `public/assets/certificates/` and linked from the certificate cards. The round arrow opens a PDF in a new tab. Cards with multiple files open a short menu with an individual link for each PDF.
 
 ## Site files
 
@@ -34,7 +34,7 @@ Certificate titles follow the supplied documents. The AWS item is labeled as an 
 
 ## Brand vectors
 
-- Facebook, HackerRank, Instagram, Threads, United Nations, and X vectors are from [Simple Icons](https://simpleicons.org/).
+- Cisco, Facebook, HackerRank, Instagram, Threads, United Nations, and X vectors are from [Simple Icons](https://simpleicons.org/).
 - The AWS brand vector is from [Font Awesome Free](https://github.com/FortAwesome/Font-Awesome).
 - The Truth Social mark is from the [official Truth Social brand guide](https://help.truthsocial.com/branding/).
 - The Microsoft four-square mark and IBM 8-bar wordmark are local SVG vectors.

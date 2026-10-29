@@ -164,6 +164,16 @@ export const credentials: Credential[] = [
     note: "ADBI e-learning",
     files: [{ label: "Rights and Obligations in E-Commerce certificate", href: certificateUrl("adbi-rights-obligations-e-commerce.pdf") }],
   },
+  {
+    number: "15",
+    category: "security",
+    title: "Ethical Hacker",
+    issuer: "Cisco Networking Academy",
+    issuerLogo: "/assets/cisco.svg",
+    issuerMark: "CISCO",
+    note: "Course completion",
+    files: [{ label: "Ethical Hacker certificate", href: certificateUrl("cisco-ethical-hacker.pdf") }],
+  },
 ];
 
 export const skills = [

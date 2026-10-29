@@ -272,7 +272,7 @@ function CredentialsSection() {
         <div className="credential-grid">
           {visibleCredentials.map((credential) => <CredentialCard key={credential.number} credential={credential} />)}
         </div>
-        <div className="credential-footer reveal"><span>14 CREDENTIALS AND RECORDS</span><span className="footer-rule" /><span>17 OPENABLE PDFS</span></div>
+        <div className="credential-footer reveal"><span>{credentials.length} CREDENTIALS AND RECORDS</span><span className="footer-rule" /><span>{fileCount} OPENABLE PDFS</span></div>
       </div>
     </section>
   );

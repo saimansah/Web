@@ -1,4 +1,4 @@
-import type { Credential } from "../data";
+import { credentials, type Credential } from "../data";
 
 interface CredentialCardProps {
   credential: Credential;
@@ -21,7 +21,7 @@ export function CredentialCard({ credential }: CredentialCardProps) {
       data-category={credential.category}
     >
       <div className="credential-topline">
-        <span className="credential-number">{credential.number} / 14</span>
+        <span className="credential-number">{credential.number} / {credentials.length}</span>
         <span className="credential-note">{credential.note}</span>
       </div>
 
