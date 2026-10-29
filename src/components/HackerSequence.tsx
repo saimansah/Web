@@ -460,13 +460,13 @@ export function HackerSequence({ paused = false, children }: HackerSequenceProps
     const onMotionChange = () => requestFrame();
     const visibilityObserver = "IntersectionObserver" in window
       ? new IntersectionObserver(([entry]) => {
-          inView = entry.isIntersecting;
-          if (inView) requestFrame();
-          else if (frameId) {
-            window.cancelAnimationFrame(frameId);
-            frameId = 0;
-          }
-        }, { rootMargin: "12% 0px 12% 0px" })
+        inView = entry.isIntersecting;
+        if (inView) requestFrame();
+        else if (frameId) {
+          window.cancelAnimationFrame(frameId);
+          frameId = 0;
+        }
+      }, { rootMargin: "12% 0px 12% 0px" })
       : null;
 
     sceneWakeRef.current = requestFrame;
@@ -530,7 +530,7 @@ export function HackerSequence({ paused = false, children }: HackerSequenceProps
             <footer className="screen-ui-footer">
               <span>27.7172° N · 85.3240° E</span>
               <span>ENGLISH · नेपाली · हिंदी</span>
-              <span>17 Verified Certificate</span>
+              <span>18 Verified Certificate</span>
             </footer>
           </div>
         </div>
