@@ -99,7 +99,7 @@ function makeDisplayTexture() {
   context.font = "600 20px monospace";
   context.fillText("ABOUT     TOOLS     CERTIFICATES     OUTSIDE WORK", 80, 492);
   context.fillStyle = "#9cf8e6";
-  context.fillText("17 OPENABLE DOCUMENTS", 80, 650);
+  context.fillText("19 OPENABLE DOCUMENTS", 80, 650);
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -530,7 +530,7 @@ export function HackerSequence({ paused = false, children }: HackerSequenceProps
             <footer className="screen-ui-footer">
               <span>27.7172° N · 85.3240° E</span>
               <span>ENGLISH · नेपाली · हिंदी</span>
-              <span>18 Verified Certificate</span>
+              <span>19 Verified Certificate</span>
             </footer>
           </div>
         </div>

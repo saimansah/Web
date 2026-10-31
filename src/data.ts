@@ -174,6 +174,16 @@ export const credentials: Credential[] = [
     note: "Course completion",
     files: [{ label: "Ethical Hacker certificate", href: certificateUrl("cisco-ethical-hacker.pdf") }],
   },
+  {
+    number: "16",
+    category: "security",
+    title: "Google Ads Search Professional Certification (2026)",
+    issuer: "Google",
+    issuerLogo: "/assets/google.svg",
+    issuerMark: "G",
+    note: "Professional certification",
+    files: [{ label: "Google Ads Search Professional certificate", href: certificateUrl("google-ads-search-professional.pdf") }],
+  },
 ];
 
 export const skills = [
