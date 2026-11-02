@@ -1,6 +1,6 @@
 # Saiman Sah — Portfolio
 
-A responsive React, TypeScript, Tailwind CSS, Vite, and Three.js portfolio. The hero uses an original particle nebula and starfield inspired by the dark space aesthetic of [God’s Eye](https://www.godseye.world/home).
+A responsive React, TypeScript, Tailwind CSS, Vite, and Three.js portfolio. The homepage hero features a scroll-driven 3D workspace and screen portal, and the custom 404 page uses a particle nebula and starfield inspired by the dark space aesthetic of [God’s Eye](https://www.godseye.world/home).
 
 ## Run locally
 
@@ -21,7 +21,7 @@ npm run preview
 
 ## Certificates
 
-All 19 supplied PDFs are stored in `public/assets/certificates/` and linked from the certificate cards. The round arrow opens a PDF in a new tab. Cards with multiple files open a short menu with an individual link for each PDF.
+All 20 supplied PDFs are stored in `public/assets/certificates/` and linked from the certificate cards. The round arrow opens a PDF in a new tab. Cards with multiple files open a short menu with an individual link for each PDF.
 
 ## Site files
 

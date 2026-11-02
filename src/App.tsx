@@ -135,7 +135,7 @@ function Hero() {
 
   return (
     <HackerSequence>
-     
+
       <div className="hero-intro">
         <p className="eyebrow"><span className="eyebrow-number">01</span> / INTRODUCING</p>
         <h1>SAIMAN<br className="hero-title-break" /> <span>SAH</span></h1>
@@ -272,7 +272,7 @@ function CredentialsSection() {
         <div className="credential-grid">
           {visibleCredentials.map((credential) => <CredentialCard key={credential.number} credential={credential} />)}
         </div>
-        <div className="credential-footer reveal"><span>{credentials.length} CREDENTIALS AND RECORDS</span><span className="footer-rule" /><span>{fileCount} OPENABLE PDFS</span></div>
+        <div className="credential-footer reveal"><span>{credentials.length} CREDENTIALS AND RECORDS</span><span className="footer-rule" /><span>{fileCount} VERIFIED PDFS</span></div>
       </div>
     </section>
   );

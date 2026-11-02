@@ -173,6 +173,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 .clock-line strong { color: #f3f0f8; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; }
 .age-line { color: #777480; }
 .motion-toggle { position: absolute; z-index: 2; top: 112px; right: max(22px, calc((100% - 1450px) / 2 + 20px)); display: inline-flex; min-height: 34px; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: rgba(7, 7, 11, 0.58); color: #cbc8d3; font-family: var(--font-mono); font-size: 9px; font-weight: 600; cursor: pointer; backdrop-filter: blur(12px); }
+.topbar .motion-toggle { position: static; }
 .motion-toggle-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 9px var(--pink); }
 
 /* Shared sections */
@@ -241,13 +242,15 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 .filter-button.is-active span { color: #dabaff; }
 .visible-count { color: #777481; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; white-space: nowrap; }
 .credential-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: stretch; }
-.credential-card { display: flex; min-height: 244px; flex-direction: column; padding: 18px; border-radius: 15px; transition: transform 220ms ease, border-color 220ms ease, background 220ms ease; }
+.credential-card { display: flex; min-height: 244px; flex-direction: column; overflow: visible; padding: 18px; border-radius: 15px; transition: transform 220ms ease, border-color 220ms ease, background 220ms ease; }
+.credential-card::after { right: 15px; left: 15px; }
+.credential-card:has(.credential-files[open]) { z-index: 30; }
 .credential-card:hover { transform: translateY(-5px); border-color: rgba(209, 163, 255, 0.42); background: linear-gradient(145deg, rgba(29, 22, 39, 0.98), rgba(11, 10, 16, 0.98)); }
 .credential-featured { border-color: rgba(215, 152, 255, 0.34); background: linear-gradient(150deg, rgba(41, 25, 56, 0.75), rgba(11, 10, 16, 0.96) 66%); }
 .credential-topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #7d7a87; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.08em; }
 .credential-note { overflow: hidden; max-width: 62%; text-overflow: ellipsis; white-space: nowrap; }
 .issuer-line { display: flex; min-height: 38px; align-items: center; gap: 9px; margin-top: 23px; }
-.issuer-logo { width: auto; max-width: 44px; max-height: 22px; object-fit: contain; }
+.issuer-logo { width: auto; height: 20px; max-width: 44px; flex: 0 0 auto; object-fit: contain; }
 .issuer-mark { display: grid; width: 30px; height: 30px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(207, 172, 255, 0.23); border-radius: 9px; background: rgba(164, 121, 255, 0.09); color: #d5b8ff; font-family: var(--font-mono); font-size: 8px; font-weight: 500; }
 .issuer-name { overflow: hidden; color: #a7a3b1; font-size: 9px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
 .credential-card h3 { margin: 12px 0 20px; color: #f1eff5; font-size: clamp(14px, 1.15vw, 17px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.38; }
@@ -255,9 +258,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 .credential-count-label { color: #878390; font-family: var(--font-mono); font-size: 9px; }
 .credential-open, .credential-files > summary { display: grid; width: 39px; height: 39px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(231, 204, 255, 0.48); border-radius: 50%; background: rgba(163, 116, 218, 0.12); color: #f0dcff; cursor: pointer; list-style: none; transition: background 180ms ease, transform 180ms ease, border-color 180ms ease; }
 .credential-open:hover, .credential-files > summary:hover { transform: translateY(-2px); border-color: rgba(249, 168, 228, 0.8); background: rgba(183, 108, 206, 0.28); }
-.credential-files { position: relative; }
+.credential-files { position: static; }
 .credential-files > summary::-webkit-details-marker { display: none; }
-.credential-file-menu { position: absolute; z-index: 15; right: 0; bottom: calc(100% + 8px); display: grid; width: min(270px, calc(100vw - 48px)); gap: 2px; padding: 6px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; background: #15131b; box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55); }
+.credential-file-menu { position: absolute; z-index: 25; right: 10px; bottom: 65px; left: 10px; display: grid; width: auto; gap: 2px; padding: 6px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; background: #15131b; box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55); }
 .credential-file-menu a { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 11px 10px; border-radius: 7px; color: #d7d3de; font-size: 10px; line-height: 1.4; }
 .credential-file-menu a:hover { background: rgba(180, 137, 236, 0.12); color: #fff; }
 .credential-file-menu .arrow-icon { flex: 0 0 auto; color: #d6b6ff; }
@@ -397,7 +400,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
   .hero-sequence { height: 250svh; }
   .hero-intro { top: 13%; right: 18px; left: 18px; width: auto; transform: none; text-align: center; }
   .hero-title-break { display: block; }
-  .hero-intro h1 { margin: 11px 0 8px; font-size: clamp(43px, 10vw, 70px); }
+  .hero-intro h1 { margin: 11px 0 8px; font-size: clamp(43px, 10vw, 70px); line-height: 0.92; }
   .hero-description { margin: 12px auto 8px; font-size: 11px; }
   .hero-role { justify-content: center; font-size: 9px; }
   .motion-toggle { top: 84px; right: 16px; min-height: 30px; padding-inline: 9px; font-size: 8px; }
@@ -463,6 +466,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
   .credential-card h3 { margin: 9px 0 15px; font-size: 13px; }
   .credential-count-label { font-size: 8px; }
   .credential-open, .credential-files > summary { width: 34px; height: 34px; }
+  .credential-file-menu { bottom: 55px; width: min(250px, calc(100vw - 48px)); }
+  .credential-grid > .credential-card:nth-child(odd) .credential-file-menu { right: auto; left: 0; }
+  .credential-grid > .credential-card:nth-child(even) .credential-file-menu { right: 0; left: auto; }
   .credential-footer { gap: 8px; font-size: 7px; letter-spacing: 0.07em; }
   .outside-grid { grid-template-columns: 1fr; gap: 10px; }
   .mountain-card { grid-column: auto; }

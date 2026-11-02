@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { credentials, type Credential } from "../data";
 
 interface CredentialCardProps {
@@ -13,7 +14,35 @@ function ArrowIcon() {
 }
 
 export function CredentialCard({ credential }: CredentialCardProps) {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
   const openLabel = `Open ${credential.title} ${credential.files.length === 1 ? "certificate" : "documents"}`;
+
+  useEffect(() => {
+    const details = detailsRef.current;
+    if (!details) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!details.open) return;
+      const target = event.target;
+      if (target instanceof Node && !details.contains(target)) {
+        details.open = false;
+      }
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && details.open) {
+        details.open = false;
+        details.querySelector("summary")?.focus();
+      }
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
 
   return (
     <article
@@ -51,13 +80,21 @@ export function CredentialCard({ credential }: CredentialCardProps) {
             <ArrowIcon />
           </a>
         ) : (
-          <details className="credential-files">
+          <details ref={detailsRef} className="credential-files">
             <summary aria-label={openLabel} title={openLabel}>
               <ArrowIcon />
             </summary>
             <div className="credential-file-menu" aria-label={`${credential.title} PDFs`}>
               {credential.files.map((file) => (
-                <a key={file.href} href={file.href} target="_blank" rel="noopener noreferrer">
+                <a
+                  key={file.href}
+                  href={file.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    if (detailsRef.current) detailsRef.current.open = false;
+                  }}
+                >
                   <span>{file.label}</span>
                   <ArrowIcon />
                 </a>

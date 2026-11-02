@@ -14,6 +14,7 @@ export default defineConfig({
     port: 5173,
   },
   build: {
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       input: {
         main: resolve(projectRoot, "index.html"),
@@ -21,7 +22,7 @@ export default defineConfig({
       },
       output: {
         manualChunks(id) {
-          if (id.includes("/node_modules/three/")) return "three-vendor";
+          if (id.replaceAll("\\", "/").includes("/node_modules/three/")) return "three-vendor";
         },
       },
     },

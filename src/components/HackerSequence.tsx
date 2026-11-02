@@ -1,5 +1,8 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import * as THREE from "three";
+import { credentials } from "../data";
+
+const totalDocuments = credentials.reduce((total, credential) => total + credential.files.length, 0);
 
 interface HackerSequenceProps {
   paused?: boolean;
@@ -99,7 +102,7 @@ function makeDisplayTexture() {
   context.font = "600 20px monospace";
   context.fillText("ABOUT     TOOLS     CERTIFICATES     OUTSIDE WORK", 80, 492);
   context.fillStyle = "#9cf8e6";
-  context.fillText("19 OPENABLE DOCUMENTS", 80, 650);
+  context.fillText(`${totalDocuments} VERIFIED DOCUMENTS`, 80, 650);
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -395,7 +398,7 @@ export function HackerSequence({ paused = false, children }: HackerSequenceProps
       const finalDistance = DISPLAY_HEIGHT / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
       const finalZ = DISPLAY_Z + 0.022 + finalDistance;
       const targetZ = THREE.MathUtils.lerp(startZ, finalZ, approach);
-      const mouseInfluence = 1 - approach * 0.88;
+      const mouseInfluence = reducedMotion.matches ? 0 : 1 - approach * 0.88;
       const targetX = pointer.x * 0.12 * mouseInfluence;
       const targetY = THREE.MathUtils.lerp(4.7, DISPLAY_Y, approach) + pointer.y * 0.055 * mouseInfluence;
       const targetLookY = THREE.MathUtils.lerp(3.9, DISPLAY_Y, approach);
@@ -530,7 +533,7 @@ export function HackerSequence({ paused = false, children }: HackerSequenceProps
             <footer className="screen-ui-footer">
               <span>27.7172° N · 85.3240° E</span>
               <span>ENGLISH · नेपाली · हिंदी</span>
-              <span>19 Verified Certificate</span>
+              <span>{totalDocuments} Verified {totalDocuments === 1 ? "Certificate" : "Certificates"}</span>
             </footer>
           </div>
         </div>
