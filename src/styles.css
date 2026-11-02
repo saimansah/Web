@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+:root {
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
   --color-void: #050507;
@@ -86,7 +86,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
   transform-origin: left;
   background: linear-gradient(90deg, var(--violet), var(--pink));
 }
-.section-shell { @apply mx-auto w-full; max-width: var(--shell); padding-inline: clamp(22px, 6vw, 90px); }
+.section-shell { margin-inline: auto; width: 100%; max-width: var(--shell); padding-inline: clamp(22px, 6vw, 90px); }
 
 /* Navigation */
 .topbar {
@@ -502,4 +502,1870 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+
+/* ============================================================================
+   UNIFIED OUTSIDE WORK HUB
+   Combines 3D EV Garage (BYD Atto 3 & MG ZS EV), 140 km/h 3D Cockpit,
+   Real Footwell Brake/Accelerator Pads, Real 3D H-Gate Gearbox,
+   5,116m Tilicho Lake Explorer, and PC/PS5/Sim Play Mode in ONE place.
+   ============================================================================ */
+
+.unified-outside-hub {
+  display: grid;
+  gap: 18px;
+}
+
+.outside-command-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(18, 17, 27, 0.92), rgba(9, 10, 16, 0.95));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.outside-command-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.command-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #b5b1c4;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.09em;
+}
+
+.command-pill.is-live {
+  border-color: rgba(107, 243, 221, 0.38);
+  background: rgba(82, 219, 200, 0.1);
+  color: #d7fff8;
+  font-weight: 600;
+}
+
+.command-pill.is-live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6bf3dd;
+  box-shadow: 0 0 10px #6bf3dd;
+}
+
+.showcase-audio-btn {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #dcd8ea;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.showcase-audio-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(139, 239, 226, 0.6);
+  color: #fff;
+}
+
+.showcase-audio-btn.is-active {
+  border-color: rgba(114, 241, 222, 0.78);
+  background: rgba(82, 219, 200, 0.16);
+  color: #e4fffb;
+}
+
+.showcase-audio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #787487;
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.showcase-audio-btn.is-active .showcase-audio-dot {
+  background: #6bf3dd;
+  box-shadow: 0 0 11px #6bf3dd;
+}
+
+/* Unified 12-Column Bento Grid */
+.unified-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.bento-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(134, 96, 255, 0.09), transparent 50%),
+    linear-gradient(155deg, rgba(18, 17, 27, 0.94), rgba(8, 9, 15, 0.98));
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.bento-card::after {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  left: 18px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(215, 178, 255, 0.34), transparent);
+  pointer-events: none;
+}
+
+.bento-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #8f8b9f;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.garage-3d-card {
+  grid-column: span 5;
+}
+
+.cockpit-card {
+  grid-column: span 7;
+}
+
+.altitude-card {
+  grid-column: span 8;
+}
+
+.play-mode-card {
+  grid-column: span 4;
+}
+
+/* ============================================================================
+   MODULE 01: 3D ELECTRIC SUV SHOWROOM (BYD ATTO 3 & MG ZS EV)
+   ============================================================================ */
+
+.garage-3d-header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.garage-3d-header p {
+  margin: 6px 0 14px;
+  color: #a4a0b2;
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+.garage-mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.garage-tab {
+  min-height: 33px;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #aca8bc;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.garage-tab:hover,
+.garage-tab.is-active {
+  border-color: rgba(118, 229, 255, 0.55);
+  background: rgba(68, 192, 232, 0.14);
+  color: #ecfcff;
+}
+
+.garage-3d-stage {
+  position: relative;
+  flex: 1 1 310px;
+  min-height: 310px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: #06070d;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.garage-3d-stage:active {
+  cursor: grabbing;
+}
+
+.garage-3d-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.garage-3d-fallback {
+  display: grid;
+  height: 100%;
+  place-content: center;
+  gap: 6px;
+  text-align: center;
+  color: #b7b3c7;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.garage-stage-overlay-top {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.garage-drag-hint {
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(7, 9, 16, 0.72);
+  color: #b7c2d6;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+}
+
+.garage-lights-btn {
+  pointer-events: auto;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(9, 12, 20, 0.78);
+  color: #9ba5ba;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.garage-lights-btn.is-on {
+  border-color: rgba(110, 236, 255, 0.65);
+  color: #dffbff;
+  box-shadow: 0 0 12px rgba(91, 231, 255, 0.28);
+}
+
+.garage-stage-overlay-bottom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.garage-paint-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(8, 10, 18, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.paint-label {
+  color: #969eb2;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+}
+
+.paint-swatch {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.paint-swatch:hover,
+.paint-swatch.is-selected {
+  transform: scale(1.18);
+  border-color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
+}
+
+.garage-live-sync {
+  padding: 5px 9px;
+  border: 1px solid rgba(107, 243, 221, 0.45);
+  border-radius: 999px;
+  background: rgba(12, 28, 32, 0.85);
+  color: #8ff8e6;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.garage-ev-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ev-spec-card {
+  display: grid;
+  gap: 4px;
+  padding: 12px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.ev-spec-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(164, 220, 255, 0.4);
+}
+
+.ev-spec-card.is-cockpit-active {
+  border-color: rgba(107, 243, 221, 0.58);
+  background: linear-gradient(145deg, rgba(24, 42, 54, 0.52), rgba(12, 15, 24, 0.85));
+}
+
+.ev-spec-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.ev-brand-pill {
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.ev-brand-pill.is-byd {
+  background: rgba(65, 206, 255, 0.16);
+  color: #84e8ff;
+}
+
+.ev-brand-pill.is-mg {
+  background: rgba(255, 76, 118, 0.18);
+  color: #ff94ae;
+}
+
+.ev-cockpit-tag {
+  color: #8de9db;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+}
+
+.ev-spec-card strong {
+  color: #f4f3fa;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.ev-sub {
+  color: #8f8ca0;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+/* ============================================================================
+   MODULE 02: 3D COCKPIT, REAL PEDALS & REAL H-GATE GEARBOX
+   ============================================================================ */
+
+.cockpit-card:focus-visible {
+  outline: 2px solid #6bf3dd;
+  outline-offset: 2px;
+}
+
+.cockpit-card.is-adrenaline {
+  border-color: rgba(255, 72, 118, 0.56);
+  box-shadow: 0 0 46px rgba(255, 48, 98, 0.18), inset 0 0 28px rgba(255, 48, 98, 0.08);
+}
+
+.cockpit-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cockpit-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.cockpit-sub {
+  margin: 4px 0 0;
+  color: #9c98ab;
+  font-size: 11px;
+}
+
+.cockpit-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.cockpit-timer-pill,
+.cockpit-best-pill {
+  padding: 5px 10px;
+  border: 1px solid rgba(130, 232, 255, 0.28);
+  border-radius: 9px;
+  background: rgba(11, 18, 28, 0.85);
+  color: #aedbe8;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.cockpit-timer-pill strong {
+  color: #ebfcff;
+}
+
+.cockpit-best-pill {
+  border-color: rgba(224, 159, 255, 0.38);
+  color: #ecc4ff;
+}
+
+.cockpit-stage {
+  position: relative;
+  perspective: 920px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  background: #05060b;
+  overflow: hidden;
+}
+
+.cockpit-windshield {
+  position: relative;
+  height: 154px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(125, 224, 255, 0.22);
+}
+
+.cockpit-road-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.windshield-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.065) 0%,
+    transparent 35%,
+    transparent 68%,
+    rgba(138, 225, 255, 0.05) 100%
+  );
+}
+
+.cockpit-milestone-banner {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  left: 12px;
+  display: grid;
+  gap: 2px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 108, 148, 0.82);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(46, 10, 25, 0.93), rgba(18, 8, 22, 0.95));
+  box-shadow: 0 10px 30px rgba(255, 42, 95, 0.34);
+  text-align: center;
+  animation: milestone-pop 320ms cubic-bezier(0.2, 0.85, 0.3, 1) forwards;
+}
+
+@keyframes milestone-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.milestone-tag {
+  color: #ff93b3;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.cockpit-milestone-banner strong {
+  color: #fff3f7;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cockpit-milestone-banner span:last-child {
+  color: #f3c1d2;
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+/* Carbon-Fiber & Brushed-Aluminum Dual-Cluster Binnacle */
+.cockpit-dash-binnacle {
+  position: relative;
+  padding: 11px 14px 10px;
+  transform: rotateX(7deg);
+  transform-origin: top center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(92, 225, 255, 0.12), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, #131724, #090b12 74%);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.78);
+}
+
+.cockpit-card.is-adrenaline .cockpit-dash-binnacle {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 62, 108, 0.24), transparent 62%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, #1d101b, #0a080f 74%);
+}
+
+.dash-ambient-led {
+  height: 2px;
+  margin-bottom: 7px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #5be7ff, #a77bff, #5be7ff, transparent);
+  box-shadow: 0 0 12px rgba(91, 231, 255, 0.75);
+  transition: background 240ms ease, box-shadow 240ms ease;
+}
+
+.cockpit-card.is-adrenaline .dash-ambient-led {
+  background: linear-gradient(90deg, transparent, #ff2e55, #ff8547, #ff2e55, transparent);
+  box-shadow: 0 0 16px rgba(255, 46, 85, 0.92);
+}
+
+.shift-light-bar {
+  height: 5px;
+  margin-bottom: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.shift-light-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4be3c8, #65c7ff);
+  transition: width 60ms linear;
+}
+
+.shift-light-fill.is-optimal {
+  background: linear-gradient(90deg, #3bf58e, #a8ff52);
+  box-shadow: 0 0 10px #49f595;
+}
+
+.shift-light-fill.is-redline {
+  background: linear-gradient(90deg, #ff883b, #ff264e);
+  box-shadow: 0 0 12px #ff264e;
+}
+
+.cockpit-clusters {
+  display: grid;
+  grid-template-columns: 1fr 0.78fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.gauge-bezel {
+  max-width: 176px;
+  margin-inline: auto;
+  width: 100%;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.09), #070910 70%);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.86), 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.gauge-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gauge-ring-bg {
+  fill: #070910;
+  stroke: rgba(255, 255, 255, 0.13);
+  stroke-width: 2;
+}
+
+.gauge-arc-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.gauge-arc-optimal {
+  fill: none;
+  stroke: rgba(68, 248, 148, 0.85);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(68, 248, 148, 0.45));
+}
+
+.gauge-arc-redline {
+  fill: none;
+  stroke: rgba(255, 52, 90, 0.92);
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px rgba(255, 52, 90, 0.55));
+}
+
+.gauge-arc-speed-target {
+  fill: none;
+  stroke: rgba(255, 88, 142, 0.86);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.gauge-tick-line {
+  stroke: rgba(255, 255, 255, 0.24);
+  stroke-width: 1;
+}
+
+.gauge-tick-line.is-major {
+  stroke: rgba(255, 255, 255, 0.58);
+  stroke-width: 1.7;
+}
+
+.gauge-tick-line.is-red {
+  stroke: #ff5878;
+}
+
+.gauge-tick-label {
+  fill: #aeb3c7;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.gauge-tick-label.is-small {
+  font-size: 8px;
+}
+
+.gauge-tick-label.is-red {
+  fill: #ff6282;
+}
+
+.gauge-needle {
+  stroke: #ff476c;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(255, 71, 108, 0.82));
+}
+
+.gauge-needle.is-cyan {
+  stroke: #68ecff;
+  filter: drop-shadow(0 0 4px rgba(104, 236, 255, 0.82));
+}
+
+.gauge-cap {
+  fill: #1b1f2e;
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 1.5;
+}
+
+.gauge-value-text {
+  fill: #f5f7ff;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.gauge-unit-text {
+  fill: #7f8398;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+}
+
+.cockpit-mfd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 8px;
+  border: 1px solid rgba(154, 224, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(6, 9, 16, 0.92);
+  text-align: center;
+}
+
+.mfd-car-badge {
+  margin-bottom: 2px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(91, 231, 255, 0.12);
+  color: #8eeeff;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.mfd-label {
+  color: #7e8399;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+}
+
+.mfd-gear {
+  margin: 2px 0 6px;
+  color: #eef6ff;
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mfd-gear.is-shift-ready {
+  color: #52f79c;
+  text-shadow: 0 0 12px rgba(82, 247, 156, 0.72);
+}
+
+.mfd-boost {
+  width: 100%;
+}
+
+.mfd-boost-top {
+  display: flex;
+  justify-content: space-between;
+  color: #9096ad;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  margin-bottom: 4px;
+}
+
+.mfd-boost-track {
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.mfd-boost-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #58d5ff, #c97dff);
+}
+
+/* Steering Wheel & Metallic Paddles */
+.cockpit-steering-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.paddle-shifter {
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  min-width: 76px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9px;
+  background: linear-gradient(180deg, rgba(44, 49, 68, 0.92), rgba(17, 19, 28, 0.96));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #e6eaf7;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.paddle-shifter:hover {
+  transform: translateY(-1px);
+  border-color: rgba(135, 232, 255, 0.58);
+}
+
+.paddle-shifter:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.paddle-shifter.is-pulse {
+  border-color: rgba(78, 245, 150, 0.88);
+  box-shadow: 0 0 15px rgba(78, 245, 150, 0.36);
+}
+
+.paddle-shifter span {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.paddle-shifter small {
+  color: #9399b0;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+}
+
+.steering-wheel-silhouette {
+  position: relative;
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.steering-rim {
+  position: absolute;
+  top: 2px;
+  width: 158px;
+  height: 92px;
+  border: 8px solid #1d202c;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.14), 0 -2px 10px rgba(0, 0, 0, 0.75);
+}
+
+.steering-noon-mark {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 6px;
+  height: 8px;
+  transform: translateX(-50%);
+  background: #ff385c;
+  box-shadow: 0 0 6px rgba(255, 56, 92, 0.75);
+}
+
+.steering-hub {
+  position: relative;
+  z-index: 1;
+  padding: 2px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 7px 7px 0 0;
+  background: #12141e;
+  color: #8f96ad;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.16em;
+}
+
+.cockpit-status-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 9px 0;
+  color: #b1bad0;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.04em;
+}
+
+.cockpit-reset-btn {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #c5c1d4;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  cursor: pointer;
+}
+
+.cockpit-reset-btn:hover {
+  border-color: rgba(215, 178, 255, 0.55);
+  color: #fff;
+}
+
+/* ============================================================================
+   REAL FOOTWELL PEDALS + REAL 3D MACHINED H-GATE GEARBOX
+   ============================================================================ */
+
+.cockpit-mechanical-deck {
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.footwell-housing,
+.gearbox-console {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #10121b, #08090f);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+.mechanical-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #8b91a8;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* 1. Recessed Automotive Footwell Stage */
+.footwell-stage {
+  position: relative;
+  flex: 1;
+  min-height: 152px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 12px 10px 8px;
+  perspective: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(92, 224, 255, 0.11), transparent 64%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0 4px,
+      rgba(0, 0, 0, 0.36) 4px 10px
+    ),
+    #06070c;
+  box-shadow: inset 0 10px 24px rgba(0, 0, 0, 0.92);
+  overflow: hidden;
+}
+
+.footwell-courtesy-led {
+  position: absolute;
+  top: 0;
+  right: 18%;
+  left: 18%;
+  height: 2px;
+  border-radius: 999px;
+  background: #5be7ff;
+  box-shadow: 0 2px 18px rgba(91, 231, 255, 0.75);
+  transition: background 140ms ease, box-shadow 140ms ease;
+}
+
+.footwell-housing.is-braking-glow .footwell-stage {
+  background:
+    radial-gradient(ellipse at 32% 12%, rgba(255, 42, 82, 0.28), transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0 4px,
+      rgba(0, 0, 0, 0.36) 4px 10px
+    ),
+    #08060a;
+}
+
+.footwell-housing.is-braking-glow .footwell-courtesy-led {
+  background: #ff2e58;
+  box-shadow: 0 3px 22px rgba(255, 46, 88, 0.95);
+}
+
+.footwell-housing.is-throttling-glow .footwell-courtesy-led {
+  background: #52f7b8;
+  box-shadow: 0 3px 22px rgba(82, 247, 184, 0.95);
+}
+
+.pedal-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+.pedal-caption {
+  margin-top: 7px;
+  color: #858ca2;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+}
+
+/* REAL TOP-HINGED BILLET & RUBBER BRAKE PEDAL PAD */
+.is-brake-col {
+  justify-content: flex-start;
+  padding-top: 2px;
+}
+
+.brake-steel-arm {
+  width: 14px;
+  height: 24px;
+  margin-bottom: -4px;
+  background: linear-gradient(90deg, #1b1f2c, #6e778c 48%, #181c26);
+  border-inline: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.7);
+}
+
+.real-brake-pad {
+  position: relative;
+  width: 98px;
+  height: 68px;
+  padding: 8px 10px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transform-origin: top center;
+  transform: rotateX(8deg);
+  border: 1.5px solid rgba(214, 224, 242, 0.42);
+  border-radius: 10px 10px 14px 14px;
+  background: linear-gradient(165deg, #aeb8cc 0%, #687287 48%, #3c4354 100%);
+  box-shadow:
+    0 7px 0 #181c26,
+    0 14px 22px rgba(0, 0, 0, 0.82),
+    inset 0 1px 1px rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+  transition: transform 90ms ease, box-shadow 90ms ease, border-color 120ms ease;
+}
+
+.real-brake-pad:hover {
+  border-color: rgba(255, 130, 155, 0.85);
+}
+
+.real-brake-pad.is-pressed {
+  transform: rotateX(-20deg) translateY(5px) scale(0.95);
+  border-color: #ff456b;
+  box-shadow:
+    0 2px 0 #181c26,
+    0 5px 14px rgba(255, 48, 92, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45);
+}
+
+.brake-rubber-treads {
+  width: 100%;
+  display: grid;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.brake-rubber-treads i {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #252934, #0d0f15);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* REAL ORGAN-HINGED FLOOR ACCELERATOR PEDAL PAD */
+.accel-assembly-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.real-accel-pad {
+  position: relative;
+  width: 60px;
+  height: 112px;
+  padding: 10px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transform-origin: bottom center;
+  transform: rotateX(12deg);
+  border: 1.5px solid rgba(168, 232, 255, 0.48);
+  border-radius: 11px 11px 6px 6px;
+  background: linear-gradient(180deg, #b8c4d9 0%, #6f7c94 46%, #384152 94%);
+  box-shadow:
+    0 -3px 0 rgba(255, 255, 255, 0.28) inset,
+    0 8px 18px rgba(0, 0, 0, 0.85),
+    0 4px 0 #161a24;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+  transition: transform 90ms ease, box-shadow 90ms ease, border-color 120ms ease;
+}
+
+.real-accel-pad:hover {
+  border-color: rgba(110, 245, 224, 0.9);
+}
+
+.real-accel-pad.is-pressed {
+  transform: rotateX(30deg) scaleY(0.92);
+  border-color: #5ef7c8;
+  box-shadow:
+    0 2px 10px rgba(82, 247, 196, 0.5),
+    0 1px 0 #161a24;
+}
+
+.accel-rubber-slots {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px 5px;
+  padding: 6px 3px;
+}
+
+.accel-rubber-slots i {
+  display: block;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #10131b, #232836);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.92), 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.accel-floor-hinge {
+  width: 82%;
+  height: 5px;
+  border-radius: 2px;
+  background: #141821;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.pad-engraving {
+  color: #0e121b;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.pad-bolt {
+  position: absolute;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #202532;
+  box-shadow: inset 0 1px 1px #000, 0 0.5px 0 rgba(255, 255, 255, 0.5);
+}
+
+.pad-bolt.tl { top: 4px; left: 5px; }
+.pad-bolt.tr { top: 4px; right: 5px; }
+.pad-bolt.bl { bottom: 4px; left: 5px; }
+.pad-bolt.br { bottom: 4px; right: 5px; }
+.pad-bolt.tc { top: 4px; left: 50%; transform: translateX(-50%); }
+
+.throttle-travel-meter {
+  width: 7px;
+  height: 104px;
+  padding: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(8, 11, 18, 0.9);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.throttle-travel-fill {
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(0deg, #43d9ff, #54f7a4);
+  box-shadow: 0 0 8px rgba(84, 247, 164, 0.65);
+  transition: height 70ms linear;
+}
+
+/* 2. REAL 3D MACHINED OPEN-GATE H-PATTERN GEAR BOX */
+.gearbox-console.is-shift-ready {
+  border-color: rgba(82, 247, 156, 0.55);
+}
+
+.gearbox-gate-well {
+  position: relative;
+  width: 100%;
+  max-width: 248px;
+  aspect-ratio: 160 / 110;
+  margin: auto;
+  border: 2px solid rgba(190, 200, 222, 0.3);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 54%, rgba(16, 18, 26, 0.96) 28%, rgba(44, 50, 66, 0.9) 68%, #252b3a 100%);
+  box-shadow:
+    inset 0 4px 16px rgba(0, 0, 0, 0.9),
+    0 2px 0 rgba(255, 255, 255, 0.08);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  overflow: hidden;
+}
+
+.gearbox-gate-well.is-dragging {
+  cursor: grabbing;
+}
+
+.gearbox-bolt {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #141720 35%, #69738c 100%);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.gearbox-bolt.tl { top: 7px; left: 7px; }
+.gearbox-bolt.tr { top: 7px; right: 7px; }
+.gearbox-bolt.bl { bottom: 7px; left: 7px; }
+.gearbox-bolt.br { bottom: 7px; right: 7px; }
+
+.gearbox-leather-boot {
+  position: absolute;
+  inset: 14px 18px;
+  border-radius: 12px;
+  background:
+    repeating-radial-gradient(
+      circle at 50% 54%,
+      #0b0d14 0 6px,
+      #161925 6px 11px
+    );
+  opacity: 0.82;
+  box-shadow: inset 0 6px 18px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+}
+
+.gearbox-gate-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gate-channel-shadow {
+  fill: none;
+  stroke: rgba(214, 224, 245, 0.46);
+  stroke-width: 11.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gate-channel-cutout {
+  fill: none;
+  stroke: #05060a;
+  stroke-width: 7.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gate-channel-lockout {
+  fill: none;
+  stroke: rgba(255, 86, 118, 0.38);
+  stroke-width: 3.6;
+  stroke-dasharray: 3 3;
+  stroke-linecap: round;
+}
+
+.gate-r-mark {
+  fill: rgba(255, 98, 128, 0.7);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.gear-chrome-shaft-shadow {
+  stroke: rgba(0, 0, 0, 0.75);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.gear-chrome-shaft {
+  stroke: #dce5f6;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.gear-boot-collar {
+  fill: #1b202e;
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1.2;
+}
+
+.gate-slot-btn {
+  position: absolute;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(11, 14, 22, 0.86);
+  color: #b8c1d8;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.gate-slot-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  border-color: #79ecff;
+  color: #ffffff;
+}
+
+.gate-slot-btn.is-recommended {
+  border-color: #4ef596;
+  background: rgba(34, 98, 62, 0.68);
+  color: #dcffea;
+  box-shadow: 0 0 12px rgba(78, 245, 150, 0.65);
+}
+
+/* Physical 3D Spherical Weighted Shift Knob */
+.gearbox-3d-knob {
+  position: absolute;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(220, 232, 255, 0.55);
+  background: radial-gradient(circle at 34% 28%, #6d7894, #222736 58%, #0d1018 100%);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.85),
+    0 0 0 3px rgba(91, 231, 255, 0.2),
+    inset 0 2px 3px rgba(255, 255, 255, 0.42);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transition:
+    left 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 160ms ease;
+}
+
+.gearbox-3d-knob.is-shift-ready {
+  border-color: #5cf7a4;
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.85),
+    0 0 16px rgba(82, 247, 156, 0.7),
+    inset 0 2px 3px rgba(255, 255, 255, 0.5);
+}
+
+.knob-cap {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: #10131d;
+  display: grid;
+  place-items: center;
+  color: #f3f7ff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ============================================================================
+   MODULE 03: TILICHO LAKE 5,116M ALTITUDE EXPLORER
+   ============================================================================ */
+
+.altitude-pill {
+  display: grid;
+  justify-items: end;
+  padding: 6px 11px;
+  border: 1px solid rgba(203, 158, 255, 0.34);
+  border-radius: 10px;
+  background: rgba(18, 14, 28, 0.85);
+  white-space: nowrap;
+}
+
+.altitude-pill strong {
+  color: #f4ebff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.altitude-pill span {
+  color: #9b93ad;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.06em;
+}
+
+.altitude-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.telemetry-box {
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  background: rgba(10, 11, 18, 0.8);
+}
+
+.telemetry-box span {
+  display: block;
+  color: #888498;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+}
+
+.telemetry-box strong {
+  display: block;
+  margin-top: 3px;
+  color: #eef0fa;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.telemetry-box strong.is-freezing {
+  color: #84e8ff;
+}
+
+.telemetry-box small {
+  color: #8e8a9d;
+  font-size: 8.5px;
+  font-weight: 400;
+}
+
+.altitude-stage {
+  position: relative;
+  flex: 1 1 268px;
+  min-height: 268px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 14px;
+  background: #070811;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.altitude-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.altitude-canvas,
+.altitude-trail-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.altitude-svg-grid line {
+  stroke: rgba(215, 200, 255, 0.07);
+  stroke-dasharray: 3 5;
+}
+
+.altitude-path-base {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2.5;
+  stroke-dasharray: 5 6;
+  stroke-linecap: round;
+}
+
+.altitude-path-active {
+  fill: none;
+  stroke-width: 3.6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(199, 142, 255, 0.65));
+}
+
+.altitude-cp-dot {
+  fill: #1b1929;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 1.8;
+}
+
+.altitude-cp-dot.is-reached {
+  fill: #c78eff;
+  stroke: #fff;
+}
+
+.altitude-cp-pulse {
+  fill: rgba(199, 142, 255, 0.22);
+  stroke: rgba(240, 175, 255, 0.68);
+  stroke-width: 1;
+}
+
+.altitude-cp-label {
+  fill: #cfcadd;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.climber-halo {
+  fill: rgba(114, 245, 228, 0.22);
+  stroke: rgba(114, 245, 228, 0.75);
+  stroke-width: 1.2;
+}
+
+.climber-core {
+  fill: #101722;
+  stroke: #79f7e6;
+  stroke-width: 2.2;
+}
+
+.climber-center {
+  fill: #ffffff;
+}
+
+.summit-flag-group {
+  opacity: 0.35;
+  transition: opacity 260ms ease;
+}
+
+.summit-flag-group.is-planted {
+  opacity: 1;
+}
+
+.summit-flag-pole {
+  stroke: #ffffff;
+  stroke-width: 2.2;
+}
+
+.summit-flag-banner {
+  fill: #ff477e;
+  stroke: #79d8ff;
+  stroke-width: 0.9;
+  filter: drop-shadow(0 0 8px rgba(255, 71, 126, 0.8));
+}
+
+.altitude-milestone-popup {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  max-width: min(340px, calc(100% - 24px));
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(10, 10, 18, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.milestone-popup-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.milestone-popup-tag {
+  color: #8de9de;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.milestone-popup-link {
+  color: #dcb8ff;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.milestone-popup-link:hover {
+  color: #fff;
+}
+
+.altitude-milestone-popup h4 {
+  margin: 0 0 3px;
+  color: #f4f2fa;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.altitude-milestone-popup p {
+  margin: 0;
+  color: #b4b0c4;
+  font-size: 10.5px;
+  line-height: 1.48;
+}
+
+.altitude-controls {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.altitude-range-input {
+  width: 100%;
+  accent-color: #c78eff;
+  cursor: pointer;
+}
+
+.altitude-checkpoint-pills {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.cp-jump-btn {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #bbb7ca;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.cp-jump-btn span {
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.cp-jump-btn small {
+  color: #858096;
+  font-size: 7.5px;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cp-jump-btn:hover,
+.cp-jump-btn.is-active {
+  border-color: rgba(199, 142, 255, 0.58);
+  background: rgba(164, 110, 235, 0.16);
+  color: #f6eeff;
+}
+
+/* ============================================================================
+   MODULE 04: PC + PLAYSTATION 5 + SIM RACING PLAY MODE CARD
+   ============================================================================ */
+
+.play-mode-card h3 {
+  margin: 8px 0 6px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.play-mode-card > p {
+  margin: 0 0 14px;
+  color: #a39fb1;
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.play-mode-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.play-tag-btn {
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #bbb7ca;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.play-tag-btn:hover,
+.play-tag-btn.is-active {
+  border-color: rgba(238, 120, 207, 0.62);
+  background: rgba(188, 96, 212, 0.18);
+  color: #fff0fc;
+}
+
+.play-mode-detail {
+  padding: 12px 13px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 12px;
+  background: rgba(10, 10, 17, 0.72);
+}
+
+.play-mode-detail strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #f1eef8;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.play-mode-detail p {
+  margin: 0;
+  color: #9e9aad;
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+
+.play-sim-launch-btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid rgba(114, 241, 222, 0.44);
+  border-radius: 999px;
+  background: rgba(72, 205, 192, 0.11);
+  color: #dffef9;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.play-sim-launch-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(114, 241, 222, 0.8);
+  background: rgba(72, 205, 192, 0.22);
+}
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS FOR UNIFIED HUB
+   ============================================================================ */
+
+@media (max-width: 1120px) {
+  .garage-3d-card,
+  .cockpit-card,
+  .altitude-card,
+  .play-mode-card {
+    grid-column: 1 / -1;
+  }
+
+  .garage-3d-stage {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 720px) {
+  .bento-card {
+    padding: 16px;
+  }
+
+  .cockpit-mechanical-deck {
+    grid-template-columns: 1fr;
+  }
+
+  .altitude-telemetry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cockpit-clusters {
+    grid-template-columns: 1fr 0.74fr 1fr;
+    gap: 6px;
+  }
+
+  .mfd-gear {
+    font-size: 24px;
+  }
+
+  .paddle-shifter {
+    min-width: 64px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .outside-command-bar {
+    padding: 12px 14px;
+  }
+
+  .garage-ev-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .altitude-checkpoint-pills {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
