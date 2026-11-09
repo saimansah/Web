@@ -32,7 +32,7 @@ const certificateUrl = (filename: string) => `/assets/certificates/${filename}`;
 export const credentials: Credential[] = [
   {
     number: "01",
-    category: "ai",
+    category: "security",
     title: "Arms Trade Treaty Annual Reporting Course",
     issuer: "United Nations",
     issuerLogo: "/assets/unitednations.svg",
@@ -43,6 +43,16 @@ export const credentials: Credential[] = [
   {
     number: "02",
     category: "security",
+    title: "Net Zero 101",
+    issuer: "United Nations ",
+    issuerLogo: "/assets/unitednations.svg",
+    note: "Course completion",
+    featured: true,
+    files: [{ label: "Net Zero 101", href: certificateUrl("unu-ias-net-zero-101.pdf") }],
+  },
+  {
+    number: "03",
+    category: "build",
     title: "Google Ads Search Professional Certification (2026)",
     issuer: "Google",
     issuerLogo: "/assets/google.svg",
@@ -51,8 +61,8 @@ export const credentials: Credential[] = [
     files: [{ label: "Google Ads Search Professional Certification (2026)", href: certificateUrl("google-ads-search-professional.pdf") }],
   },
   {
-    number: "03",
-    category: "security",
+    number: "04",
+    category: "build",
     title: "Google Ads Video Professional Certification (2026)",
     issuer: "Google",
     issuerLogo: "/assets/google.svg",
@@ -61,7 +71,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Google Ads Video Professional Certification (2026)", href: certificateUrl("google-ads-video-professional.pdf") }],
   },
   {
-    number: "04",
+    number: "05",
     category: "build",
     title: "Official Transcript",
     issuer: "Credly",
@@ -70,7 +80,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Official Transcript", href: certificateUrl("credly-credential-transcript.pdf") }],
   },
   {
-    number: "05",
+    number: "06",
     category: "build",
     title: "Software Engineer",
     issuer: "HackerRank",
@@ -79,7 +89,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Software Engineer", href: certificateUrl("hackerrank-software-engineer.pdf") }],
   },
   {
-    number: "06",
+    number: "07",
     category: "build",
     title: "SQL (Advanced)",
     issuer: "HackerRank",
@@ -88,7 +98,7 @@ export const credentials: Credential[] = [
     files: [{ label: "SQL (Advanced)", href: certificateUrl("hackerrank-sql-advanced.pdf") }],
   },
   {
-    number: "07",
+    number: "08",
     category: "security",
     title: "Ethical Hacker",
     issuer: "Cisco Networking Academy",
@@ -98,7 +108,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Ethical Hacker", href: certificateUrl("cisco-ethical-hacker.pdf") }],
   },
   {
-    number: "08",
+    number: "09",
     category: "build",
     title: "AWS SimuLearn: Cloud Practitioner",
     issuer: "Amazon Web Services",
@@ -107,7 +117,7 @@ export const credentials: Credential[] = [
     files: [{ label: "AWS SimuLearn: Cloud Practitioner", href: certificateUrl("aws-training-certification.pdf") }],
   },
   {
-    number: "09",
+    number: "10",
     category: "build",
     title: "Data Privacy Fundamentals",
     issuer: "IBM",
@@ -116,7 +126,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Data Privacy Fundamentals", href: certificateUrl("ibm-certificate-i.pdf") }],
   },
   {
-    number: "10",
+    number: "11",
     category: "build",
     title: "Beyond the Basics: Istio and IBM Cloud Kubernetes Service",
     issuer: "IBM",
@@ -125,7 +135,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Beyond the Basics: Istio and IBM Cloud Kubernetes Service", href: certificateUrl("ibm-certificate-ii.pdf") }],
   },
   {
-    number: "11",
+    number: "12",
     category: "build",
     title: "Security monitoring and governance",
     issuer: "Microsoft Learn",
@@ -134,7 +144,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Security monitoring and governance (September 25, 2026)", href: certificateUrl("microsoft-achievements-1.pdf") }],
   },
   {
-    number: "12",
+    number: "13",
     category: "build",
     title: "Security monitoring and governance",
     issuer: "Microsoft Learn",
@@ -143,7 +153,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Security monitoring and governance (September 29 export)", href: certificateUrl("microsoft-achievements-2.pdf") }],
   },
   {
-    number: "13",
+    number: "14",
     category: "build",
     title: "Introduction to Zero Trust and best practice frameworks",
     issuer: "Microsoft Learn",
@@ -152,7 +162,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Introduction to Zero Trust and best practice frameworks", href: certificateUrl("microsoft-achievements-zero-trust.pdf") }],
   },
   {
-    number: "14",
+    number: "15",
     category: "build",
     title: "Building AI-Powered Search with MongoDB Vector Search",
     issuer: "MongoDB · Credly",
@@ -161,7 +171,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Building AI-Powered Search with MongoDB Vector Search", href: certificateUrl("skills-cert.pdf") }],
   },
   {
-    number: "15",
+    number: "16",
     category: "ai",
     title: "Artificial Intelligence (AI) for Social Impact",
     issuer: "Asian Development Bank Institute",
@@ -170,7 +180,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Artificial Intelligence (AI) for Social Impact", href: certificateUrl("adbi-ai-social-impact.pdf") }],
   },
   {
-    number: "16",
+    number: "17",
     category: "ai",
     title: "Strategic Planning in the AI Age",
     issuer: "HP LIFE",
@@ -179,7 +189,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Strategic Planning in the AI Age", href: certificateUrl("strategic-planning-ai-age.pdf") }],
   },
   {
-    number: "17",
+    number: "18",
     category: "security",
     title: "Digital Public Infrastructure (DPI): Foundations, Applications, and Future Pathways",
     issuer: "Asian Development Bank Institute",
@@ -188,7 +198,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Digital Public Infrastructure (DPI): Foundations, Applications, and Future Pathways", href: certificateUrl("adbi-dpi-foundations.pdf") }],
   },
   {
-    number: "18",
+    number: "19",
     category: "security",
     title: "Cybersecurity",
     issuer: "Asian Development Bank Institute",
@@ -197,8 +207,8 @@ export const credentials: Credential[] = [
     files: [{ label: "Cybersecurity", href: certificateUrl("adbi-cybersecurity.pdf") }],
   },
   {
-    number: "19",
-    category: "security",
+    number: "20",
+    category: "build",
     title: "Introduction to Cybersecurity Awareness",
     issuer: "HP LIFE",
     issuerMark: "HP",
@@ -206,8 +216,8 @@ export const credentials: Credential[] = [
     files: [{ label: "Introduction to Cybersecurity Awareness", href: certificateUrl("cybersecurity-awareness.pdf") }],
   },
   {
-    number: "20",
-    category: "security",
+    number: "21",
+    category: "build",
     title: "Rights and Obligations in E-commerce",
     issuer: "Asian Development Bank Institute",
     issuerMark: "ADBI",

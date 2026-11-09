@@ -88,7 +88,7 @@ export const SAIMAN_CONFIG = {
         region: "Upper Manang · Rain-Shadow Valley",
         summary: "Thinning air and glacier views—critical acclimatization stage before entering the Tilicho side valley.",
         tag: "CHECKPOINT 02 · 3,519 M",
-        linkLabel: "20 Certificates",
+        linkLabel: "21 Certificates",
         linkHref: "#credentials",
       },
       {
