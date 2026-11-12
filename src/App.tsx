@@ -222,78 +222,6 @@ function ScrollProgress() {
   return <div ref={barRef} className="scroll-progress" aria-hidden="true" />;
 }
 
-function Topbar({
-  activeLanguage,
-  onLanguageChange,
-  isMuted,
-  onToggleSound,
-}: {
-  activeLanguage: Language;
-  onLanguageChange: (lang: Language) => void;
-  isMuted: boolean;
-  onToggleSound: () => void;
-}) {
-  return (
-    <header className="topbar">
-      <a className="brand" href="/" data-scroll-target="home" aria-label="Saiman Sah home">
-        <OrbitMark />
-        <span className="brand-copy">
-          <strong>SAIMAN SAH</strong>
-          <small>27.7172° N · 85.3240° E</small>
-        </span>
-      </a>
-
-      <nav className="topbar-nav" aria-label="Main navigation">
-        <a href="/" data-scroll-target="about">About</a>
-        <a href="/" data-scroll-target="skills">Tools</a>
-        <a href="/" data-scroll-target="credentials">Certificates</a>
-        <a href="/" data-scroll-target="outside">Outside work</a>
-      </nav>
-
-      <div className="topbar-actions">
-        {/* Multilingual Switcher */}
-        <div className="language-switcher" role="group" aria-label="Switch language">
-          <button
-            type="button"
-            className={`lang-btn${activeLanguage === "en" ? " is-active" : ""}`}
-            onClick={() => onLanguageChange("en")}
-            aria-pressed={activeLanguage === "en"}
-          >
-            EN
-          </button>
-          <button
-            type="button"
-            className={`lang-btn${activeLanguage === "ne" ? " is-active" : ""}`}
-            onClick={() => onLanguageChange("ne")}
-            aria-pressed={activeLanguage === "ne"}
-          >
-            नेपाली
-          </button>
-          <button
-            type="button"
-            className={`lang-btn${activeLanguage === "hi" ? " is-active" : ""}`}
-            onClick={() => onLanguageChange("hi")}
-            aria-pressed={activeLanguage === "hi"}
-          >
-            हिंदी
-          </button>
-        </div>
-
-        {/* Web Audio Synthesizer Toggle */}
-        <button
-          type="button"
-          className={`topbar-audio-btn${!isMuted ? " is-active" : ""}`}
-          onClick={onToggleSound}
-          aria-label={isMuted ? "Unmute procedural audio" : "Mute audio"}
-          title={isMuted ? "Unmute procedural audio" : "Audio synthesizer active"}
-        >
-          <span className="topbar-audio-dot" />
-          <span className="audio-btn-label">{isMuted ? "Audio Off" : "Audio On"}</span>
-        </button>
-      </div>
-    </header>
-  );
-}
 
 function Hero({ activeLanguage }: { activeLanguage: Language }) {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -732,7 +660,13 @@ function OutsideSection() {
   );
 }
 
-function Footer() {
+function Footer({
+  isMuted,
+  onToggleSound,
+}: {
+  isMuted: boolean;
+  onToggleSound: () => void;
+}) {
   const [toast, setToast] = useState("");
   const toastTimer = useRef<number | null>(null);
 
@@ -811,6 +745,16 @@ function Footer() {
           <span>© {new Date().getFullYear()} Saiman Sah</span>
           <span>27.7172° N · 85.3240° E</span>
         </div>
+        <button
+          type="button"
+          onClick={onToggleSound}
+          className={`topbar-audio-btn${!isMuted ? " is-active" : ""}`}
+          aria-label={isMuted ? "Unmute procedural audio" : "Mute audio"}
+          title={isMuted ? "Unmute procedural audio" : "Audio synthesizer active"}
+        >
+          <span className="topbar-audio-dot" />
+          <span className="audio-btn-label">{isMuted ? "Audio Off" : "Audio On"}</span>
+        </button>
         <a className="footer-domain" href="/" aria-label="saimansah.com.np home">
           saimansah.com.np
         </a>
@@ -901,12 +845,6 @@ export function App() {
         Skip to content
       </a>
       <ScrollProgress />
-      <Topbar
-        activeLanguage={activeLanguage}
-        onLanguageChange={handleLanguageChange}
-        isMuted={isMuted}
-        onToggleSound={handleToggleSound}
-      />
       <main id="main-content" className="w-full" tabIndex={-1}>
         <Hero activeLanguage={activeLanguage} />
         <AboutSection activeLanguage={activeLanguage} onLanguageChange={handleLanguageChange} />
@@ -917,7 +855,7 @@ export function App() {
         />
         <OutsideSection />
       </main>
-      <Footer />
+      <Footer isMuted={isMuted} onToggleSound={handleToggleSound} />
 
       {/* In-Page Credential Modal */}
       <CredentialModal
