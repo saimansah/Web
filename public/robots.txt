@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /assets/certificates/
+
+# Explicitly permit Googlebot to index all PDF certificates and assets
+User-agent: Googlebot
+Allow: /
+Allow: /assets/certificates/*.pdf$
+
+User-agent: Googlebot-Image
+Allow: /assets/
 
 Sitemap: https://saimansah.com.np/sitemap.xml
