@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <title>Commonwealth Bank</title>
+  <rect width="48" height="48" rx="10" fill="#0D1117" />
+  <!-- Yellow Diamond -->
+  <polygon points="24,8 39,23 24,38 9,23" fill="#FFCC00" />
+  <!-- Distinctive CBA bottom-right triangular cut -->
+  <polygon points="24,38 31.5,30.5 24,23" fill="#0D1117" />
+</svg>

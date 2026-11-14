@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <title>UniAthena</title>
+  <rect width="48" height="48" rx="10" fill="#180B1E" />
+  <!-- Athena Greek Crest / Modern Ring -->
+  <circle cx="24" cy="20" r="12" stroke="#FF007F" stroke-width="2" stroke-dasharray="2 3" opacity="0.8" />
+  <circle cx="24" cy="20" r="8" fill="none" stroke="#FFFFFF" stroke-width="1.5" />
+  <path d="M24 14 L28 24 L20 24 Z" fill="#FF007F" />
+  <circle cx="24" cy="20" r="2" fill="#FFFFFF" />
+  <!-- Wordmark -->
+  <text x="24" y="38" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="6.5" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">UNIATHENA</text>
+</svg>

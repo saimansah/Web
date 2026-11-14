@@ -74,6 +74,50 @@ export const credentials: Credential[] = [
   },
   {
     number: "05",
+    category: "security",
+    title: "Cybersecurity Analyst Job Simulation",
+    issuer: "Tata · Forage",
+    issuerLogo: "/assets/tata.svg",
+    issuerMark: "TATA",
+    note: "IAM & security architecture",
+    featured: true,
+    files: [{ label: "Cybersecurity Analyst Job Simulation", href: certificateUrl("tata-cybersecurity-analyst.pdf") }],
+  },
+  {
+    number: "06",
+    category: "security",
+    title: "Cybersecurity Job Simulation",
+    issuer: "Mastercard · Forage",
+    issuerLogo: "/assets/mastercard.svg",
+    issuerMark: "MC",
+    note: "Threat simulation & phishing analysis",
+    featured: true,
+    files: [{ label: "Cybersecurity Job Simulation", href: certificateUrl("mastercard-cybersecurity.pdf") }],
+  },
+  {
+    number: "07",
+    category: "build",
+    title: "Introduction to Data Science Job Simulation",
+    issuer: "Commonwealth Bank · Forage",
+    issuerLogo: "/assets/commonwealth-bank.svg",
+    issuerMark: "CBA",
+    note: "Data analytics & database engineering",
+    featured: true,
+    files: [{ label: "Introduction to Data Science Job Simulation", href: certificateUrl("commonwealth-bank-data-science.pdf") }],
+  },
+  {
+    number: "08",
+    category: "ai",
+    title: "Master ChatGPT",
+    issuer: "UniAthena · Athena Global Education",
+    issuerLogo: "/assets/uniathena.svg",
+    issuerMark: "ATHENA",
+    note: "Blockchain verified · FEDE accredited",
+    featured: true,
+    files: [{ label: "Master ChatGPT (Blockchain ID: 8810-5328-7077)", href: certificateUrl("uniathena-master-chatgpt.pdf") }],
+  },
+  {
+    number: "09",
     category: "build",
     title: "Google Ads Search Professional Certification (2026)",
     issuer: "Google",
@@ -83,7 +127,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Google Ads Search Professional Certification (2026)", href: certificateUrl("google-ads-search-professional.pdf") }],
   },
   {
-    number: "06",
+    number: "10",
     category: "build",
     title: "Google Ads Video Professional Certification (2026)",
     issuer: "Google",
@@ -93,7 +137,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Google Ads Video Professional Certification (2026)", href: certificateUrl("google-ads-video-professional.pdf") }],
   },
   {
-    number: "07",
+    number: "11",
     category: "build",
     title: "Official Transcript",
     issuer: "Credly",
@@ -102,7 +146,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Official Transcript", href: certificateUrl("credly-credential-transcript.pdf") }],
   },
   {
-    number: "08",
+    number: "12",
     category: "build",
     title: "Software Engineer",
     issuer: "HackerRank",
@@ -111,7 +155,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Software Engineer", href: certificateUrl("hackerrank-software-engineer.pdf") }],
   },
   {
-    number: "09",
+    number: "13",
     category: "build",
     title: "SQL (Advanced)",
     issuer: "HackerRank",
@@ -120,7 +164,7 @@ export const credentials: Credential[] = [
     files: [{ label: "SQL (Advanced)", href: certificateUrl("hackerrank-sql-advanced.pdf") }],
   },
   {
-    number: "10",
+    number: "14",
     category: "security",
     title: "Ethical Hacker",
     issuer: "Cisco Networking Academy",
@@ -130,7 +174,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Ethical Hacker", href: certificateUrl("cisco-ethical-hacker.pdf") }],
   },
   {
-    number: "11",
+    number: "15",
     category: "build",
     title: "AWS SimuLearn: Cloud Practitioner",
     issuer: "Amazon Web Services",
@@ -139,7 +183,7 @@ export const credentials: Credential[] = [
     files: [{ label: "AWS SimuLearn: Cloud Practitioner", href: certificateUrl("aws-training-certification.pdf") }],
   },
   {
-    number: "12",
+    number: "16",
     category: "build",
     title: "Data Privacy Fundamentals",
     issuer: "IBM",
@@ -148,7 +192,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Data Privacy Fundamentals", href: certificateUrl("ibm-certificate-i.pdf") }],
   },
   {
-    number: "13",
+    number: "17",
     category: "build",
     title: "Beyond the Basics: Istio and IBM Cloud Kubernetes Service",
     issuer: "IBM",
@@ -157,7 +201,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Beyond the Basics: Istio and IBM Cloud Kubernetes Service", href: certificateUrl("ibm-certificate-ii.pdf") }],
   },
   {
-    number: "14",
+    number: "18",
     category: "build",
     title: "Security monitoring and governance",
     issuer: "Microsoft Learn",
@@ -166,7 +210,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Security monitoring and governance (September 25, 2026)", href: certificateUrl("microsoft-achievements-1.pdf") }],
   },
   {
-    number: "15",
+    number: "19",
     category: "build",
     title: "Security monitoring and governance",
     issuer: "Microsoft Learn",
@@ -175,7 +219,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Security monitoring and governance (September 29 export)", href: certificateUrl("microsoft-achievements-2.pdf") }],
   },
   {
-    number: "16",
+    number: "20",
     category: "build",
     title: "Introduction to Zero Trust and best practice frameworks",
     issuer: "Microsoft Learn",
@@ -184,7 +228,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Introduction to Zero Trust and best practice frameworks", href: certificateUrl("microsoft-achievements-zero-trust.pdf") }],
   },
   {
-    number: "17",
+    number: "21",
     category: "build",
     title: "Building AI-Powered Search with MongoDB Vector Search",
     issuer: "MongoDB · Credly",
@@ -193,7 +237,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Building AI-Powered Search with MongoDB Vector Search", href: certificateUrl("skills-cert.pdf") }],
   },
   {
-    number: "18",
+    number: "22",
     category: "ai",
     title: "Artificial Intelligence (AI) for Social Impact",
     issuer: "Asian Development Bank Institute",
@@ -202,7 +246,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Artificial Intelligence (AI) for Social Impact", href: certificateUrl("adbi-ai-social-impact.pdf") }],
   },
   {
-    number: "19",
+    number: "23",
     category: "ai",
     title: "Strategic Planning in the AI Age",
     issuer: "HP LIFE",
@@ -211,7 +255,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Strategic Planning in the AI Age", href: certificateUrl("strategic-planning-ai-age.pdf") }],
   },
   {
-    number: "20",
+    number: "24",
     category: "security",
     title: "Digital Public Infrastructure (DPI): Foundations, Applications, and Future Pathways",
     issuer: "Asian Development Bank Institute",
@@ -220,7 +264,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Digital Public Infrastructure (DPI): Foundations, Applications, and Future Pathways", href: certificateUrl("adbi-dpi-foundations.pdf") }],
   },
   {
-    number: "21",
+    number: "25",
     category: "security",
     title: "Cybersecurity",
     issuer: "Asian Development Bank Institute",
@@ -229,7 +273,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Cybersecurity", href: certificateUrl("adbi-cybersecurity.pdf") }],
   },
   {
-    number: "22",
+    number: "26",
     category: "build",
     title: "Introduction to Cybersecurity Awareness",
     issuer: "HP LIFE",
@@ -238,7 +282,7 @@ export const credentials: Credential[] = [
     files: [{ label: "Introduction to Cybersecurity Awareness", href: certificateUrl("cybersecurity-awareness.pdf") }],
   },
   {
-    number: "23",
+    number: "27",
     category: "build",
     title: "Rights and Obligations in E-commerce",
     issuer: "Asian Development Bank Institute",

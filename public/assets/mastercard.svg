@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <title>Mastercard</title>
+  <rect width="48" height="48" rx="10" fill="#141416" />
+  <!-- Mastercard interlocking dual circles -->
+  <circle cx="19" cy="24" r="11" fill="#EB001B" />
+  <circle cx="29" cy="24" r="11" fill="#F79E1B" fill-opacity="0.95" />
+  <path d="M24 15.3 C26.3 17.6, 27.6 20.6, 27.6 24 C27.6 27.4, 26.3 30.4, 24 32.7 C21.7 30.4, 20.4 27.4, 20.4 24 C20.4 20.6, 21.7 17.6, 24 15.3 Z" fill="#FF5F00" />
+</svg>
